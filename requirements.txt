@@ -1,0 +1,9 @@
+httpx
+telethon
+python_dotenv
+matplotlib
+plotly
+bokeh
+cython
+setuptools
+xlrd==1.2.0
