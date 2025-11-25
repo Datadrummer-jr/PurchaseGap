@@ -1,12 +1,11 @@
 from playwright.sync_api import sync_playwright
-import subprocess
+from pathlib import Path
 
-if subprocess.run(['python' ,'-m','playwright' ,'--version'], capture_output=True, text=True).stderr:
-    subprocess.run(['python', '-m', 'playwright', 'install'], capture_output=True, text=True)
+rute_chrome = Path.home() / "AppData" / "Local" / "ms-playwright" / "chromium-1187" / "chrome-win" / "chrome.exe"
 
 with sync_playwright() as p:
     browser = p.chromium.launch(
-        executable_path=r"C:\Users\Joswald\AppData\Local\ms-playwright\chromium-1187\chrome-win\chrome.exe",
+        executable_path=rute_chrome,
         headless=True
     )
     page = browser.new_page()
