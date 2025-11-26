@@ -29,7 +29,7 @@ def graph_coin():
   plt.plot(days[0:304], usd[0:304], label='USD')
   plt.plot(days[0:304], euro[0:304], label = 'EURO')
   plt.xticks(inicios, month, rotation=0)
-  plt.title('Comparación del comportamiento del USD y el EURO enero y octubre de 2025.')
+  plt.title('Comparación del comportamiento del USD y el EURO entre enero y octubre de 2025.')
   plt.legend()
   plt.show()
 
