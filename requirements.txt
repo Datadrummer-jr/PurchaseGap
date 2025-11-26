@@ -11,4 +11,3 @@ scikit-learn
 numpy
 pdfplumber
 python_docx   # Todavía no se ha usado y no se ha definido en que usarse
-
