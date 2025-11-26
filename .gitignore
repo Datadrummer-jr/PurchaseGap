@@ -220,4 +220,4 @@ main.py
 !*.pyd
 
 # Configuración de VSC
-.vscode
+settings.json
