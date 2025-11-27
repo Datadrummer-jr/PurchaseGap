@@ -8,7 +8,8 @@ import numpy as np
 
 salarios = mf.read_json("data/escalas_salariales.json")
 cities = mf.read_json("data/cities.json")
-   
+muni = mf.read_json("data/municipality_country.json")
+
 def salary(file = salarios):
    for i in range(0,32):
      print(f"{i} | 44 horas: {file['44_horas'][i]} | 40 horas : {file['40_horas'][i]}")
@@ -37,9 +38,9 @@ def graph_coin():
 
 def bar_pymes():
   data = mf.read_json("data/pymes.json")
-  city = [mf.list_for_value(data,key='city', value=i.upper(), second_key='type') for i in cities ]
+  city = [len(mf.list_for_value(data, key='city', value= i.upper().replace(' ',''), second_key='type')) for i in cities ]
   presentes = [ data[i]['city'] for i in data ]
-  faltantes = [i for i in range(1,11289) if i not in presentes]
+  faltantes = [i for i in data if data[i]['city'].upper() not in [ i.upper() for i in cities] ]
   subject = None
   # provincias =  mf.list_for_value(data,'city') 
   # mpmp = subject.count('MIPYME PRIVADA')
@@ -49,9 +50,6 @@ def bar_pymes():
   # count_subject = np.arange(len(city))
   # fig, ax = plt.subplots()
   return city
-
-
-
 
 
 

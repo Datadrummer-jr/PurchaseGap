@@ -213,7 +213,7 @@ def detectar_lista(lista: list, key: function) -> list:
 
 def list_for_value(data: dict[dict], key:str,value: str =None, second_key=None):
   if type(data) == dict:
-   return [ data[i][key][second_key] for i in data if data[i][key].strip() == value]
+   return [ data[i][key] for i in data if str(data[i][key]).replace(' ','') == value]
 
 
 
