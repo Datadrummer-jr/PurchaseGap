@@ -6,6 +6,7 @@ matplotlib
 plotly
 bokeh
 xlrd==1.2.0
+polars
 folium
 scikit-learn
 numpy

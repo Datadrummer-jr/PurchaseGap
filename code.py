@@ -3,62 +3,108 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import xlrd
 import numpy as np
+import pandas as pd
+import polars as pl
+import sys
 
+el_toque = mf.read_json('data/el_toque.json')
 salarios = mf.read_json("data/escalas_salariales.json")
 cities = mf.read_json("data/cities.json")
 muni = mf.read_json("data/municipality_country.json")
 abreviaturas = mf.read_json('data/abreviaturas.json')
 city = ["HAB", "PRI", "ART", "MAY", "MTZ", "CFG", "VCL", "SSP", "CAV", "CAM", "LTU", "GRM", "HOL", "SCU", "GTM", "IJV"]
+data = mf.read_json("data/pymes.json")
+count_pymes = [len(mf.list_for_value(data, key='city', value= i.upper().replace(' ',''), second_key= "subject")) for i in cities ]
+mipymes = mf.read_json("data/prices_pymes.json")
+población_por_provincia =mf.read_json("data/población_cuba (2024).json")
 
 def salary(file = salarios):
    for i in range(0,32):
      print(f"{i} | 44 horas: {file['44_horas'][i]} | 40 horas : {file['40_horas'][i]}")
 
 def graph_coin():
-  tasas = mf.read_json('data/el_toque.json')
+  tasas = [el_toque[i['date_from']] for i in mf.intervalo_fechas("2025-01-01", "2025-11-30",False,False) if el_toque[i['date_from']] is not None]
+  n = len(tasas)
+  days = list(range(n))
+  month = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre"]
 
-  days = [i for i in range(304)]
-  month = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre"]
-
-  usd = [tasas[i]["USD"] for i in tasas]
-  euro = [tasas[i]["ECU"] for i in tasas]
-  mlc = [tasas[i]["MLC"] for i in tasas]
+  usd = [i["USD"] for i in tasas]
+  euro = [i["ECU"] for i in tasas]
+  mlc = [i["MLC"] for i in tasas]
   usd_oficial = [ 123.6 for _ in usd]
 
-  # Índices del inicio de cada mes (día 0 = 1 de enero)
-  inicios = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273]
+  inicios = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 302]
   
   plt.figure(figsize=(12, 6))
-  plt.plot(days[0:304], usd[0:304], label='USD')
-  plt.plot(days[0:304], euro[0:304], label = 'EURO')
-  plt.plot(days[0:304], mlc[0:304], label = 'MLC')
-  # plt.plot(days[0:304], usd_oficial[0:304], label='USD en cadeca')
+  plt.plot(days, usd, label='USD')
+  plt.plot(days, euro, label = 'EURO')
+  plt.plot(days, mlc, label = 'MLC')
+  # plt.plot(days[0:304], usd_oficial[0:304], label='USD en Cadeca')
   plt.xticks(inicios, month, rotation=0)
   plt.title('Comparación del comportamiento del USD, el EURO y el MLC entre enero y octubre de 2025.')
   plt.legend()
   plt.show()
 
-def bar_pymes():
-  data = mf.read_json("data/pymes.json")
-  count_pymes = [len(mf.list_for_value(data, key='city', value= i.upper().replace(' ',''), second_key='name')) for i in cities ]
-  # # provincias =  mf.list_for_value(data,'city') 
-  # mpmp = np.array([i.count('MIPYME PRIVADA') for i in types])
-  # mpme =  np.array([mf.first_count(i, 'MIPYME ESTATAL') for i in types])
-  # cna =  np.array([i.count('COOPERATIVA NO AGROPECUARIA') +  i.count('CNA') for i in types])
-  # mipymes_indefinidas = np.array([i.count('MIPYME') for i in types])      
+def bar_pymes():      
   count_city = np.arange(len(count_pymes))
-  # fig , ax = plt.subplots()
   plt.figure(figsize=(14, 6))
   plt.bar(count_city, count_pymes)
-  # plt.bar(count_city, mpmp, width=1/5)
-  # plt.bar(count_city+0.2,mpme, width=1/5)
-  # plt.bar(count_city+0.4,cna, width=1/5)
-  # plt.bar(count_city+0.6, mipymes_indefinidas, width=1/5)
   plt.xticks(count_city,city, rotation=0)
   plt.show()
 
+
+def compra_máxima(prices: list[int|float], escala : int) -> int:
+    matriz = [-sys.maxsize] * (escala+1)
+    matriz[0] = 0
+    for i in prices:
+        for j in range(escala, i - 1, -1):
+            matriz[j] = max(matriz[j], matriz[j - i] + 1)
+    return int(max(matriz))
+      
+def compra_por_escala(escala: int):
+   máximos = [compra_máxima(mf.dict_num_values(mipymes[i]['products']), escala) for i in mipymes if mipymes[i]["sales_category"] == "minorista"]
+   return  int(np.median(máximos))
+
+def max_bar():
+  max_products = [compra_por_escala(s) for s in salarios['44_horas']]
+  count_escalas = np.arange(len(salarios['44_horas']))
+  plt.figure(figsize=(16, 10))
+  plt.barh(count_escalas, max_products,  color= "yellow")
+  plt.yticks(count_escalas, salarios['44_horas'], rotation=0)
+  plt.title('Mediana de la cantidad máxima de productos que se pueden adquirir en un establecimiento de comercio según escala salarial de 44 horas laborales.')
+  plt.show()
+
+población  = [ población_por_provincia[abreviaturas[i]]["total"] for i in city]
+
+for_hab = [ int(población[i] // count_pymes[i]) for i in range(len(población))]
+
+provincias = [abreviaturas[i] for i in city]
+
+types = [mf.list_for_value(data,'city',i , "subject") for i in cities]
+mpmp =  [mf.first_count(i, 'MIPYME PRIVADA') for i in types]
+mpme =  [mf.first_count(i, 'MIPYME ESTATAL') for i in types]
+cna =   mf.sum_row([[mf.first_count(i, 'COOPERATIVA NO AGROPECUARIA') for i in types], [mf.first_count(i, 'CNA') for i in types]])
+mipymes_indefinidas = [mf.del_space(i).count('MIPYME') for i in types]
+
+def ausent_detect(lista:list[str]):
+  for i in lista:
+    if 'MIPYME PRIVADA'.upper().replace(' ','') not in str(i).upper().replace(' ','') and \
+      'MIPYME ESTATAL'.upper().replace(' ','') not in str(i).upper().replace(' ','') and \
+      'MIPYME'.upper().replace(' ','') not in str(i).upper().replace(' ','') and \
+      'CNA'.upper().replace(' ','') not in str(i).upper().replace(' ','') and \
+      'COOPERATIVA NO AGROPECUARIA'.upper().replace(' ','') not in str(i).upper().replace(' ',''):
+       return i
+  return 'ok'
+
+df_for_type_and_hab = pd.DataFrame({
+   "Provincias": provincias + ['Cuba'],
+   "Mipymes Privadas": mpmp + [sum(mpmp)], 
+   "Mipymes Estatales": mpme + [sum(mpme)] ,
+   "Mipymes Indefinidas":  mipymes_indefinidas + [sum(mipymes_indefinidas)], 
+   "CNA": cna + [sum(cna)],
+   "Total": mf.sum_row([mpmp,mpme,cna,mipymes_indefinidas]) + [sum(mf.sum_row([mpmp,mpme,cna,mipymes_indefinidas]))], 
+   "Cantidad de actores económicos por habitante": for_hab + [int(población_por_provincia["Cuba"]["total"] // sum(count_pymes))] })
 
 
 

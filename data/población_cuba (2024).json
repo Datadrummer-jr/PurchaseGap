@@ -1,0 +1,104 @@
+{
+    "Cuba": {
+        "total": 9748007.0,
+        "hombres": 4808909.0,
+        "mujeres": 4939098.0,
+        "Razón por sexo": 973.6411385236737
+    },
+    "Pinar del Río": {
+        "total": 515208.0,
+        "hombres": 258717.0,
+        "mujeres": 256491.0,
+        "Razón por sexo": 1008.6786670877341
+    },
+    "Artemisa": {
+        "total": 452430.0,
+        "hombres": 225649.0,
+        "mujeres": 226781.0,
+        "Razón por sexo": 995.0084001746178
+    },
+    "La Habana": {
+        "total": 1749964.0,
+        "hombres": 825923.0,
+        "mujeres": 924041.0,
+        "Razón por sexo": 893.8163999216486
+    },
+    "Mayabeque": {
+        "total": 330260.0,
+        "hombres": 165666.0,
+        "mujeres": 164594.0,
+        "Razón por sexo": 1006.5129956134489
+    },
+    "Matanzas": {
+        "total": 619159.0,
+        "hombres": 306122.0,
+        "mujeres": 313037.0,
+        "Razón por sexo": 977.9099595255512
+    },
+    "Villa Clara": {
+        "total": 665447.0,
+        "hombres": 328068.0,
+        "mujeres": 337379.0,
+        "Razón por sexo": 972.4019574425201
+    },
+    "Cienfuegos": {
+        "total": 342709.0,
+        "hombres": 170642.0,
+        "mujeres": 172067.0,
+        "Razón por sexo": 991.7183422736492
+    },
+    "Sancti Spíritus": {
+        "total": 404037.0,
+        "hombres": 201199.0,
+        "mujeres": 202838.0,
+        "Razón por sexo": 991.9196600242558
+    },
+    "Ciego de Ávila": {
+        "total": 376919.0,
+        "hombres": 188429.0,
+        "mujeres": 188490.0,
+        "Razón por sexo": 999.6763754045307
+    },
+    "Camagüey": {
+        "total": 653203.0,
+        "hombres": 322711.0,
+        "mujeres": 330492.0,
+        "Razón por sexo": 976.4563136172736
+    },
+    "Las Tunas": {
+        "total": 475343.0,
+        "hombres": 239097.0,
+        "mujeres": 236246.0,
+        "Razón por sexo": 1012.067929192452
+    },
+    "Holguín": {
+        "total": 911674.0,
+        "hombres": 454822.0,
+        "mujeres": 456852.0,
+        "Razón por sexo": 995.5565478535718
+    },
+    "Granma": {
+        "total": 749289.0,
+        "hombres": 376251.0,
+        "mujeres": 373038.0,
+        "Razón por sexo": 1008.6130635484856
+    },
+    "Santiago de Cuba": {
+        "total": 963915.0,
+        "hombres": 477131.0,
+        "mujeres": 486784.0,
+        "Razón por sexo": 980.1698494609519
+    },
+    "Guantánamo": {
+        "total": 465429.0,
+        "hombres": 231868.0,
+        "mujeres": 233561.0,
+        "Razón por sexo": 992.7513583175273
+    },
+    "Isla de la Juventud": {
+        "total": 73021.0,
+        "hombres": 36614.0,
+        "mujeres": 36407.0,
+        "Razón por sexo": 1005.6857197791634
+    }
+}

@@ -9,8 +9,9 @@ with sync_playwright() as p:
         headless=True
     )
     page = browser.new_page()
-    page.goto("https://www.google.com")
-    print(page.title())
+    page.goto("https://sinterceros.com/akokan")
+    product = page.locator("h3.text-sm.xs\\:text-base.md\\:text-lg.text-foreground.font-medium.line-clamp-2.h-\\[3rem\\]")
+    print(product.text_content())
     browser.close()
 
 if __name__ == "__main__":

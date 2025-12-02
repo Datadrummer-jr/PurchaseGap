@@ -42,6 +42,6 @@ def toque(inicio: str,fin: str):
     return urls
 
 if __name__ == "__main__":
-    fecha_inicio = "2024-11-01"
-    fecha_fin = "2024-12-31"
+    fecha_inicio = "2023-11-01"
+    fecha_fin = "2023-12-31"
     toque(fecha_inicio, fecha_fin)
