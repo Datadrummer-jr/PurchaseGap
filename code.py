@@ -172,7 +172,7 @@ def bar_canasta_vs_pymes():
     fig.show()
 
 def qvapay_vs_el_toque():
-  fechas = [fecha['date_from'] for fecha in mf.intervalo_fechas('2025-11-24','2025-11-30', False, False)]
+  fechas = [fecha['date_from'] for fecha in mf.intervalo_fechas('2025-11-27','2025-11-30', False, False)]
   usd_qvapay = []
   for fecha in fechas:
     offers = []
@@ -180,10 +180,17 @@ def qvapay_vs_el_toque():
       if qvapay[offer]["date"][:10] == fecha and qvapay[offer]["coin"] == "CUP":
          offers.append(qvapay[offer]["price"])  
     usd_qvapay.append(offers)
-  medias = [len(m) for m in usd_qvapay]
-  return medias
+  medias_qvapay = [ float(np.mean(m)) for m in usd_qvapay]
+  medias_el_toque = [el_toque[fecha]['USD'] for fecha in fechas]
 
-print(qvapay_vs_el_toque())
+  fig = go.Figure(data=[
+    go.Bar(name="El Toque", x=fechas, y=medias_el_toque),
+    go.Bar(name="QvaPay", x=fechas, y=medias_qvapay)
+  ])
+  fig.update_layout( barmode='group', title= "Gráfica comparativa de los precios media del USD entre El Toque y QvaPay.")
+  fig.show()
+
+
 
 
 

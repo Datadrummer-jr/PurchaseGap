@@ -16,16 +16,17 @@ API_HASH = os.getenv("API_HASH_TELEGRAM")
 
 inicio = datetime(2025, 11, 25, tzinfo=timezone.utc)
 final  = datetime(2025, 11, 27, tzinfo=timezone.utc)
-
-async def qvapay():
+contador = 0
+async def qvapay(contador=contador):
     async with TelegramClient("datapyme", API_ID  ,API_HASH) as client:
         async for m in client.iter_messages("qvapay_p2p",  offset_date=final):
             if inicio < m.date < final:
-              print(m.text)
-              await asyncio.sleep(0.5)
+              contador += 1
+              await asyncio.sleep(0.2)
 
 if __name__ == "__main__":
     asyncio.run(qvapay())
+    print(contador)
         
 # 🟢 #Compra $100 por $100.00 en #CLASICA
 
