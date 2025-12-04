@@ -18,6 +18,8 @@ data = mf.read_json("data/pymes.json")
 count_pymes = [len(mf.list_for_value(data, key='city', value= i.upper().replace(' ',''), second_key= "subject")) for i in cities ]
 mipymes = mf.read_json("data/prices_pymes.json")
 población_por_provincia =mf.read_json("data/población_cuba (2024).json")
+canasta_básica = mf.read_json("data/canasta_básica.json")
+qvapay = mf.read_json("data/qvapay.json")
 
 def salary(file = salarios):
    for i in range(0,32):
@@ -111,6 +113,77 @@ percent = (len(mipymes) * 100) / len(data)
 text_pyme = f"Para contar esta historia se obtuvieron datos de {len(mipymes)} actores económicos de diferentes dominios que  \
 representan sólo un { f"{round(percent,2)} %"} del total de los creados\n desde 2021, pero con planes  \
 de que este porciento alcance el 30 % en un futuro no muy lejano."
+
+pymes_keys = [k for k in mipymes]
+canasta_keys = [k for k in canasta_básica]
+
+def price_media(product: str):
+  return np.mean(mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes[a]["products"], product)) for a in pymes_keys ])), np.mean(mf.aplanar_lista(mf.dict_num_values(mf.search_keys(canasta_básica, product))))
+
+pymes_arroz ,canasta_arroz = price_media("arroz")
+
+pymes_pollo ,canasta_pollo =  price_media("pollo")
+
+pymes_azúcar, canasta_azúcar = price_media("azúcar")
+
+pymes_frijoles, canasta_frijoles = price_media("frijoles")
+
+pymes_aceite, canasta_aceite = price_media("aceite")
+
+pymes_picadillo, canasta_picadillo = price_media("picadillo")
+
+pymes_mortadella, canasta_mortadella = price_media("mortadella")
+
+pymes_café, canasta_café = price_media("café")
+
+pymes_pan, canasta_pan = price_media("pan")
+
+pymes_leche, canasta_leche = price_media("leche")
+
+pymes_yogurt, canasta_yogurt = price_media("yogurt")
+
+pymes_pescado, canasta_pescado = price_media("pescado")
+
+def bar_canasta_vs_pymes():
+    products = ["Mipymes", "Canasta Básica"]
+    fig = make_subplots(rows=6, cols=2,
+               specs=[[{"type": "pie"}, {"type": "pie"}],
+                      [{"type": "pie"}, {"type": "pie"}],
+                      [{"type": "pie"}, {"type": "pie"}],
+                      [{"type": "pie"}, {"type": "pie"}],
+                      [{"type": "pie"}, {"type": "pie"}],
+                      [{"type": "pie"}, {"type": "pie"}]], 
+                      subplot_titles= ["Arroz", "Pollo", "Azúcar", "Frijoles", "Aceite", "Picadillo",
+              "Mortadella", "Café", "Pan", "Peche","Yogurt" , "Pescado"])
+    fig.add_trace(go.Pie(labels=products,values=[pymes_arroz, canasta_arroz]), 1, 1)
+    fig.add_trace(go.Pie(labels=products,values=[pymes_pollo, canasta_pollo]), 1, 2)
+    fig.add_trace(go.Pie(labels=products,values=[pymes_arroz, canasta_arroz]), 2, 1)
+    fig.add_trace(go.Pie(labels=products,values=[pymes_pollo, canasta_pollo]), 2, 2)
+    fig.add_trace(go.Pie(labels=products,values=[pymes_arroz, canasta_arroz]), 3, 1)
+    fig.add_trace(go.Pie(labels=products,values=[pymes_pollo, canasta_pollo]), 3, 2)
+    fig.add_trace(go.Pie(labels=products,values=[pymes_arroz, canasta_arroz]), 4, 1)
+    fig.add_trace(go.Pie(labels=products,values=[pymes_pollo, canasta_pollo]), 4, 2)
+    fig.add_trace(go.Pie(labels=products,values=[pymes_arroz, canasta_arroz]), 5, 1)
+    fig.add_trace(go.Pie(labels=products,values=[pymes_pollo, canasta_pollo]), 5, 2)
+    fig.add_trace(go.Pie(labels=products,values=[pymes_arroz, canasta_arroz]), 6, 1)
+    fig.add_trace(go.Pie(labels=products,values=[pymes_pollo, canasta_pollo]), 6, 2)
+   
+    fig.update_layout(height=800, barmode='group', xaxis_tickangle=-45, title="Gráficas comparativas del costo de los principales productos de la canasta básica contra los productos vendidos por mipymes")
+    fig.show()
+
+def qvapay_vs_el_toque():
+  fechas = [fecha['date_from'] for fecha in mf.intervalo_fechas('2025-11-24','2025-11-30', False, False)]
+  usd_qvapay = []
+  for fecha in fechas:
+    offers = []
+    for offer in qvapay:
+      if qvapay[offer]["date"][:10] == fecha and qvapay[offer]["coin"] == "CUP":
+         offers.append(qvapay[offer]["price"])  
+    usd_qvapay.append(offers)
+  medias = [len(m) for m in usd_qvapay]
+  return medias
+
+print(qvapay_vs_el_toque())
 
 
 

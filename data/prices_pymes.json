@@ -2,371 +2,641 @@
     "0": {
         "name": "Ozymandias",
         "sales_category": "minorista",
-        "horary":{
-        "days": ["lunes", "domingo"],
-        "hour" : "9:00 - 20.00"
-    },
-    "municipality":"DIEZ DE OCTUBRE",
-    "city": "La Habana",
-     "coordinates": [],
-    "products": {
-        "yogurt": {
-            "3_lt": 3200,
-            "pomo": {
-                "350_ml" : 400
+        "horary": {
+            "days": [
+                "lunes",
+                "domingo"
+            ],
+            "hour": "9:00 - 20.00"
+        },
+        "municipality": "DIEZ DE OCTUBRE",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "yogurt": {
+                "3_lt": 3200,
+                "pomo": {
+                    "350_ml": 400
+                },
+                "vaso": {
+                    "180_ml": 230
+                }
             },
-            "vaso":{
-                "180_ml": 230
-            }
-        },
-        "cerveza":{
-            "nacional":{
-            "cristal": 350
+            "cerveza": {
+                "nacional": {
+                    "cristal": 350
+                },
+                "importado": {
+                    "unlaguer": 230,
+                    "presidente": 230,
+                    "coprove": 230
+                }
             },
-            "importado":{
-            "unlaguer": 230,
-            "presidente": 230,
-            "coprove": 230
-            }
-        },
-        "jugo":{
-            "cajita": {
-                "pequeña": 170,
-                "grande": 650
-            }
-        },
-        "refresco":{
-            "pomo":{
-                "1500_ml":650
+            "jugo": {
+                "cajita": {
+                    "pequeña": 170,
+                    "grande": 650
+                }
             },
-            "polvo": 50
-        },
-        "galletas":
-       {
-        "pequeño": 260,
-        "pequeña_2": 200
-       },
-       "caramelo": 20,
-       "bombón": 50,
-       "chupa_chupa": 60,
-       "papitas": 300,
-       "aceite": 990,
-       "sazón" :750,
-       "sardina" : {
-        "pequeño":400,
-        "grande": 800
-    },
-       "mostaza": 850,
-       "leche_condesada": 500,
-       "pasta_de_tomate": 850,
-       "atún": 450,
-       "aceitunas": 900,
-       "hamburguesas":{
-        "prodal": 620
-       },
-       "jamón":{
-        "mini_vicky": 700,
-        "vicky": 1400,
-        "lasqueado":850,
-        "ahumado": 1600 
-       },
-       "mortadella": 570,
-       "chorizo":{
-        "vela": 1750,
-        "criollo": 1100
-       },
-       "recortería": {
-        "mixta": 700
-       },
-       "lomo_de_cerdo": {
-        "ahumado": 1150,
-        "crudo": 1100
-       },
-       "pollo":{
-        "pechuga": 1400,
-        "higado": 800,
-        "molleja": 1000,
-        "picadillo":320
-       },
-       "res":{
-        "picadillo":1300
-       },
-       "albondigas":620
-    }
-},
-    "1":{
-        "name": null,
-        "sales_category": "minorista",
-        "horary":{
-        "days": null,
-        "hour" : null
-    },
-    "municipality":"DIEZ DE OCTUBRE",
-    "city": "La Habana",
-     "coordinates": [],
-    "products": {
-        "bonabel" : 1200,
-        "crema": 1000,
-        "estropajo": 100,
-        "ron": {
-            "don_diego": 1000,
-            "ciudad...": 500
-        },
-        "ketchup": 600,
-        "papitas":220,
-        "pasta_de_tomate":600,
-        "planta_de_media": 200,
-        "toallitas": 100,
-        "detergente":{ 
-            "polvo": 500,
-            "líquido": 700
-        },
-        "bombillo": 3000,
-        "jabon":{
-            "baño": 200
+            "refresco": {
+                "pomo": {
+                    "1500_ml": 650
+                },
+                "polvo": 50
+            },
+            "galletas": {
+                "pequeño": 260,
+                "pequeña_2": 200
+            },
+            "caramelo": 20,
+            "bombón": 50,
+            "chupa_chupa": 60,
+            "papitas": 300,
+            "aceite": 990,
+            "sazón": 750,
+            "sardina": {
+                "pequeño": 400,
+                "grande": 800
+            },
+            "mostaza": 850,
+            "leche_condesada": 500,
+            "pasta_de_tomate": 850,
+            "atún": 450,
+            "aceitunas": 900,
+            "hamburguesas": {
+                "prodal": 620
+            },
+            "jamón": {
+                "mini_vicky": 700,
+                "vicky": 1400,
+                "lasqueado": 850,
+                "ahumado": 1600
+            },
+            "mortadella": 570,
+            "chorizo": {
+                "vela": 1750,
+                "criollo": 1100
+            },
+            "recortería": {
+                "mixta": 700
+            },
+            "lomo_de_cerdo": {
+                "ahumado": 1150,
+                "crudo": 1100
+            },
+            "pollo": {
+                "pechuga": 1400,
+                "higado": 800,
+                "molleja": 1000,
+                "picadillo": 320
+            },
+            "res": {
+                "picadillo": 1300
+            },
+            "albondigas": 620
         }
-    }
-},
-   "2":{
+    },
+    "1": {
         "name": null,
         "sales_category": "minorista",
-        "horary":{
-        "days": null,
-        "hour" : null
-    },
-    "municipality":"DIEZ DE OCTUBRE",
-    "city": "La Habana",
-     "coordinates": [],
-    "products": {
-        "cerveza":{
-            "importado":{
-                "la fria ": 250,
-                "belgar": 250
-            }
+        "horary": {
+            "days": null,
+            "hour": null
         },
-        "refresco":{
-          "lata": 230
-        },
-         "arroz":{
-            "paquete": 630
-         },
-         "chicharo": {
-            "verde": 700
-         },
-         "cafe":1600,
-         "lomo_de_cerdo":{
-            "bandeja": 1300
-         },
-         "jabon":1600,
-         "aceite":1000,
-         "pan":{
-            "bolsa":230
-         },
-         "hamburguesas":550,
-         "galletas":{
-            "pequeña_3": 130,
-            "pequeña_4": 150,
-            "pequeño":200,
-            "pequeña_2":220,
-            "maria":350
-         },
-         "papitas":{
-            "mediano": 1000,
-            "grande": 1200
-         },
-         "vino seco": 350,
-        "mayonesa": {
-            "rayana": 700,
-            "malonese": 750
-        },
-         "leche_condesada": 550,
-         "fanguito": 600,
-         "nutella": 1100,
-         "ron":{
-            "pantaya": 1600,
-            "chanceler": 1500,
-            "fireone": 1500,
-            "royal blue": 600
-         },
-         "bombón":200,
-         "frijol negro": 900,
-         "harina": 630,
-         "pasta_de_tomate":450,
-         "ketchup":430,
-         "salsa de tomate": 400,
-         "salsa para amburguesa": 350,
-         "champú" : 700,
-         "suavizador": 650,
-         "pasta dental": 850,
-         "jabon de baño": 150,
-         "detergente":{
-            "líquido":150,
-            "polvo": 650
-         },
-         "gel de baño":{
-            "bebes": 400,
-            "adultos": 750
-         } ,
-         "toallitas":700,
-         "intimas": 900
-    }
-},
-    "3" :{
-        "name": null,
-        "sales_category": "minorista",
-        "horary":{
-        "days": null,
-        "hour" : null
-    },
-    "municipality":"DIEZ DE OCTUBRE",
-    "city": "La Habana",
-     "coordinates": [],
-    "products": {
-        "lomo_de_cerdo":{
-            "deshuesado": 1170
-        },
-        "picadillo": 320,
-        "arroz":290,
-        "azúcar": 290,
-        "harina":230,
-        "sal":100,
-        "leche": null,
-        "frijol":{
-            "negro": 380,
-           "colorado": 380
-        },
-        "yogurt":null,
-        "refresco":{
-            "lata":{
-                "pineapple": 230,
-                "orange":220
+        "municipality": "DIEZ DE OCTUBRE",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "bonabel": 1200,
+            "crema": 1000,
+            "estropajo": 100,
+            "ron": {
+                "don_diego": 1000,
+                "ciudad...": 500
             },
-            "polvo":35
-        },
-        "malta":250,
-        "cerveza":{
-            "importado":{
-                "unlaguer":220,
-                "la fria ":220
+            "ketchup": 600,
+            "papitas": 220,
+            "pasta_de_tomate": 600,
+            "planta_de_media": 200,
+            "toallitas": 100,
+            "detergente": {
+                "polvo": 500,
+                "líquido": 700
+            },
+            "bombillo": 3000,
+            "jabon": {
+                "baño": 200
             }
+        }
+    },
+    "2": {
+        "name": null,
+        "sales_category": "minorista",
+        "horary": {
+            "days": null,
+            "hour": null
         },
-        "jugo":{
-            "cajita":{
-                "pequeña":160
-            }
+        "municipality": "DIEZ DE OCTUBRE",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "cerveza": {
+                "importado": {
+                    "la fria ": 250,
+                    "belgar": 250
+                }
+            },
+            "refresco": {
+                "lata": 230
+            },
+            "arroz": {
+                "paquete": 630
+            },
+            "chicharo": {
+                "verde": 700
+            },
+            "cafe": 1600,
+            "lomo_de_cerdo": {
+                "bandeja": 1300
+            },
+            "jabon": 1600,
+            "aceite": 1000,
+            "pan": {
+                "bolsa": 230
+            },
+            "hamburguesas": 550,
+            "galletas": {
+                "pequeña_3": 130,
+                "pequeña_4": 150,
+                "pequeño": 200,
+                "pequeña_2": 220,
+                "maria": 350
+            },
+            "papitas": {
+                "mediano": 1000,
+                "grande": 1200
+            },
+            "vino seco": 350,
+            "mayonesa": {
+                "rayana": 700,
+                "malonese": 750
+            },
+            "leche_condesada": 550,
+            "fanguito": 600,
+            "nutella": 1100,
+            "ron": {
+                "pantaya": 1600,
+                "chanceler": 1500,
+                "fireone": 1500,
+                "royal blue": 600
+            },
+            "bombón": 200,
+            "frijol negro": 900,
+            "harina": 630,
+            "pasta_de_tomate": 450,
+            "ketchup": 430,
+            "salsa de tomate": 400,
+            "salsa para amburguesa": 350,
+            "champú": 700,
+            "suavizador": 650,
+            "pasta dental": 850,
+            "jabon de baño": 150,
+            "detergente": {
+                "líquido": 150,
+                "polvo": 650
+            },
+            "gel de baño": {
+                "bebes": 400,
+                "adultos": 750
+            },
+            "toallitas": 700,
+            "intimas": 900
+        }
+    },
+    "3": {
+        "name": null,
+        "sales_category": "minorista",
+        "horary": {
+            "days": null,
+            "hour": null
         },
-        "papitas": 230,
-        "detergente":{
-            "polvo":650
-        },
-        "jabon":{
-            "baño":160
-        },
-        "pasta_de_tomate":450,
-        "leche_condesada":500,
-        "cafe":1400,
-        "aceite":990,
-        "galletas":{
-            "pequeño":135,
-            "pequeña_2":140,
-            "pequeña_3":90,
-            "pequeña_4":150
-        },
-        "panqué": 150
-    }
-},
-"4":{
+        "municipality": "DIEZ DE OCTUBRE",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "lomo_de_cerdo": {
+                "deshuesado": 1170
+            },
+            "picadillo": 320,
+            "arroz": 290,
+            "azúcar": 290,
+            "harina": 230,
+            "sal": 100,
+            "leche": null,
+            "frijol": {
+                "negro": 380,
+                "colorado": 380
+            },
+            "yogurt": null,
+            "refresco": {
+                "lata": {
+                    "pineapple": 230,
+                    "orange": 220
+                },
+                "polvo": 35
+            },
+            "malta": 250,
+            "cerveza": {
+                "importado": {
+                    "unlaguer": 220,
+                    "la fria ": 220
+                }
+            },
+            "jugo": {
+                "cajita": {
+                    "pequeña": 160
+                }
+            },
+            "papitas": 230,
+            "detergente": {
+                "polvo": 650
+            },
+            "jabon": {
+                "baño": 160
+            },
+            "pasta_de_tomate": 450,
+            "leche_condesada": 500,
+            "cafe": 1400,
+            "aceite": 990,
+            "galletas": {
+                "pequeño": 135,
+                "pequeña_2": 140,
+                "pequeña_3": 90,
+                "pequeña_4": 150
+            },
+            "panqué": 150
+        }
+    },
+    "4": {
         "name": "Gaia",
-        "sales_category":"minorista",
-        "horary":{
-        "days": null,
-        "hour" : null
-    },
-    "municipality": "PLAZA",
-    "city": "La Habana",
-     "coordinates": [],
-    "products": {
-        "jugo":{
-            "cajita":{
-               "grande":{
-                 "mango": 1010,
-                 "pera": 1010
-               }
+        "sales_category": "minorista",
+        "horary": {
+            "days": null,
+            "hour": null
+        },
+        "municipality": "PLAZA",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "jugo": {
+                "cajita": {
+                    "grande": {
+                        "mango": 1010,
+                        "pera": 1010
+                    }
+                },
+                "pomo": {
+                    "melocotón": 910,
+                    "manzana": 910
+                }
             },
-            "pomo":{
-                "melocotón": 910,
-                "manzana": 910
+            "mango_congelado": 360,
+            "cereal": {
+                "chocolate": 1377,
+                "maíz": 1433,
+                "chocolate_sin_gluten": 1558,
+                "choco ch": 1609,
+                "maíz y arroz": 2075,
+                "Arroz": 2093
+            },
+            "pescado": {
+                "macabi": 1455,
+                "emperador": 3420,
+                "cangrejo": 2335,
+                "pulpo": 6985,
+                "pez perro": 3110
+            },
+            "queso": {
+                "crema": 1079
+            },
+            "helado": {
+                "pote": 2190
+            },
+            "yogurt": {
+                "cabra": 910
+            },
+            "culero": 5015,
+            "papel_higiénico": 5408,
+            "galletas": {
+                "cookies": 865,
+                "wafer_rich": 963,
+                "saladas": 1510,
+                "blondies": 1270,
+                "mini_cookies": 825,
+                "canelos": 1270,
+                "brownie": 1270,
+                "galletas_dinosaurus": 1415,
+                "barrita_de_chocolate": 960,
+                "galletas_rizadas": 825,
+                "krittas_krit": 1865
+            },
+            "Crema al cacao con avellanas 1 sabor VOLA frasco vidrio 210G": 1090,
+            "Crema al cacao con avellanas 2 sabores VOLA frasco vidrio 210 G": 1080,
+            "arroz": {
+                "paquete": {
+                    "redondo": 1287,
+                    "largo": 780
+                }
+            },
+            "frijol": {
+                "alubia_blanca": 930,
+                "alubia_pintadas": 965,
+                "alubia_negra": 920,
+                "lentejas": 825,
+                "garbanzos": 920
+            },
+            "guisantes_verdes": 864,
+            "espinaca": 220,
+            "romero": 145,
+            "cúrcuma": 320,
+            "chile_habanero": 210,
+            "coco": 220,
+            "bebidas": {
+                "ginebra": 6455,
+                "vino": {
+                    "tinto": 1825,
+                    "tamaral": 2735,
+                    "tinto Campo de Borja": 1826
+                }
             }
-        },
-        "mango_congelado": 360,
-        "cereal":{
-            "chocolate": 1377,
-            "maíz": 1433,
-            "chocolate_sin_gluten":1558,
-            "choco ch": 1609,
-            "maíz y arroz": 2075,
-            "Arroz":2093
-        }, 
-        "pescado":{
-            "macabi":1455,
-            "emperador":3420,
-            "cangrejo":2335,
-            "pulpo":6985,
-            "pez perro":3110
-        },
-        "queso":{
-            "crema":1079
-        },
-        "helado":{
-            "pote": 2190
-        },
-        "yogurt":{
-            "cabra":910
-        },
-        "culero":5015,
-        "papel_higiénico":5408,
-        "galletas":{
-            "cookies":865,
-            "wafer_rich":963,
-            "saladas":1510,
-            "blondies":1270,
-            "mini_cookies":825,
-            "canelos":1270,
-            "brownie":1270,
-            "galletas_dinosaurus":1415,
-            "barrita_de_chocolate":960,
-            "galletas_rizadas": 825,
-            "krittas_krit": 1865
-        },
-        "Crema al cacao con avellanas 1 sabor VOLA frasco vidrio 210G":1090,
-        "Crema al cacao con avellanas 2 sabores VOLA frasco vidrio 210 G": 1080,
-        "arroz":{
-            "paquete":{
-                "redondo": 1287,
-                "largo":780
-            }
-        },
-        "frijol":{
-            "alubia_blanca":930,
-            "alubia_pintadas":965,
-            "alubia_negra":920,
-            "lentejas":825,
-            "garbanzos":920
-        },
-        "guisantes_verdes":864,
-        "espinaca":220,
-        "romero":145,
-        "cúrcuma":320,
-        "chile_habanero":210,
-        "coco":220,
-        "bebidas":{
-            "ginebra":6455,
-             "vino":{
-            "tinto":1825,
-            "tamaral":2735,
-            "tinto Campo de Borja":1826
         }
+    },
+    "5": {
+        "name": "Akokan S.R.L",
+        "sales_category": "minorista",
+        "horary": {
+            "days": null,
+            "hour": null
+        },
+        "municipality": "DIEZ DE OCTUBRE",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "aceite de girasol 1L Crisol": 1200,
+            "aceite de oliva extra virgen 250ml Vima*": 2680,
+            "aceite de oliva virgen extra 1lt*": 5050,
+            "aceituna r/anchoa 314 ml Vima*": 1180,
+            "aceituna sin hueso 314ml Vima*": 1300,
+            "aceituna verdes aliñadas 314ml Vima*": 840,
+            "aderezo picante italiano 473ml Kurtz*": 1050,
+            "aderezo Ranch Bacon 473ml Kurtz*": 1280,
+            "adobo con pimienta 361.4g Badia*": 1430,
+            "albahaca granulada 12g El Niño Crespo*": 660,
+            "alcaparra 314g Vima*": 1820,
+            "arroz blanco americano 2lb envasado": 700,
+            "atun premium en aceite vegetal 1000g Vima*": 5200,
+            "avena en hojuelas 1kg La Merced": 1300,
+            "azucar blanca 1kg rembolsada": 720,
+            "barra de guayaba artesanal": 280,
+            "bolsa de hielo 7 Lb Akokan": 300,
+            "cafe molido mescla 250g Gourmet*": 2400,
+            "Cafe Villa Rica 250g": 1750,
+            "calditos varios y sazones 10g": 50,
+            "canela en rama 20g El Niño Crespo*": 890,
+            "carne de res en su jugo 400g Texana *": 1000,
+            "cebollita encurtido 340g Vima*": 850,
+            "champiñon entero 350g Mocitos*": 950,
+            "chicharo verde picado 500g ITH*": 780,
+            "coctel de frutas fairhill 15oz*": 1480,
+            "colorante alimentario 85g El Niño Crespo*": 630,
+            "comino molido 56.7g Badia*": 870,
+            "comino molido 60g El Niño Crespo*": 880,
+            "confitura de ciruela 340g Vima*": 1000,
+            "crema de avellana para café 454g McDaniels*": 2100,
+            "crema para café 454g McDaniels*": 2050,
+            "crema vegetal para cocinar La CREME 1L ITH*": 2350,
+            "curry el niño crespo 60g*": 950,
+            "curry molido 80g cannamela ITH*": 1430,
+            "frazada de piso nihao53*": 270,
+            "frijoles colorados 1lb del campo*": 900,
+            "frijoles negros lata 410g VIMA*": 400,
+            "frijol negro del campo 1 L *": 780,
+            "Frijol Negro Pontarollo 500g": 720,
+            "garbanzos extra 540gr Vima*": 1200,
+            "gofio de 1kg La Piña": 720,
+            "guindilla 314g Vima*": 1050,
+            "ketchup 1800gr Vima*": 4000,
+            "ketchup 310g Giardino Vima*": 680,
+            "ketchup celorrio 300g *": 930,
+            "Leche Condensada 390g Sweetened": 600,
+            "leche condensada 390g vima*": 720,
+            "lentejas pomo 540g Vima*": 740,
+            "levadura instantánea bravo 500g": 1580,
+            "macedonia de verduras 400g Mocitos*": 790,
+            "macedonia vegetales 535 gr Vima*": 1180,
+            "maiz dulce 432 gr fairhill*": 950,
+            "maiz dulce en grano 425g Vima*": 770,
+            "mantequilla de mani 454g NutSome*": 1700,
+            "mayonesa celorrio 500ml Aldaketa*": 1650,
+            "mayonesa Cosami 300gr *": 1200,
+            "mermelada de fresa mocitos*": 1050,
+            "miel de abeja 340g Apisun": 480,
+            "mojo para marinado (295.74ml) Badia*": 820,
+            "mostaza 1.8kg Vima*": 3980,
+            "mostaza sauce 300 gr vima*": 780,
+            "naranja agria( 295.74ml) Badia*": 820,
+            "nuez moscada el niño crespo 58g*": 1650,
+            "oregano el niño crespo 17g*": 750,
+            "orégano en hojas 25g cannamela ITH*": 1020,
+            "pasta corta qbanito coditos 500g H.H*": 380,
+            "pasta corta qbanito espirales 500g H.H*": 380,
+            "pasta corta qbanito macarrones H.H*": 380,
+            "pasta de ajo 8oz Badia*": 1020,
+            "pasta de bocaditos 465ml azotea": 2090,
+            "pasta de dientes 226g Colgate": 1750,
+            "pasta de tomate 3kg Vima*": 4560,
+            "Pasta de Tomate 400g Vima*": 600,
+            "pasta de tomate qbanito 360g HH*": 520,
+            "pasta de tomate Yily": 450,
+            "peras en almibar 425gr Vima*": 620,
+            "perejil el niño crespo 18g*": 750,
+            "pimenton dulce La Barraca 75gr Aldaketa*": 1130,
+            "pimienta negra en grano de cancio 45g": 580,
+            "refresco instantáneo piña colada 13g Zuko": 100,
+            "romero en hoja cannamela 40g ITH*": 950,
+            "salchichas cocktail 350g Vima*": 840,
+            "salsa Barbacoa 320gr Vima*": 1100,
+            "salsa barbacoa azotea 300g": 900,
+            "salsa Brava 320gr Vima*": 730,
+            "salsa Cocktail 225gr Vima*": 1000,
+            "salsa curry mango 270g heinz *": 1520,
+            "salsa de miel y mostaza 780 ml cosami *": 3660,
+            "salsa ketchup 320gr Vima*": 1050,
+            "salsa picante roja 57cl tabasco Aldaketa*": 1100,
+            "salsa teriyaki 150ml Vima*": 500,
+            "sal yodada 737g Marcum*": 700,
+            "sardinas en aceite 113g Vima": 490,
+            "sazonador de pollo de cancio 40g": 550,
+            "sazon completo 99.2g Badia*": 880,
+            "sazon completo grande 340.2g Badia*": 2500,
+            "semillas de sésamo 80g cannamela ITH*": 1750,
+            "sopa instantánea de carne qbanito 70g H.H*": 200,
+            "sopa instantánea de pollo 70g qbanito H.H": 200,
+            "sopa instantánea Kent de curry": 130,
+            "spaghetti 500g": 350,
+            "spaghetti qbanito 500g H.H*": 350,
+            "tomate frito Qbanito 420g*HH": 1090,
+            "troncho de pescado aceite vegetal 425g Vima*": 900,
+            "vinagre balsamico 1/2lt Vima*": 2660,
+            "vinagre de vino 500ml Coviran*": 530,
+            "vinagre de vino blanco 1/2lt Vima*": 700,
+            "vinagre de vino blanco 1lt Vima*": 1190,
+            "Vinagre Natural La Victoria 1L": 340,
+            "Vino Seco Natural La Victoria1L": 340,
+            "zumo de limon (295.74ml) Badia*": 750,
+            "crema de chocolate RuaVieja 70cl havana club*": 4170,
+            "crema natural RuaVieja 70cl havana club*": 4170,
+            "ginebra 750ml Gordon's London Dry Gin*": 4850,
+            "ginebra 750ml Tanqueray*": 8100,
+            "ginebra Beefeater 70cl havana club*": 4080,
+            "licor anis 750ml Mono Dulce*": 7460,
+            "licor de hierbas 750ml Jagermeister*": 6080,
+            "Olmeca Reposado Tequila *": 5600,
+            "tequila Olmeca altos plata 700ml*": 6100,
+            "tequila olmeca chocolate*": 4670,
+            "tequila olmeca silver 700ml*": 5200,
+            "vodka Absolut 1Ltr havana club*": 5670,
+            "vodka Absolut Citron 70cl havana club*": 6280,
+            "whisky 750ml Johnnie Walker Black Label*": 17850,
+            "whisky Ballantine's 10 Años 70cl havana club*": 10480,
+            "whisky Ballantine's Finest 70cl havana club*": 5350,
+            "whisky Black Barrel 70ml Jameson havana club*": 9600,
+            "whisky Chivas Regal 12 Años 70cl*": 10500,
+            "whisky Jameson 70cl havana club*": 6400,
+            "algodon zig zag 100g Star Cott*": 820,
+            "crema alisadora con aceite de oliva, keratina 69g Nevada": 1050,
+            "crema corporal de coco 300ml nihao53*": 1160,
+            "desodorante obao 65g": 1300,
+            "gel de baño frutos rojos 750ml Izem*": 1050,
+            "gel de baño PH-neutro 400ml Nihao53*": 760,
+            "intimas sanitarias diarias 290mm Goossoft": 500,
+            "intimas sanitarias nocturnas 330mm Goossoft": 520,
+            "jabón aura 100g": 160,
+            "jabon lux velvet touch 80g*": 400,
+            "lavavajillas 1ltlumisol*": 1400,
+            "lavavajillas en pasta 280g LaMancha": 600,
+            "Papel Sanitario La Excelencia": 650,
+            "pasta de dientes clogurde 100g": 780,
+            "Protector Sanitario Meilis Gril 60 Pads": 950,
+            "shampoo aceite de coco 750ml nt": 1380,
+            "shampoo comfor time 1000ml nihao53*": 1550,
+            "shampoo comfor time 400ml nihao53*": 780,
+            "shampoo con argan 300ml Spring Blossom": 830,
+            "toallitas humedas 80 unidades Baby wips": 650,
+            "crema de avellanas con cacao 350g Nutella*": 3200,
+            "galletas Doradas 294g Goya*": 1350,
+            "galletas Salricas 595g 7 Tacos": 1200,
+            "higado de pollo seara 1 kg": 950,
+            "laminas para lasaña mantia's 454 g *": 1500,
+            "turron alicante el artesano*": 1500,
+            "turron de chocolate con almendras el artesano*": 2400,
+            "turron de crema catalana": 1500,
+            "turron de crema de almendras el artesano*": 1200,
+            "turron de jijona el artesano*": 1500,
+            "turron imperial edelweiss*": 1200,
+            "alitas de pollo x kg vima*": 3450,
+            "almejas blanca 1lb Vima*": 1430,
+            "anillas de calamar 454g Vima*": 3250,
+            "Bandeja de Lomo de Cerdo": 1450,
+            "chorizo vela delicias*": 2000,
+            "croqueta de bacalao casera 500gr Vima*": 1500,
+            "croquetas de chorizo 500g Vima*": 980,
+            "fajitas de pollo 200g": 520,
+            "hamburguesa criolla de pollo Doña Mimi 500g": 650,
+            "Hamburguesa de cerdo akokan": 1600,
+            "hamburguesa de res akokan 1.25lb": 1400,
+            "lomo de cerdo deshuesado importado Kroger": 1300,
+            "media pechuga de pollo 2kg Perdix ITH*": 6100,
+            "mejillon carne 1Lb Vima*": 2000,
+            "menestras (vegetales)1kg vima*": 1650,
+            "mini salame delicias*": 680,
+            "papas prefritas 1kg Vima*": 1700,
+            "papas prefritas 2.5kg Vima*": 4030,
+            "papas prefritas de 1kg maestro ITH*": 1620,
+            "paquete de Pollo 10 lb": 4300,
+            "pescado rape troquito 1 kg vima*": 3500,
+            "picadillo de carne de res 500g Friboi": 1200,
+            "picadillo de pollo 500g Polskamp": 560,
+            "Picadillo de Pollo MDM 2lb": 800,
+            "pollo entero 1.7kg vima*": 4600,
+            "queso azul rueda 3kg Vima*": 22900,
+            "recorteria de embutidos delicias*": 750,
+            "salchichon loncheado 80-100gr Vima*": 1100,
+            "salpicon de mariscos 2.2lb Vima*": 3930,
+            "tubo de calamar Vima*": 3360,
+            "bandeja de queso gouda lascas 450g": 2200,
+            "bocadito de helado Chocolate Sandy Nestle*": 530,
+            "bocadito de helado fresa Sandy Nestle*": 530,
+            "bocadito de helado vainilla Sandy Nestle*": 500,
+            "helado linea azul Chocolate 1.8L Nestle*": 3200,
+            "helado linea azul chocolate 450ml Nestle*": 820,
+            "helado linea azul Fresa 1.8L Nestle*": 2990,
+            "helado linea azul fresa 450ml Nestle*": 820,
+            "helado Linea Azul sabor Vainilla 1.8L Nestle*": 2990,
+            "helado linea azul vainilla 450ml Nestle*": 820,
+            "helado Sensaciones Almendrado pote 450ml Nestle*": 1100,
+            "helado Sensaciones Chocolate Almendrado pote 450ml Nestle*": 1100,
+            "leche en polvo paquete 1kg": 2300,
+            "leche entera fluida 1L Vima*": 1100,
+            "mantequilla sin sal barra 200gr canaprole ITH*": 1540,
+            "natilla de chocolate 92g SunnyS*": 280,
+            "natilla de vainilla 92g SunnyS*": 280,
+            "queso crema 200g Vima*": 1250,
+            "queso crema 2kg tanqueta Vima*": 10800,
+            "Queso Gouda 3.2Kg Vima*": 5500,
+            "queso gouda 3kg Prairie Farms*": 4500,
+            "queso manchego 150 gr vima*": 3100,
+            "queso mezcla semi curado vima*": 2300,
+            "yogurt coco 1L Cid*": 1400,
+            "yogurt de fresa 100g Vima": 240,
+            "yogurt guanábana 1L Cid*": 1400,
+            "yogurt macedonia 100g Vima": 240,
+            "yogurt naranja-piña 1L Cid*": 1400,
+            "yogurt natural Rabre 1L": 850,
+            "agua mineral 1500ml Ciego Montero*": 350,
+            "agua mineral 5000 ml Ciego Montero*": 900,
+            "maicena (almidón de maíz) Apti 200g": 540,
+            "nectar de mango 1lt Goliatt": 800,
+            "nectar de Tropical 1lt Goliatt": 850,
+            "pomo de refresco limon 1.5L Ciego Montero*": 750,
+            "pomo de refresco mate 1.5L Ciego Montero": 750,
+            "pomo de refresco tukola 1.5 Lt Ciego Montero*": 750,
+            "refresco de naranja 1.5lt Ciego Montero*": 750,
+            "detergente liquido 1L ropa de color la mancha*": 1000,
+            "detergente liquido para fregar limon 500ml LaMancha": 690,
+            "detergente multiuso de cítricos 1.5Lt La Mancha*": 800,
+            "detergente multiuso de lavanda 1.5Lt LaMancha": 800,
+            "detergente multiuso kapital": 850,
+            "esponjas para cocina total care Nihao53*": 230,
+            "Jabas": 10,
+            "jarra plástica con 4 vasos KOD:0009": 2400,
+            "limpiador insecticida 1L la mancha": 780,
+            "perlas de olor 200g nihao53*": 1100,
+            "reactivador de color 1L la mancha *": 780,
+            "set de pozuelo de 3 piezas 9432CI": 2600,
+            "pan bums 8u 40g": 240,
+            "Pan Buns 8u 60g": 350,
+            "pan de molde Pullman 350g": 380,
+            "pan hamburguesa 430 gr": 330,
+            "pan perro 80g": 330,
+            "ajo dientes 1 kg Vima*": 2200,
+            "cebolla en tiras congeladas 1 kg vima*": 1870,
+            "croquetas de jamon caseras 500g Vima*": 1500,
+            "croquetas de jamon Romelia 12u": 750,
+            "croquetas de pollo Romelia 12u": 720,
+            "fresas congeladas 450gr Vima*": 2050,
+            "frutos del bosque congelados vima*": 3050,
+            "papas prefritas Uranus 2kg": 3000
         }
     }
-}
 }

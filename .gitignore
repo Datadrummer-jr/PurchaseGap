@@ -219,6 +219,6 @@ main.py
 # Permitir binarios compilados
 !*.pyd
 
-
+datapyme.session
 
 

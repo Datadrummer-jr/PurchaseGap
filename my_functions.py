@@ -236,6 +236,16 @@ def first_count(lista:list[str], elemento:str):
        contador += 1
   return contador
 
+def search_keys(dict: dict[str,float], key=str):
+    new_dict = {}
+    keys = [ k for k  in dict]
+    for k in keys:
+        if key.upper().replace(' ','') in k.upper().replace(' ',''):
+            new_dict[k] = dict[k]
+        else:
+            continue
+    return new_dict
+
 def sorted_fechas(dicc: dict) -> dict:
   try:
    return dict(sorted(dicc.items(), key=lambda x:  datetime.strptime(x[0], "%Y-%m-%d")))
@@ -251,6 +261,18 @@ def dict_num_values(dicc: dict) -> list:
           else:
               values.extend(dict_num_values(i))
    return values
+
+def aplanar_lista(lista: list = []) -> list:
+    lista_aplanada = []
+    n = len(lista) 
+    if n == 0: 
+        return lista_aplanada
+    for i in lista:
+        if not isinstance(i,list):
+            lista_aplanada.append(i)
+        else:
+            lista_aplanada.extend(aplanar_lista(i))
+    return lista_aplanada
 
 def parser_qvapay(id: str, date: str, text: str, file: str) -> str:
     ratio = float(re.search(r"Ratio:\s*\$([0-9]+\.[0-9]+)", text).group(1))
@@ -276,7 +298,6 @@ def parser_qvapay_2(text: str, usd: list[int|float] = [], mlc: list[int|float] =
     paypal.append(float(text[4][1:]) / float(text[2][1:])) if text[6] == "#PAYPAL" else None
     etecsa.append(float(text[4][1:]) / float(text[2][1:])) if text[6] == "#ETECSA" else None
 
-
 def sum_row(matriz: list) -> list[int|float]:
     try:
         n = len(matriz)
@@ -300,4 +321,17 @@ def sum_row(matriz: list) -> list[int|float]:
     except IndexError as e:
        return e
           
-          
+def list_to_dict(keys: list[str], values: list) -> dict:
+  n,m = len(keys), len(values)
+  if n != m or n == m == 0:
+    if n > m:
+      values.extend([None for _ in range(n-m)])
+    else:
+     return False
+  dict = {}
+  for i in range(n):
+    dict[keys[i]] = values[i]
+  return dict
+
+
+  

@@ -1,0 +1,46 @@
+{
+    "Arroz":{
+        "importado_con_15%_de_partidura": 7.0,
+        "importado_con_4%_de_partidura": 10.0,
+        "nacional": 6.0
+    },
+    "Aceite" :{
+        "vegetal normado a granel": 12.0,
+        " vegetal de soya envasado, normado": 18.0
+    },
+    "frijoles":{
+        "importados normados y liberados":16.0,
+        "negros nacionales, normados y liberados": 14.0,
+        "Frijoles nacionales liberados (colorados)":16.0
+    },
+    "azúcar":{
+        "Azúcar refino normada y liberada":6.0,
+        "Azúcar crudo, normada y liberada":5.0
+    },
+    "pollo":{
+        "Pollo normado y liberado": 20.0
+    },
+    "Huevo de gallina normado y liberado":2.20,
+    "Picadillo":{
+        "texturizado": 15.0,
+        "Picadillo de res normado (*)":0.70
+    },
+    "Mortadella de pollo Nobel": 17.0,
+    "Pasta Alimenticia en paquetes de 400 grs ": 15.0,
+    "Café mezclado (en paquetes de 4 onzas)": 8.0,
+    "Pan normado de 80g": 0.80,
+    "leche": {
+     "Leche en polvo entera, normada y dietas médicas, bolsa de 1 Kg(*)": 2.5,
+    "Leche en polvo descremada para dietas médicas(*)": 2.0,
+    "Leche fluida industria-pasteurizada(*)": 0.25,
+    "Leche fresca de vaca(*)": 0.25
+    },
+    "yogurt":{
+        "Yogurt de soya en bolsas de 917 ml, normado y liberado": 5.0,
+        "Yogurt natural normado en bolsa de 917 ml (*)" : 1.0,
+        "Yogurt natural liberado en bolsa de 917 ml": 15.0
+    },
+    "Carne de res primera deshuesada, normada y dietas médicas (*)":0.70,
+    "compota": 0.30,
+    "Pescado Jurel entero, normado": 19.0
+}
