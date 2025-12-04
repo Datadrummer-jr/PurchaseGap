@@ -638,5 +638,109 @@
             "frutos del bosque congelados vima*": 3050,
             "papas prefritas Uranus 2kg": 3000
         }
+    },
+    "6":{
+        "name": "Alza",
+        "sales_category":"mayorista",
+        "horary":{
+        "days": null,
+        "hour" : null
+    },
+    "municipality": "COTORRO",
+    "city": "La Habana",
+     "coordinates": [],
+    "products": {
+        "salchichas": {
+            "carrer":{
+            "min_1_caja":10200
+            },
+            "bello":{
+            "min_1_caja":10200
+            }
+        },
+        "jabon de baño":{
+            "eissu":{
+                "min_1_caja": 12288
+            }
+        },
+        "cerveza":{
+            "importado":{
+                "eichbaum": {"min_5_caja": 5112}
+            }
+        },
+        "cake":{
+            "unidad": 1900
+        },
+        "donas": {
+            "unidad":90,
+            "6_unidades":360
+        },
+        "eclear": {
+            "unidad":65
+        },
+        "berlina":{
+            "unidad": 90
+        },
+        "genovesa": {
+            "unidad": 190,
+            "completo": 1520
+        },
+        "galletas":{
+            "prince":{
+                "min_1_caja":6840
+            },
+            "keyf":{
+                "min_1_caja":2808
+            }
+        },
+        "vinagre":{
+            "min_1_caja":4500
+        },
+       "arroz":{
+          "min_1_caja":17650
+       },
+       "zumo":{
+        "min_1_caja":3975
+       },
+       "harina":{
+        "min_1_caja":13750
+       },
+      "refresco":{
+        "golden":{
+            "min_1_caja":750
+        },
+        "tuti_tuti":{
+            "min_1_caja":750
+        }
+      },
+    "jugo":{
+        "cajita":{
+            "min_1_caja":4968
+        }
+    },
+    "sopa instantánea":{
+        "min_1_caja":6960
+    },
+    "pan":{
+        "corteza_dura":{
+            "unidad":170
+        },
+        "perro":{
+            "5_unidades":300
+        },
+        "buns_50g":{
+            "8_unidades":330
+        },
+        "buns_80g":{
+            "6_unidades":330
+        },
+        "molde":{
+            "unidad": 400
+        }
+    },
+        "panquesitos":{
+            "5_unidades":350
+        }
     }
+}
 }
