@@ -2,6 +2,7 @@
     "0":{
         "name": null,
         "sales_category":null,
+         "currency": "CUP",
         "horary":{
         "days": null,
         "hour" : null

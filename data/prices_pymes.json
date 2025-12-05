@@ -2,6 +2,7 @@
     "0": {
         "name": "Ozymandias",
         "sales_category": "minorista",
+        "currency": "CUP",
         "horary": {
             "days": [
                 "lunes",
@@ -99,6 +100,7 @@
     "1": {
         "name": null,
         "sales_category": "minorista",
+        "currency": "CUP",
         "horary": {
             "days": null,
             "hour": null
@@ -132,6 +134,7 @@
     "2": {
         "name": null,
         "sales_category": "minorista",
+        "currency": "CUP",
         "horary": {
             "days": null,
             "hour": null
@@ -216,6 +219,7 @@
     "3": {
         "name": null,
         "sales_category": "minorista",
+        "currency": "CUP",
         "horary": {
             "days": null,
             "hour": null
@@ -280,6 +284,7 @@
     "4": {
         "name": "Gaia",
         "sales_category": "minorista",
+        "currency": "CUP",
         "horary": {
             "days": null,
             "hour": null
@@ -374,6 +379,7 @@
     "5": {
         "name": "Akokan S.R.L",
         "sales_category": "minorista",
+        "currency": "CUP",
         "horary": {
             "days": null,
             "hour": null
@@ -642,6 +648,7 @@
     "6":{
         "name": "Alza",
         "sales_category":"mayorista",
+         "currency": "CUP",
         "horary":{
         "days": null,
         "hour" : null
@@ -755,6 +762,7 @@
    "7":{
         "name": "Bravo 8",
         "sales_category":"mayorista",
+         "currency": "CUP",
         "horary":{
         "days": null,
         "hour" : null

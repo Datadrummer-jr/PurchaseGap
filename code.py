@@ -172,7 +172,7 @@ def bar_canasta_vs_pymes():
     fig.show()
     
 def qvapay_vs_el_toque():
-  fechas = [fecha['date_from'] for fecha in mf.intervalo_fechas('2025-11-21','2025-11-30', False, False)]
+  fechas = [fecha['date_from'] for fecha in mf.intervalo_fechas('2025-11-20','2025-11-30', False, False)]
   usd_qvapay = []
   for fecha in fechas:
     offers = []
