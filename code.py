@@ -184,8 +184,8 @@ def qvapay_vs_el_toque():
   medias_el_toque = [el_toque[fecha]['USD'] for fecha in fechas]
 
   fig = go.Figure(data=[
-    go.Bar(name="El Toque", x=fechas, y=medias_el_toque),
-    go.Bar(name="QvaPay", x=fechas, y=medias_qvapay)
+    go.Line(name="El Toque", x=fechas, y=medias_el_toque),
+    go.Line(name="QvaPay", x=fechas, y=medias_qvapay)
   ])
   fig.update_layout( barmode='group', title= "Gráfica comparativa de los precios media del USD entre El Toque y QvaPay.")
   fig.show()
