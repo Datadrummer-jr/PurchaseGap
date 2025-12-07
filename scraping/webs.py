@@ -102,7 +102,7 @@ def Renova():
       
         browser.close()
 
-def JKY_S_R_L():
+def Envios_Cuba(url: str, index: int):
     products = []
     prices = []
     with sync_playwright() as p:
@@ -110,7 +110,7 @@ def JKY_S_R_L():
         headless=True
         )
         page =  browser.new_page()
-        page.goto("file:///D:/download/Download_Edge/Mercado%20Habana%20-%20Envios%20Cuba,%20Paquetes%20a%20Cuba%20-%20Bodeg%C3%B3n%20Wapa.html", wait_until="domcontentloaded")
+        page.goto(url, wait_until="domcontentloaded")
         
         web_poducts = page.locator("a.text-capitalize")
 
@@ -123,13 +123,38 @@ def JKY_S_R_L():
           precio = web_prices.nth(j).inner_text()
           if str(precio)[0] == "$":
            prices.append(float(precio[:-3][1:]))
+    
+        prices_pymes[str(index)]["products"].update(mf.list_to_dict(products, prices))
+      
+        browser.close()
 
-        prices_pymes["20"]["products"].update(mf.list_to_dict(products, prices))
+def Envios_Cuba_Isla():
+    products = []
+    prices = []
+    with sync_playwright() as p:
+        browser =  p.chromium.launch(
+        headless=True
+        )
+        page =  browser.new_page()
+        page.goto("file:///D:/download/Download_Edge/Mercado%20Isla%20de%20la%20Juventud%20-%20Envios%20Cuba,%20Paquetes%20a%20Cuba%20-%20El%20Pinero%20-%20Isla%20Juventud.html", wait_until="domcontentloaded")
+        
+        web_poducts = page.locator("a.text-capitalize")
+
+        web_prices =  page.locator("span.text-dark") 
+
+        for i in range(web_poducts.count()):
+          products.append(web_poducts.nth(i).inner_text().strip())
+        
+        for j in range(web_prices.count()):
+          precio = web_prices.nth(j).inner_text()
+          if str(precio)[-3:] == "EUR":
+           prices.append(float(precio[:-4]))
+        prices_pymes["27"]["products"].update(mf.list_to_dict(products, prices))
       
         browser.close()
 
 if __name__ == "__main__":
-    JKY_S_R_L()
+    Envios_Cuba("file:///D:/download/Download_Edge/Mercado%20Ciego%20de%20%C3%81vila%20-%20Envios%20Cuba,%20Paquetes%20a%20Cuba%20-%20La%20Venecia.html",31)
     mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
 
 

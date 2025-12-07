@@ -366,3 +366,7 @@ def insert_in_list(iter: list, element, index: int = -1):
         return [element] + iter
     return  left + [element] + right
   
+def dict_for_index(dict: dict, index: int):
+    keys = [k for k in dict]
+    key = keys[index]
+    return dict[key]

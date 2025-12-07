@@ -21,6 +21,8 @@ población_por_provincia =mf.read_json("data/población_cuba (2024).json")
 canasta_básica = mf.read_json("data/canasta_básica.json")
 qvapay = mf.read_json("data/qvapay.json")
 
+última_tasa = mf.dict_for_index(el_toque,-1)
+
 def salary(file = salarios):
    for i in range(0,32):
      print(f"{i} | 44 horas: {file['44_horas'][i]} | 40 horas : {file['40_horas'][i]}")
@@ -80,7 +82,6 @@ def bar_pymes():
   fig.update_layout(title= "Comparación de la cantidad de actores económicos creados desde 2021 por provincia.")
   fig.show()
 
-
 def compra_máxima(prices: list[int|float], escala : int) -> int:
     matriz = [-sys.maxsize] * (escala+1)
     matriz[0] = 0
@@ -93,10 +94,10 @@ def compra_por_escala(escala: int):
    máximos = [compra_máxima([int(i) for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
               if mipymes[i]["sales_category"] == "minorista" and mipymes[i]["currency"] == "CUP"
               else 
-              compra_máxima([int(i*el_toque["2023-10-31"]["ECU"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
+              compra_máxima([int(i*última_tasa["ECU"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
               if mipymes[i]["sales_category"] == "minorista" and mipymes[i]["currency"] == "EURO" 
               else
-              compra_máxima([int(i*el_toque["2023-10-31"]["USD"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
+              compra_máxima([int(i*última_tasa["USD"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
               if mipymes[i]["sales_category"] == "minorista" and mipymes[i]["currency"] == "USD"
               else 0
               for i in mipymes]
