@@ -4,7 +4,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import numpy as np
-import pandas as pd
 import polars as pl
 import sys
 
@@ -209,7 +208,7 @@ def bar_canasta_vs_pymes():
     fig.show()
     
 def qvapay_vs_el_toque():
-  fechas = [fecha['date_from'] for fecha in mf.intervalo_fechas('2025-11-8','2025-11-30', False, False)]
+  fechas = [fecha['date_from'] for fecha in mf.intervalo_fechas('2025-11-5','2025-11-30', False, False)]
   usd_qvapay = []
   for fecha in fechas:
     offers = []
@@ -219,7 +218,7 @@ def qvapay_vs_el_toque():
     usd_qvapay.append(offers)
   medias_qvapay = [ float(np.mean(m)) for m in usd_qvapay]
   medias_el_toque = [el_toque[fecha]['USD'] for fecha in fechas]
-  medias_qvapay[18] =  (medias_qvapay[17] + medias_qvapay[19]) / 2
+  medias_qvapay[21] =  (medias_qvapay[20] + medias_qvapay[22]) / 2
 
   fig = go.Figure(data=[
     go.Line(name="El Toque", x=fechas, y=medias_el_toque),
