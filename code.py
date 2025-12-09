@@ -101,8 +101,11 @@ def compra_por_escala(escala: int):
               if mipymes[i]["sales_category"] == "minorista" and mipymes[i]["currency"] == "USD"
               else 0
               for i in mipymes]
-   máximos = [ m for m in máximos if m != 0]
-   return  int(np.median(máximos))
+  #  máximos = [ m for m in máximos if m != 0]
+
+   return máximos
+
+print(compra_por_escala(2100))
 
 def max_bar():
 
