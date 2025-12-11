@@ -646,122 +646,6 @@
         }
     },
     "6": {
-        "name": "Alza",
-        "sales_category": "mayorista",
-        "currency": "CUP",
-        "horary": {
-            "days": null,
-            "hour": null
-        },
-        "municipality": "COTORRO",
-        "city": "La Habana",
-        "coordinates": [],
-        "products": {
-            "salchichas": {
-                "carrer": {
-                    "min_1_caja_de_4": 10200
-                },
-                "bello": {
-                    "min_1_caja_de_4": 10200
-                }
-            },
-            "jabon de baño": {
-                "eissu": {
-                    "min_1_caja_de_96": 12288
-                }
-            },
-            "codito": {
-                "min_1_caja_de_20": 5600
-            },
-            "cerveza": {
-                "importado": {
-                    "eichbaum": {
-                        "min_5_caja_de_24": 5112
-                    }
-                },
-                "holba": {
-                    "min_1_caja_de_24": 5352
-                }
-            },
-            "cake": {
-                "unidad": 1900
-            },
-            "donas": {
-                "unidad": 90,
-                "6_unidades": 360
-            },
-            "eclear": {
-                "unidad": 65
-            },
-            "berlina": {
-                "unidad": 90
-            },
-            "genovesa": {
-                "unidad": 190,
-                "completo": 1520
-            },
-            "galletas": {
-                "prince": {
-                    "min_1_caja_de_24": 6840
-                },
-                "keyf": {
-                    "min_1_caja_de_24": 2808
-                },
-                "petit_beurre": {
-                    "min_1_caja_de_12": 2556
-                }
-            },
-            "vinagre": {
-                "min_1_caja_de_15": 4500
-            },
-            "arroz": {
-                "min_1_caja_de_30": 17650
-            },
-            "zumo": {
-                "min_1_caja_de_15": 3975
-            },
-            "harina": {
-                "min_1_caja_de_25kg": 13750
-            },
-            "refresco": {
-                "golden": {
-                    "min_1_caja_de_24": 750
-                },
-                "tuti_tuti": {
-                    "min_1_caja_de_24": 750
-                }
-            },
-            "jugo": {
-                "cajita": {
-                    "min_1_caja_27": 4968
-                }
-            },
-            "sopa instantánea": {
-                "min_1_caja_de_48": 6960
-            },
-            "pan": {
-                "corteza_dura": {
-                    "unidad": 170
-                },
-                "perro": {
-                    "5_unidades": 300
-                },
-                "buns_50g": {
-                    "8_unidades": 330
-                },
-                "buns_80g": {
-                    "6_unidades": 330
-                },
-                "molde": {
-                    "unidad": 400
-                }
-            },
-            "panquesitos": {
-                "5_unidades": 350
-            }
-        }
-    },
-    "7": {
         "name": "Bravo 8",
         "sales_category": "mayorista",
         "currency": "CUP",
@@ -841,281 +725,7 @@
             }
         }
     },
-    "8": {
-        "name": "Guamay",
-        "sales_category": "minorista",
-        "currency": "USD",
-        "horary": {
-            "days": null,
-            "hour": null
-        },
-        "municipality": "PLAZA",
-        "city": "La Habana",
-        "coordinates": [],
-        "products": {
-            "Olla Arrocera 1.8Litros 700Wats MC": 20.0,
-            "Olla Reina 5Litros 1000Wats MC": 40.0,
-            "Galletas JAGUAR con crema de plátano 64g M/OYLUM": 0.23,
-            "Galletas CUSTARD de Chocolate con Crema de Vainilla 75g M/CIGDEM": 0.25,
-            "Galletas CUSTARD con Crema de Plátano 75g M/CIGDEM": 0.25,
-            "Galletas KREMALI con Crema de Vainilla 50g M/CIGDEM": 0.22,
-            "Galletas OYLUMO de chocolate con crema de vainilla 38g M/OYLUM": 0.17,
-            "Galletas YEYO con Crema de Fresa 110g M/CIGDEM": 0.42,
-            "Galletas PICNIC 50g M/CIGDEM": 0.21,
-            "Galletas PETIT de Mantequilla 100g M/CIGDEM": 0.35,
-            "Galletas JAGUAR con crema de avellana 64g M/OYLUM": 0.23,
-            "Galletas OYLUMO de chocolate con crema de vainilla 72g M/OYLUM": 0.28,
-            "Sopa de Lentejas Sobre de 65g MZER": 0.38,
-            "Sopa Cremosa de Champiñones Sobre de 65g MZER": 0.38,
-            "Galletas Chocolate y Vainilla con crema de Vainilla 370g M/CIGDEM": 1.72,
-            "Galletas Vainilla con crema de Vainilla 370g M/CIGDEM": 1.69,
-            "Galletas Chocolate con crema de Vainilla 370g M/CIGDEM": 1.72,
-            "Galletas YEYO con Crema de Chocolate 110g M/CIGDEM": 0.42,
-            "Aceitunas negras Sobre de 400g MZER": 2.06,
-            "Galletas FINGER Dolce Vita de leche 480g M/OYLUM": 1.31,
-            "Refresco en Polvo Sabor Guayaba Sobre 10G , rinden 2 litros M/JUICY FRUIT": 0.05,
-            "Refresco en Polvo Sabor Tamarindo Sobre 10G , rinden 2 litros M/JUICY FRUIT": 0.05,
-            "Refresco en Polvo sabor Mixberry Sobre 9G, rinden 1.5 litros M/ TRIX": 0.04,
-            "Galletas KREMALI con Crema de Chocolate 50g M/CIGDEM": 0.22,
-            "Refresco en Polvo Sabor Guanabana Sobre 10G , rinden 2 litros M/JUICY FRUIT": 0.05,
-            "Pasta tipo SPAGHETTI 500G M/LUCY": 0.45,
-            "Refresco en Polvo sabor Cereza Sobre 9G, rinden 1.5 litros M/ TRIX": 0.04,
-            "Galletas PICNIC Tea Biscuits 50g M/CIGDEM": 0.21,
-            "Refresco en Polvo sabor Platano Sobre 9G, rinden 1.5 litros M/ TRIX": 0.04,
-            "Refresco en Polvo sabor Melocotón Sobre 9G, rinden 1.5 litros M/ TRIX": 0.04,
-            "WAFERS con crema de vainilla 240g M/OYLUM": 1.4,
-            "Refresco en Polvo Sabor Fresa Sobre 10G , rinden 2 litros M/JUICY FRUIT": 0.05,
-            "Sorbeto con crema de fresa 35g M/OYLUM": 0.22,
-            "Refresco Gaseado de Cola 250ml": 0.25,
-            "Galletas CUSTARD de Vainilla con Crema de Chocolate 75g M/CIGDEM": 0.25,
-            "Refresco en Polvo Sabor Piña Sobre 10G , rinden 2 litros M/JUICY FRUIT": 0.05,
-            "Refresco en Polvo sabor Mango Sobre 9G, rinden 1.5 litro (CAJA de 576 sobres) M/TRIX": 0.04,
-            "Sorbeto con crema de vainilla 35g M/OYLUM": 0.22,
-            "Harina de Trigo M/ NT": 1.1,
-            "Condimento Concentrado de POLLO en sobre de 10G": 1.0,
-            "Crema de Pistacho M/KENT": 1.9,
-            "Refresco en Polvo Sabor Cola de 10G Rinden 2 litros M/ Super Juice": 0.03,
-            "Sorbeto de chocolate con crema de coco 35g M/OYLUM": 0.22,
-            "Pasta tipo SMALL ELBOW 500G M/BESLER": 0.49,
-            "Refresco Gaseado de Naranja 250ml": 0.25,
-            "Galletas CUSTARD de Vainilla con Crema de Vainilla 75g M/CIGDEM": 0.25,
-            "Refresco en Polvo Sabor Naranja Sobre 10G , rinden 2 litros M/JUICY FRUIT": 0.05,
-            "Refresco en Polvo sabor Limón Sobre 9G, rinden 1.5 litros M/ TRIX": 0.04,
-            "Condimento Concentrado de POLLO en cuadrito 10G / Marca KENT": 0.07,
-            "Galletas Snakkers con crema de Chocolate 30g M/OYLUM": 0.24,
-            "Refresco Gaseado sabor Manzana Pomo 250Ml (Caja 24 pomos) M/FRESH MIX": 0.25,
-            "Galletas CRACKERS con sabor a tomillo y aceite de oliva 100g M/OYLUM": 0.46,
-            "Sorbeto con crema de avellana 35g M/OYLUM": 0.22,
-            "Pasta tipo SPAGHETTI 1.7MM de 500G M/BESLER": 0.49,
-            "Condimento Concentrado de VEGETALES Cuadrito 10G M/ KENT": 7.44,
-            "Refresco Gaseado de Limon 250ml": 0.25,
-            "Galletas CUSTARD de Vainilla con Crema de Fresa 75g M/CIGDEM": 0.25,
-            "Galletas HOLA con crema de vainilla 68g M/OYLUM": 0.23,
-            "Refresco en Polvo Sabor Mango Sobre 10G , rinden 2 litrosM/JUICY FRUIT": 0.05,
-            "Refresco en Polvo Sabor Voco Sobre 10G , rinden 2 litros M/JUICY FRUIT": 0.05,
-            "Galletas HOLA con crema de Avellana 68g M/OYLUM": 0.23,
-            "Refresco en Polvo sabor Piña Sobre 9G, rinden 1.5 litros M/ TRIX": 0.04,
-            "Galletas CRACKERS con sabor a tomate 100g M/OYLUM": 0.46,
-            "Galletas HOLA con crema de fresa 68g M/OYLUM": 0.23,
-            "Refresco en Polvo Sabor Limon Sobre 10G , rinden 2 litros M/JUICY FRUIT": 0.05,
-            "Chambelonas de 27G": 0.32,
-            "Refresco en Polvo sabor Cola Sobre 9G, rinden 1.5 litros M/ TRIX": 0.04,
-            "Aceitunas negras Sobre 170g MZER": 0.91,
-            "Refresco en Polvo Sabor Manzana Sobre 10G , rinden 2 litros M/JUICY FRUIT": 0.05,
-            "Condimento Concentrado Cubos Magicos de ALBAHACA": 0.04,
-            "Galletas HOLA con crema de Plátano 68g M/OYLUM": 0.23,
-            "Crema de Avellana con Chocolate M/ KENT TRIX POTE 56G": 0.55,
-            "Galletas CRACKERS con sabor a especias 100g M/OYLUM": 0.46,
-            "Pasta de Tomate Lata 400G M/LUCY": 0.65,
-            "Condimento Concentrado de Cubos Magicos TOMATE 4G": 0.04,
-            "Refresco en Polvo sabor Coctel Sobre 9G, rinden 1.5 litros M/ TRIX": 0.04,
-            "Refresco en Polvo sabor Fresa Sobre 9G, rinden 1.5 litros M/ TRIX": 0.04,
-            "Refresco en Polvo sabor Naranja Sobre 9G, rinden 1.5 litros (CAJA de 576 sobres) M/ TRIX": 0.04,
-            "Crema de Cantilly de Fresa CAJA de 150g MZER": 1.59,
-            "Crema de Cantilly de Chocolate CAJA de 150g MZER": 1.59,
-            "Crema de Cantilly de Vainilla CAJA de 150g MZER": 1.59,
-            "Crema de Cantilly de Plátano CAJA de 150g MZER": 1.59,
-            "Vainilla con azúcar Sobre 5g MZER": 0.04,
-            "Pure de Papas Instantaneo con leche 125G M/ KENT": 1.2,
-            "Piruletas con Steacker 60g": 91.5,
-            "Avión de 35G relleno con Chicles": 20.4,
-            "Pasta Tipo Spaghetti 500g M/María": 0.5,
-            "Crema de Avellana con Chocolate con leche (DUP) POMO 350G M/KENT": 1.75,
-            "Aceite de Girasol Pomo 1Litro M/ SOR": 2.25,
-            "Aceite de Oliva Pomo 1Litro M/ KENT": 7.5,
-            "Conejo con Piruleta": 15.7,
-            "Pollo en CAJA de 12KG (Muslo 6 paquetes)": 23.0,
-            "Refresco Gaseado sabor Cola pomo 1L Mexx Koke M/Viopa": 1.1,
-            "Mantequilla de Mani Pomo 350G M/ KENT": 2.2,
-            "Condimento Concentrado de POLLO Cuadrito 10G M/ KENT": 7.4,
-            "Máquina Expendedora 30G relleno con Chicles": 22.3,
-            "Carruaje de 35G relleno con Chicles": 30.6,
-            "Atun en lata de 170G": 1.05,
-            "Crema de Chocolate y Avellanas con Leche Pomo 350G M/KENT": 3.0,
-            "Osoteléfono de 40G relleno con Chicles": 40.8,
-            "Cappuccino Vainilla .Marca Kentcafe": 0.22,
-            "KG de Lomo de Cerdo Deshuesado": 5.0,
-            "Refresco Gaseado sabor Naranja pomo 1L Mexx Orange M/Viopa": 1.1,
-            "Condimento Concentrado de Pollo en cuadritos de 10G": 1.92,
-            "Crema de Avellana con Chocolate-13% Avellana Pomo 350G M/KENT": 1.9,
-            "Chupete 14G con Piruleta": 21.6,
-            "Teléfono de 35G relleno con Chicles": 30.6,
-            "Pasta tipo SMALL ELBOW 500G M/LUCY": 0.49,
-            "Atun en lata de 185G": 1.1,
-            "Crema de Avellana con Chocolate Oscuro Pomo 350G M/KENT": 2.1,
-            "Astronauta de 27G relleno con Chicles": 40.8,
-            "Cappuccino Chocolate .Marca Kentcafe": 0.22,
-            "Refresco Gaseado sabor Cola pomo 450ml Mexx Koke M/Viopa": 0.59,
-            "Bigote 14G con Piruleta": 17.7,
-            "Robot OZIGUARD con juguete y minicaramelo mágico": 24.8,
-            "Sopa Cremosa de Vegetales 68G Marca KENT": 0.3,
-            "Caracol de 25G relleno con Chicles": 22.4,
-            "Galletas con crema de fresa 64g M/OYLUM": 0.3,
-            "Pasta Tipo Fusilli 500g M/María": 0.51,
-            "Aceitunas verdes Sobre de 400g MZER": 2.84,
-            "Refresco Gaseado sabor Naranja pomo 450ml Mexx Orange M/Viopa": 0.59,
-            "Galletas María 100g M/Cigdem": 0.4,
-            "Sopa Cremosa de Champiñones SOBRE 68G M/ KENT": 0.3,
-            "Máquina Expendedora 25G con Forma de Animales": 26.7,
-            "Mezcla para hacer Muffins de Arándano CAJA 345G M/KENT": 2.18,
-            "Moto de 20G relleno con Chicles": 22.4,
-            "Galletas de chocolate con crema de vainilla 64g M/OYLUM": 0.3,
-            "Pasta Tipo Fideos Cortos 500g M/María": 0.51,
-            "Galletas PETIT de Mantequilla 700g M/CIGDEM": 2.45,
-            "Aceite de Girasol Pomo 1Litro M/ Yonka": 2.1,
-            "Aceite de Oliva Pomo 1/2Litro M/ KENT": 3.9,
-            "Galletas KREMALI con Crema de Plátano 50g M/CIGDEM": 0.22,
-            "Bebida Energética Pomo 450ml Energética X M/Viopa": 0.6,
-            "Refresco en Polvo Sabor Mango de 10G rinden 2 litros M/ Super Juice": 37.44,
-            "Mezcla para Hacer Muffins de Chocolate CAJA 345G M/KENT": 2.0,
-            "Máquina expendedora 20G relleno con Chicles": 20.0,
-            "Torre Exibidor con 80 Cambelonas 60g forma FELIZ CUMPLEAÑOS": 64.0,
-            "Pasta Tipo Penne Rigate 500g M/María": 0.51,
-            "Galletas PETIT BEURRE Dolce Vita de 500g M/OYLUM": 1.31,
-            "Levadura Instantanea (500G) Marca BRAVO": 2.8,
-            "Espada con Piruleta": 15.7,
-            "Bebida Energética Pomo 250ml Energética X M/Viopa": 0.35,
-            "Mantequilla de Mani y Crema de Avellanas (DUO) Pomo 350G M/ KENT": 2.12,
-            "Harina de trigo en bolsa de 1Kg M/SINANGIL": 1.1,
-            "Crema de Avellana con Chocolate-1% Avellana Pomo 350G M/KENT": 2.0,
-            "Crema de Avellana con Chocolate 200g M/KENT": 1.1,
-            "Chambelonas de Frutas": 12.5,
-            "Chambelonas forma OJO 60g": 0.8,
-            "Mezcla para hacer cake de Naranja CAJA 350G M/ KENT": 1.88,
-            "Sal de Limón 60G Marca KENT (Venta en Caja 12 sobres ) Precio 7.41 USD": 0.62,
-            "Huevo Sorpresa": 8.5,
-            "Mezcla para hacer Cheesecake de Fresa Sobre 400G M/ KENT": 2.8,
-            "Pure de Papas Instantaneo con leche 2Kg": 19.8,
-            "Cobertura de Chocolate (Caja de 24 sobres 125g, 12x2) / Marca Kent": 26.92,
-            "Sopa Instantánea de Pollo en sobre 70G M/ KENT": 0.25,
-            "Sopa Instantánea de Vegetales sobre 70G M/ KENT": 0.2,
-            "Condimento Concentrado de RES en cuadrito 10G": 0.07,
-            "Condimento Concentrado de VEGETALES Pomo 150G M/ KENT": 1.33,
-            "Sopa Cremosa de pollo Sobre de 65g MZER": 0.38,
-            "Condimento Concentrado de POLLO Pomo 150G M/ KENT": 1.56,
-            "Condimento Concentrado 10G (CAJA 2 cuadritos) MZER": 0.1,
-            "Condimento Concentrado de RES Pomo 150G M/ KENT": 1.33,
-            "Sopa con fideos de pollo Sobre de 65g MZER": 0.38,
-            "Sopa Instantanea de Curri en sobre 70G M/ KENT": 0.2,
-            "Arroz blanco brasileño, de Grano largo, 7% partido ( Bolsas de 1 KG )": 1.25,
-            "Batería de Litio Vertical Capacidad: 14.3kW": 2664.0,
-            "Panel Solar Bifacial 650Wats": 110.0,
-            "Módulo Wifi": 60.0,
-            "Inversor BlueSun Potencia Nominal: 3.0kW": 676.0,
-            "Inversor BlueSun Potencia Nominal: 10.0kW": 1848.0,
-            "Estructura de Galvanizado Profundo para 18 Unidades": 1152.0,
-            "Inversor BlueSun Potencia Nominal: 6.5kW": 1610.0,
-            "Estructura de Galvanizado Profundo para 12 Unidades": 768.0,
-            "Gabinete de Protenciones para instalaciones Fotovoltaica": 296.0,
-            "Estructura de Galvanizado Profundo para 4 Unidades": 280.0,
-            "Cable Fotovoltaico (PV) de 4 mm²": 2.0,
-            "Cemento Junteador color Blanco DERRECOLOR , Bolsa de 4.5Kg": 10.0,
-            "Cerámica para piso PORTLAND AUT BEIGE en CAJA de 2.81M2 (53*53 - 10U)": 10.0,
-            "Cerámica para piso PANTHEON LUX en CAJA de 2.81M2 (53*53 - 10U)": 10.0,
-            "Cerámica para piso EVEREST GRAY en CAJA de 2.81M2 (53*53 - 10U)": 10.0,
-            "Cerámica para piso DOHA WHITE MT en CAJA de 2.81M2 (53*53 - 10U)": 10.0,
-            "Cerámica para piso PIEROBLACK RET en CAJA de 2.73M2 (68x68 - 6U)": 10.0,
-            "Cerámica para piso VOLCANO CREMA en CAJA de 2.81M2 (53*53 - 10U)": 10.0,
-            "Cerámica para piso PIERO GRIS RET en CAJA de 2.73M2 (68x68 - 6U)": 10.0,
-            "Cerámica para piso SAHARA SILVER en CAJA de 2.81M2 (53*53 - 10U)": 10.0,
-            "Cerámica para piso SAVANA ROSSO en CAJA de 2.81M2 (53*53 - 10U)": 10.0,
-            "Cemento Cola Gris PEGA FORTE SUPER PRO , Bolsa de 22.7KG": 18.0,
-            "Cerámica para piso DOHA WHITE PLUS en CAJA de 2.73M2 (68x68 - 6U": 10.0,
-            "Cerámica para piso POMPEIA SCURO en CAJA de 2.52M2 (60*60 -7U)": 10.0,
-            "Cerámica para piso MARMI Crema en CAJA de 2.81M2 (53*53 - 10U)": 10.0,
-            "Cerámica para piso CALACATA LUX en CAJA de 2.81M2 (53*53 - 10U)": 10.0,
-            "Cerámica para piso AREZZO en CAJA de 2.52M2 (60*60 -7U)": 10.0,
-            "Cerámica para piso VENEZIA LUX en CAJA de 2.52M2 (60*60 - 7U)": 10.0,
-            "Cerámica para piso VERONA LUX en CAJA de 2.52M2 (60*60 - 7U)": 10.0,
-            "Cerámica para piso VERONA MATE en CAJA de 2.52 m2 (60x60 - 7U)": 10.0,
-            "Cerámica para piso CEMENTO GRIS en CAJA de 2.81M2 (53*53 - 10U)": 10.0,
-            "Cerámica para piso DOHA GOLD LUX en CAJA de 2.73M2 (68x68 - 6U)": 10.0,
-            "Cerámica para piso VOLCANO SILVER en CAJA de 2.81 m2 (53x53 - 10u)": 10.0,
-            "Cerámica para piso AVORIO GRAY RET en CAJA de 2.73M2 (68x68 - 6U)": 10.0,
-            "Cerámica para piso LUCCA en CAJA de 2.52 m2 (60x60 - 7U)": 10.0,
-            "Cerámica para piso ACQUA MARINE SILVER en CAJA de 2.73M2 (68x68 - 6U)": 10.0,
-            "Cerámica para piso PIERO CAFÉ RET en CAJA de 2.73M2 (68x68 - 6U)": 10.0,
-            "Varillas de Soldadura E6013 (3.2 mm * 350 mm en caja de 5Kg) /Marca Atlantic": 9.0,
-            "Cerámica para piso CALIFONIA LUX RET en CAJA de 2.73 m2 (68x68 - 6U)": 10.0,
-            "Cemento Cola Gris Pegon / Bolsa de 22.7kg": 12.6,
-            "Cerámica para piso POMPEIA CHIARO en CAJA de 2.52M2 (60*60 -7U)": 10.0,
-            "Cerámica para piso ASTI en CAJA de 2.19 M2 (31x59 - 12u)": 10.0,
-            "Cerámica para piso MYKONO BROWN en CAJA de 2.81M2 (53*53 - 10U)": 10.0,
-            "M2 de Ceramica para piso DOHA LUX. Venta en CAJA de 6 losas de 2.73 m2 (68x68) Precio de la caja 38.22 USD": 14.0,
-            "Cerámica para piso MYKONO GRAY en CAJA de 2.81M2 (53*53 - 10U)": 10.0,
-            "Cemento Mortero para repello fino PAÑETE , Bolsa de 22.7KG": 10.6,
-            "Aceite SAE 10W-30 Gasolina (API SN) pomo de 5L M/MASTER LUB": 20.0,
-            "Aceite AC. DIR. HID. , MASTERLUB en pomo de 946ML": 3.5,
-            "Aceite Trasmision Automaticas (ATF) +IV pomo de 1LT M/AKSOIL GOLD": 5.0,
-            "Grasa GRASA BENTONA EP3 ,MASTERLUB en pote 450 G": 4.5,
-            "Aceite AC ATF DXRN-III , MASTERLUB en pomo de 946ML": 4.0,
-            "Aceite SAE 15W-40 Diesel/Gasolina Mineral (API SL/CF) pomo de 5LT M/AKSOIL GOLD": 20.0,
-            "Aceite Diferencial sintetico SAE EP 75W-90 GL-5 pomo de 3LT M/AKSOIL GOLD": 12.0,
-            "Aceite SAE 10W-40 Diesel/Gasolina Mineral (API SL/CF) pomo de 5LT M/AKSOIL GOLD": 20.0,
-            "Limpia Inyectores Gasolina pomo de 300ML M/AKSOIL GOLD": 2.4,
-            "Grasa EP de LITHIUM EP NLGI:2 en cubeta de 3,75 KG / Marca AKSOIL GOLD": 20.0,
-            "Aceite SAE 5W-20 Diesel/Gasolina sintetico (API SN/CF) pomo 5 LT M/AKSOIL GOLD": 26.84,
-            "Limpia Inyectores Diesel pomo de 300ML M/AKSOIL GOLD": 2.8,
-            "Aceite para trasmisiones Automaticas (ATF) DEXRON III en pomo de 1LT M/ AKSOIL GOLD": 3.5,
-            "Aceite SAE 15W-40 Diesel/Gasolina (API CF-4/SJ) pomo de 18LT M/AKSOIL GOLD": 70.0,
-            "Limpia Inyectores, MASTER LUB en pomo de 350ML": 3.0,
-            "Agua para Radiador Anticongelante MASTER LUB pomo de 3.78L": 4.0,
-            "Grasa JUNTAS HOM ,MASTERLUB en pote 450 G": 4.5,
-            "Aceite Diferencial Sintetico SAE EP 75W-80 GL-4 pomo de 1LT M/AKSOIL GOLD": 4.5,
-            "Aceite SAE 20W-50 Diesel/Gasolina (API CF-4/SJ) pomo de 18LT M/AKSOIL GOLD": 70.0,
-            "Líquidos de frenos DOT4 en pomo de 1 LT / Marca AKSOIL GOLD": 7.0,
-            "Aceite Sintético para motores de Diesel o Gasolina SAE 5W/30 (API SN/CF), sistemas DPF en pomo 5 LT / Marca AKSOIL GOLD": 28.93,
-            "Líquidos de frenos DOT3 en pomo de 0,5 LT / Marca AKSOIL GOLD": 4.0,
-            "Grasa LITIO EP2 , MASTERLUB en pote 450 G": 4.5,
-            "Aditivo para Motores de 2 tiempos , MASTER LUB en pomo de 250ML": 1.95,
-            "Spray Limpia Contactos ,MASTER LUB en pomo de 283 G": 3.25,
-            "Aditivo para Gasolina, MASTER LUB en pomo de 350ML": 3.0,
-            "Spray Aflojalotodo ,MASTER LUB en pomo de 283 G": 3.25,
-            "Aceite SAE 15W-40 Diesel sintético (API CK-4/SN) pomo de 5 LT M/AKSOIL GOLD": 25.0,
-            "Aditivo para Diesel , MASTER LUB en pomo de 350ML": 3.0,
-            "Liquido de freno DOT-4 ,MASTER LUB en pomo de 350 ML": 4.0,
-            "Aceite SAE 5W-30 Gasolina (API SN) pomo de 5L M/MASTER LUB": 20.0,
-            "Aceite SAE 80W-90, MASTERLUB en pomo de 946ML": 4.0,
-            "Aceite para Diferenciales SAE EP 85W/90 GL-5 3 LT / Marca AKSOIL GOLD": 15.4,
-            "Liquido de freno DOT-3 ,MASTER LUB pomo de 350 ML": 3.0,
-            "Aceite SAE 20W-50 Gasolina (API SN) ,MASTER LUB pomo de 5 L": 20.0,
-            "Aditivo para Motores de 2 tiempos , MASTER LUB en pomo de 946ML": 3.9,
-            "Aceite Mineral para motores de dos tiempos SUPERMAX 2T en pomo de 1LT M/ AKSOIL GOLD": 3.5,
-            "Polvo Decolorante para cabello sin amoniaco +PLEX": 3.0,
-            "Acondicionador Coco brasil de 500ml Wow / Marca NT": 2.0,
-            "Acondicionador Coco brasil de 300ml Wow / Marca NT": 1.5,
-            "Keratina Café 300ML M/NT": 6.0,
-            "Shampoo Sin Sal de Coco 500ml / Marca NT": 1.75,
-            "Mascarilla Regeneradora y Reparadora ORO MASCARA 950 G / Marca NT /P12": 8.5,
-            "Acondicionador Argan Aceite Brasil Oil 500 ml / Marca NT": 2.0,
-            "Mascarilla 6 PLUS 950 G / Marca NT": 8.5,
-            "Keratina Revolution 1Lt NT": 11.9,
-            "Shampoo Sin Sal de Coco Wow brasil 300ML M/ NT": 1.35,
-            "Keratina Vegana 300ML M/NT": 6.0,
-            "Tratamiento para el cabello Botox Coco 950 g. Marca NT": 8.5
-        }
-    },
-    "9": {
+    "7": {
         "name": "Cubanearme",
         "sales_category": "minorista",
         "currency": "EURO",
@@ -1139,7 +749,7 @@
             "ATÚN AMANHECER ACEITE VEG.120 GR": 710.0
         }
     },
-    "10": {
+    "8": {
         "name": "Renova",
         "sales_category": "minorista",
         "currency": "CUP",
@@ -1213,7 +823,7 @@
             "Combo de impresora HP Laserjet 209dw": 149541.0
         }
     },
-    "11": {
+    "9": {
         "name": "JKY S.R.L",
         "sales_category": "minorista",
         "currency": "USD",
@@ -1381,7 +991,7 @@
             "Toalla De Color Azul, Algodón Y Poliéster": 4.24
         }
     },
-    "12": {
+    "10": {
         "name": "Atlas",
         "sales_category": "minorista",
         "currency": "USD",
@@ -1449,7 +1059,7 @@
             "Pistola De Masaje Grande, Con Estuche": 85.09
         }
     },
-    "13": {
+    "11": {
         "name": "Aitalex",
         "sales_category": "minorista",
         "currency": "USD",
@@ -1529,7 +1139,7 @@
             "Combo 10": 324.17
         }
     },
-    "14": {
+    "12": {
         "name": "Tienda 1ra y 28",
         "sales_category": "minorista",
         "currency": "USD",
@@ -1689,7 +1299,7 @@
             "\"Ariete\", Sandwichera Panini": 54.74
         }
     },
-    "15": {
+    "13": {
         "name": "Suministros Habana",
         "sales_category": "minorista",
         "currency": "USD",
@@ -2147,7 +1757,7 @@
             "Plato De Ducha Zenon Con Gel Coat Modelo Smart Korvit 70x180 Cm, Color Antracita": 423.9
         }
     },
-    "16": {
+    "14": {
         "name": "ALTEC Producciones",
         "sales_category": "minorista",
         "currency": "USD",
@@ -2191,7 +1801,7 @@
             "Turrón Praline Trufa Calidad Suprema ALIMERKA, Estuche 200 G": 3.61
         }
     },
-    "17": {
+    "15": {
         "name": "EL LUGAR - Occidente",
         "sales_category": "minorista",
         "currency": "USD",
@@ -2361,7 +1971,7 @@
             "Mueble Superior 150 Belmira Rovere Color Blanco": 168.31
         }
     },
-    "18": {
+    "16": {
         "name": "DForja Creaciones",
         "sales_category": "minorista",
         "currency": "USD",
@@ -2495,7 +2105,7 @@
             "Estante Para Cocina. Modelo DF1": 200.0
         }
     },
-    "19": {
+    "17": {
         "name": "XTASIS Tropical",
         "sales_category": "minorista",
         "currency": "USD",
@@ -2529,7 +2139,7 @@
             "Kit Familiar De Helados (3L + 1L + 500ml)": 18.71
         }
     },
-    "20": {
+    "18": {
         "name": "Bodegón Wapa",
         "sales_category": "minorista",
         "currency": "USD",
@@ -2565,7 +2175,7 @@
             "Pan Hamburguesa 80 G Con Ajonjolí, 6 Unidades, 480 G": 1.32
         }
     },
-    "21": {
+    "19": {
         "name": "REALJO",
         "sales_category": "mayorista",
         "currency": "USD",
@@ -2613,7 +2223,7 @@
             }
         }
     },
-    "22": {
+    "20": {
         "name": "Purita",
         "sales_category": "minorista",
         "currency": "USD",
@@ -2662,180 +2272,7 @@
             "Hinojo, 20 G": 0.65
         }
     },
-    "23": {
-        "name": "Tiger Solutions",
-        "sales_category": "minorista",
-        "currency": "USD",
-        "horary": {
-            "days": null,
-            "hour": null
-        },
-        "municipality": null,
-        "city": null,
-        "coordinates": [],
-        "products": {
-            "Carne De Res, (454g - 1lb)": 11.02,
-            "Carne De Res (3.63 Kg. - 8 Lb.)": 81.69,
-            "Carne Res (2.27kg - 5lbs)": 51.87,
-            "Hígado De Cerdo (454g - 1lb)": 5.51,
-            "Costillar De Cerdo (4.45 Kg. / 5.45 Kg. - 10/12 Lbs.)": 64.83,
-            "Lomo De Cerdo (4.54 / 5.45 Kg. - 10 / 12 Lbs.)": 64.83,
-            "Masas De Cerdo (454g - 1lb)": 7.78,
-            "Paleta De Cerdo (4.54 Kg. / 5.45 Kg. - 10 / 12 Lbs.)": 71.32,
-            "Pechugas De Pollo (454g - 1lb)": 11.67,
-            "Pierna De Cerdo (4.54 / 5.45 Kg. - 10 / 12 Lbs.)": 77.8,
-            "Pollo, Media Caja (6.81 Kg. - 15 Lbs.)": 53.49,
-            "Recorte De Cerdo (454g - 1lb)": 3.89,
-            "Pollo (454g - 1LB)": 3.58,
-            "Chuleta De Cerdo Media Caja (7.5 Kg. - 15 Lbs.)": 103.74,
-            "Bistec De Cerdo Media Caja (6.81 Kg. - 15 Lbs.)": 110.21,
-            "Pollo (6.81 Kg. - 15 Lbs.)": 51.87,
-            "Chuleta De Cerdo Por Libras": 6.47,
-            "Costilla De Cerdo (454g - 1lb)": 6.47,
-            "Jamón (454g - 1lb)": 5.51,
-            "Jamonada (454g - 1KG)": 5.19,
-            "Chicharos 500 G.": 5.38,
-            "Pescado Fresco (1.81kg - 4lbs)": 24.63,
-            "4 Yogurt De Plátano": 6.81,
-            "4 Yogurt De Fresa": 6.81,
-            "4 Yogurt Natural": 6.81,
-            "Papas Fritas 750g": 10.38,
-            "Leche En Polvo (454g - 1lb)": 9.4,
-            "Queso Blanco (454g - 1lb)": 5.83,
-            "Pescado Pargo 2 Libras.": 12.96,
-            "Langosta (454g - 1lb)": 8.75,
-            "Picadillo 400 Gr.": 4.54,
-            "Frijol Bayo (454g - 1lb)": 4.54,
-            "Frijol Blanco (454g - 1lb)": 4.54,
-            "Frijoles Colorados (454g - 1lb)": 4.54,
-            "Frijoles Negros (454g - 1lb)": 4.54,
-            "Carne De Carnero (5 Lbs - 2.27kg)": 32.41,
-            "Arroz Blanco (454g - 1Lb)": 3.24,
-            "Azúcar Blanca (6.81 Kg. - 15 Lbs.)": 42.79,
-            "Sal (6.81 Kg. - 15 Lbs.)": 37.6,
-            "Queso Blanco, (3.63kg - 8lbs)": 42.79,
-            "10 Tubos De Picadillo 400 G.": 38.9,
-            "Colas De Langosta, (5 Lbs - 2.72kg)": 41.49,
-            "Carne De Carnero Media Caja (6.81 Kg. - 15 Lbs.)": 88.17,
-            "3 Bolsas Leche En Polvo (3 X 1 Kg)": 42.79,
-            "1 Bolsa De Leche En Polvo (1 Kg.)": 15.56,
-            "6 Bolsas De Leche En Polvo, (6 Kg)": 81.69,
-            "9 Bolsas De Leche En Polvo, (9 Kg)": 114.1,
-            "Paquete De Hamburguesas, 10 U.": 10.38,
-            "Lo Más Buscado - Combo": 106.32,
-            "Sal A Granel (454g - 1lb)": 3.89,
-            "10 Sazones Goya": 4.2,
-            "Sopa Instantanea 100 G.": 2.59,
-            "Aceituna 100 G.": 3.24,
-            "5 Cajas De Jugo 1 Lt. C/U": 38.9,
-            "Aceite, 6 Pomos De 800 Ml.": 38.9,
-            "1 Refresco Zuco - 2LT.": 2.92,
-            "Pomo De Vinagre": 5.19,
-            "Puré De Tomate": 5.19,
-            "Bolsa De Aceite, 'Varias Marcas' 400 Ml.": 4.86,
-            "Manteca De Cerdo Por Libras": 5.19,
-            "Botella De Vino Seco 700 Ml.": 4.86,
-            "Caja De Jugo 75 Ml.": 3.24,
-            "3 Café De 230 G.": 28.52,
-            "6 Café La Llave": 58.34,
-            "12 Café La Llave": 101.14,
-            "Café La Llave 284 G.": 10.38,
-            "Lata De Sardinas 125 G.": 5.19,
-            "Lata De Spam 6 Oz.": 6.47,
-            "Natilla 180 G.": 4.86,
-            "Flan 84 G.": 4.54,
-            "4 Natillas (Vainilla Y Chocolate)": 9.72,
-            "Azucar (454g - 1lb)": 3.44,
-            "8 Paquetes De Chocolate": 41.49,
-            "3 Chocolate Nestlé De 160 G.": 23.35,
-            "Detergente A Granel Por Libras": 4.54,
-            "Detergente A Granel (2.27 Kg. - 5 Lbs.)": 19.46,
-            "Detergente 1 Kg.": 7.78,
-            "Detergente 500 G.": 5.83,
-            "Toallitas Húmedas": 5.19,
-            "Papel Higiénico De 4 Rollos.": 8.11,
-            "El Rápido": 90.76,
-            "Combo De Pasta": 99.85,
-            "Combo Carnico": 114.96,
-            "Combo Fiesta": 133.56,
-            "Combo Criollo Básico": 165.97,
-            "Combo Pequeño": 77.8,
-            "Combo Mediano": 93.36,
-            "Combo Criollo Plus": 207.46,
-            "Combo Mar Y Tierra": 142.62,
-            "Combo De Granos": 84.28,
-            "Combo Celebración": 120.59,
-            "Combo Semanal": 64.83,
-            "Combo El Esperado": 110.21,
-            "Combo El Salvador": 140.04,
-            "Combo Lácteo": 86.86,
-            "Combo Todo Tipo De Carnes": 129.67,
-            "Combo Ahumado De La Casa": 86.99,
-            "Combo La Abuela": 88.17,
-            "Combo Coroné": 88.17,
-            "Combo Diario": 71.32,
-            "Combo El Combazo": 102.98,
-            "Combo Urgente": 94.65,
-            "Combo De Todo Un Poco": 114.1,
-            "Combo Explosivo": 106.32,
-            "Combo Variado Con Carne": 112.8,
-            "Combo La Tiza": 86.99,
-            "Combo Picadera": 84.99,
-            "Combo La Abuela Superior": 129.67,
-            "Combo Famillón": 197.1,
-            "Combo El Paraíso": 133.56,
-            "Combo Criollo": 165.97,
-            "Combo Boliche": 145.23,
-            "Combo Mi Gente": 159.5,
-            "Combo Pechuga": 146.51,
-            "Combo La Troceada": 147.82,
-            "Combo Parrillada": 120.59,
-            "Combo El Chuleton": 123.19,
-            "Combo Aguinaldo": 112.8,
-            "Combo MI Canasta": 185.42,
-            "Combo Asturiano": 120.59,
-            "Combo El Pollero": 123.19,
-            "Combo Rapidito": 138.73,
-            "Combo La Quincena": 155.59,
-            "Combo Basico": 94.98,
-            "Combo Carnico DC": 119.99,
-            "Combo Variado 01": 136.15,
-            "Combo 450": 129.67,
-            "Combo 120": 169.86,
-            "Combo Pescado": 151.71,
-            "Combo Cumpleaños Habana": 118.96,
-            "Combo Favorito": 68.99,
-            "Combo El Tanque": 91.95,
-            "Combo Fin De Semana": 71.97,
-            "Combo El Kilo": 61.97,
-            "Combo El Especial": 59.0,
-            "Combo Super": 61.97,
-            "Combo Enlatado": 59.0,
-            "Combo Todo Ahumado": 90.99,
-            "Combo La Sabrosura": 83.0,
-            "Combo Al Momento": 94.98,
-            "Combo Arroz Salteado": 61.0,
-            "Combo La Sorpresa": 106.01,
-            "Combo Super Especial Casa": 125.99,
-            "Combo Entero": 175.0,
-            "Combo Confitura": 48.95,
-            "Combo Al Amanecer": 90.99,
-            "Combo Criollo Basico": 127.98,
-            "Combo Corone": 67.96,
-            "Combo Familión": 151.98,
-            "Combo El Oferton": 51.97,
-            "TCS000274": 100.01,
-            "Combo Asereco": 103.84,
-            "Combo Asere Que Vuelta": 143.61,
-            "Combo Asere En 3 Y 2": 121.51,
-            "Combo La Esencia": 129.67,
-            "Mega Combo": 129.67,
-            "Combo Mixto": 103.74,
-            "Combo De Aseo": 67.43,
-            "Combo La Higiene": 103.74
-        }
-    },
-    "24": {
+    "21": {
         "name": "El Orbe - Guantánamo",
         "sales_category": "minorista",
         "currency": "USD",
@@ -2999,7 +2436,7 @@
             "Cafetera Convencional 1 TAZA": 5.88
         }
     },
-    "25": {
+    "22": {
         "name": "La Violeta",
         "sales_category": "minorista",
         "currency": "USD",
@@ -3250,7 +2687,7 @@
             "Bisagra Para Soldadura Tipo Bandera": 0.93
         }
     },
-    "26": {
+    "23": {
         "name": "EL LUGAR - Oriente",
         "sales_category": "minorista",
         "currency": "USD",
@@ -3401,7 +2838,7 @@
             "Mueble Inferior Belmira Rovere Y Blanco 150 Cm": 149.62
         }
     },
-    "27": {
+    "24": {
         "name": "HabanaBike",
         "sales_category": "minorista",
         "currency": "USD",
@@ -3429,7 +2866,7 @@
             "5 Termos Personalizables Con La Técnica De Sublimación, 600 Ml": 41.17
         }
     },
-    "28": {
+    "25": {
         "name": "El Pinero ",
         "sales_category": "minorista",
         "currency": "EURO",
@@ -3563,7 +3000,7 @@
             "MARTILLO DE GOMA 26CM REF-32-F145": 1.22
         }
     },
-    "29": {
+    "26": {
         "name": "La Feria",
         "sales_category": "minorista",
         "currency": "EURO",
@@ -3830,7 +3267,7 @@
             "Tubo LED, 9W": 2.68
         }
     },
-    "30": {
+    "27": {
         "name": "El Trópico",
         "sales_category": "minorista",
         "currency": "USD",
@@ -4206,7 +3643,7 @@
             "\"LG\", Compresor 12000 BTU": 50.7
         }
     },
-    "31": {
+    "28": {
         "name": "La Venecia",
         "sales_category": "minorista",
         "currency": "USD",
@@ -4364,7 +3801,7 @@
             "Fregadero De 1 Cubeta, \"SULLA\"": 32.08
         }
     },
-    "32": {
+    "29": {
         "name": "ZONA K_LIENTE",
         "sales_category": "minorista",
         "currency": "CUP",

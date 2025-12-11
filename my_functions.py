@@ -1,10 +1,6 @@
-from typing import List, Tuple
-import numpy as np
-import plotly.graph_objects as go
+from typing import List
 import json
 from json import JSONDecodeError
-from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import PolynomialFeatures
 from datetime import datetime, timedelta
 from urllib.parse import urlencode
 import subprocess
@@ -34,84 +30,6 @@ def you_type(cadena):
       else:
         return str(cadena)
   return False
-
-def max_valor(matrix: List[List[int]]) -> List[List[int]]:
-  matrix = np.array(matrix)
-  traspuesta = matrix.T
-  sumas = []
-  for i in range(len(traspuesta)):
-    sumas.append(float(sum(list(filter(lambda x: x!= None , traspuesta[i])))))
-  maximo = max(sumas)
-  return sumas.index(maximo)
-
-def min_valor(matrix: List[List[int]]) -> List[List[int]]:
-  matrix = np.array(matrix)
-  traspuesta = matrix.T
-  sumas = []
-  for i in range(len(traspuesta)):
-    sumas.append(float(sum(list(filter(lambda x: x!= None , traspuesta[i])))))
-  maximo = min(sumas)
-  return sumas.index(maximo)
-
-def my_protly(x: List[int], y: List[int], line: str, title: str, eje_x : str, eje_y: str, name_legend: str, colors : str = "royalblue") -> None:
-  fig = go.Figure()
-  fig.add_trace(go.Scatter(x=x, y=y, mode='lines+markers', name= line, line=dict(color=colors)))
-  fig.update_layout(
-    title=title,
-    xaxis_title=eje_x,
-    yaxis_title=eje_y,
-    legend_title=name_legend
-  )
-  return fig
-
-def doble_y_protly(x: List[int], y: List[List[int]], line: List[str], colors : List[str], title: str, eje_x : str, eje_y: str, name_legend: str) -> None:
-  fig = go.Figure()
-  fig.add_trace(go.Scatter(x=x, y=y[0], mode='lines+markers', name= line[0], line=dict(color=colors[0])))
-  fig.add_trace(go.Scatter(x=x, y=y[1], mode='lines+markers', name= line[1], line=dict(color=colors[1])))
-  fig.update_layout(
-    title=title,
-    xaxis_title=eje_x,
-    yaxis_title=eje_y,
-    legend_title=name_legend
-    )
-  return fig
-
-def balancear_matrix(matrix: List[List[any]],valor_para_balancear = 0) -> List[List[any]]:
-  copy_list = matrix.copy()
-  len_maximo = max([ len(v) for v in copy_list])
-  for g in copy_list:
-   if len(g) < len_maximo:
-      diferencia = len_maximo - len(g)
-      for _ in range(diferencia):
-         g.append(valor_para_balancear)
-  return copy_list
-
-def range_in_lists(lista1: List[int], lista2: List[int]) -> List[List[int]]:
-  total_lists = []
-  n = len(lista1)
-  m = len(lista2)
-  if n != m:
-    return False
-  def rango(indice: int):
-    numbers = []
-    for y in range(lista1[indice], lista2[indice] + 1):
-      numbers.append(y)
-    return numbers
-  for i in range(n):
-    total_lists.append(rango(i))
-  return total_lists
-
-def element_in_matrix(elemento: any, matrix: List[List[any]]) -> List[Tuple[int,int]]:
-  n = len(matrix)
-  m = len(matrix[0])
-  elements = []
-  for i in range(n):
-    for j in range(m):
-      if matrix[i][j] == elemento:
-        elements.append((i,j))
-      else:
-        continue
-  return elements
       
 def save_json(datos,file: str) -> None:
   with open(file,"w", encoding="utf-8") as sj:
@@ -124,14 +42,6 @@ def read_json(file: str):
     return datos
   except JSONDecodeError as e:
     return f'Hubo un error de decodificación del json: {e}'
-
-def coeficiente(ind: List[List[int]], dep: List[int], grade : int=1) -> float:
-  model = LinearRegression()
-  poly = PolynomialFeatures(degree=grade)
-  px = poly.fit_transform(np.array(ind).T)
-  model.fit(px,np.array(dep))
-  coef = model.score(px,dep)
-  return coef
 
 def intervalo_fechas(fecha_inicio: str, fecha_fin: str, url: bool = True, time: bool = True) -> List[str]:
     if time:
@@ -247,12 +157,6 @@ def search_keys(dict: dict[str,float], key=str):
             continue
     return new_dict
 
-def sorted_fechas(dicc: dict) -> dict:
-  try:
-   return dict(sorted(dicc.items(), key=lambda x:  datetime.strptime(x[0], "%Y-%m-%d")))
-  except Exception:
-    return None
-
 def dict_num_values(dicc: dict) -> list:
    values =  []
    if type(dicc) == dict:
@@ -276,6 +180,10 @@ def aplanar_lista(lista: list = []) -> list:
     return lista_aplanada
 
 def parser_qvapay(id: str, date: str, text: str, file: str) -> str:
+    '''
+    Esta función permite guardar en un archivo json una oferta obtenida de un mensaje de qvapay. Se recibe como parámetros de entrada el id ,
+    la fecha y hora y el texto del mensaje obtenido de telegram.
+    '''
     ratio = float(re.search(r"Ratio:\s*\$([0-9]+\.[0-9]+)", text).group(1))
     text = text.split()
     operation = you_type(text[1][1:])
@@ -289,15 +197,6 @@ def parser_qvapay(id: str, date: str, text: str, file: str) -> str:
     }
     save_json(offers, file)
     return f"Se ha guardado la oferta {id}."
-
-def parser_qvapay_2(text: str, usd: list[int|float] = [], mlc: list[int|float] = [], clásica: list[int|float] = [], zelle:  list[int|float] = [], paypal: list[int|float] = [], etecsa:  list[int|float] = []) -> None:
-    text = text.split()
-    usd.append(float(text[4][1:]) / float(text[2][1:])) if text[6] == "#CUP" else None
-    mlc.append(float(text[4][1:]) / float(text[2][1:])) if text[6] == "#MLC" else None
-    clásica.append(float(text[4][1:]) / float(text[2][1:])) if text[6] == "#CLASICA" else None
-    zelle.append(float(text[4][1:]) / float(text[2][1:])) if text[6] == "#ZELLE" else None
-    paypal.append(float(text[4][1:]) / float(text[2][1:])) if text[6] == "#PAYPAL" else None
-    etecsa.append(float(text[4][1:]) / float(text[2][1:])) if text[6] == "#ETECSA" else None
 
 def sum_rows(matriz: list) -> list[int|float]:
     try:
@@ -367,6 +266,9 @@ def insert_in_list(iter: list, element, index: int = -1):
     return  left + [element] + right
   
 def dict_for_index(dict: dict, index: int):
+    '''
+    Con esta función podrá accder aun valor de un diccionario por el indice de su respectiva clave.
+    '''
     keys = [k for k in dict]
     key = keys[index]
     return dict[key]
@@ -385,4 +287,18 @@ def median(lista: list) -> float:
   if n % 2 != 0:
     return float(lista[(n-1)//2])
   return  float((lista[(n-1)//2] + lista[n//2]) / 2)
+
+def del_dict_in_sec(dict: dict, key:str="", first:int=0):
+    '''
+    Con esta función podrá eliminar claves pares clave valor de diccionario con claves numéricas perder orden ni secuencia.
+    Los valores de entrada para esta función son el diccionario , la clave que se quiere eliminar y opcionalmente el indice en que comenzará la nueva secuencia.
+    '''
+    new_values =  [dict[k] for k in dict if k != key]
+    n = len(new_values)
+    new_dict = {}
+    if first == n:
+        new_dict.update({str(first): new_values[0]})
+    for i in range(first, n):
+        new_dict.update({str(i): new_values[i]})
+    return new_dict
 

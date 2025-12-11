@@ -43,8 +43,7 @@ if __name__ == '__main__':
   
   # Opción recomendada:
 
-  for i in range(100,200):
-    save_pyme(i)
-
+  # for i in range(100,200):
+  #   save_pyme(i)
   pass
   

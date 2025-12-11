@@ -1,7 +1,6 @@
 import my_functions as mf
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 import polars as pl
 import sys
 
@@ -159,30 +158,16 @@ pymes_yogurt, canasta_yogurt = price_media("yogurt")
 pymes_pescado, canasta_pescado = price_media("pescado")
 
 def bar_canasta_vs_pymes():
-    products = ["Mipymes", "Canasta Básica"]
-    fig = make_subplots(rows=6, cols=2,
-               specs=[[{"type": "pie"}, {"type": "pie"}],
-                      [{"type": "pie"}, {"type": "pie"}],
-                      [{"type": "pie"}, {"type": "pie"}],
-                      [{"type": "pie"}, {"type": "pie"}],
-                      [{"type": "pie"}, {"type": "pie"}],
-                      [{"type": "pie"}, {"type": "pie"}]], 
-                      subplot_titles= ["Arroz", "Pollo", "Azúcar", "Frijoles", "Aceite", "Picadillo",
-              "Mortadella", "Café", "Pan", "Peche","Yogurt" , "Pescado"])
-    fig.add_trace(go.Pie(labels=products,values=[pymes_arroz, canasta_arroz]), 1, 1)
-    fig.add_trace(go.Pie(labels=products,values=[pymes_pollo, canasta_pollo]), 1, 2)
-    fig.add_trace(go.Pie(labels=products,values=[pymes_arroz, canasta_arroz]), 2, 1)
-    fig.add_trace(go.Pie(labels=products,values=[pymes_pollo, canasta_pollo]), 2, 2)
-    fig.add_trace(go.Pie(labels=products,values=[pymes_arroz, canasta_arroz]), 3, 1)
-    fig.add_trace(go.Pie(labels=products,values=[pymes_pollo, canasta_pollo]), 3, 2)
-    fig.add_trace(go.Pie(labels=products,values=[pymes_arroz, canasta_arroz]), 4, 1)
-    fig.add_trace(go.Pie(labels=products,values=[pymes_pollo, canasta_pollo]), 4, 2)
-    fig.add_trace(go.Pie(labels=products,values=[pymes_arroz, canasta_arroz]), 5, 1)
-    fig.add_trace(go.Pie(labels=products,values=[pymes_pollo, canasta_pollo]), 5, 2)
-    fig.add_trace(go.Pie(labels=products,values=[pymes_arroz, canasta_arroz]), 6, 1)
-    fig.add_trace(go.Pie(labels=products,values=[pymes_pollo, canasta_pollo]), 6, 2)
-   
-    fig.update_layout(height=800, barmode='group', xaxis_tickangle=-45, title="Gráficas comparativas del costo de los principales productos de la canasta básica contra los productos vendidos por mipymes")
+    products = ["arroz", "pollo" , "azúcar", "frijoles", "aceite", "picadillo", "mortadella", "café", "leche", "yogurt", "pescado"]
+    pymes_products = [pymes_arroz, pymes_pollo, pymes_azúcar, pymes_frijoles, pymes_aceite, pymes_picadillo, pymes_mortadella, pymes_café, pymes_leche, pymes_yogurt, pymes_pescado]
+    canasta_products = [canasta_arroz, canasta_pollo, canasta_azúcar, canasta_frijoles, canasta_aceite, canasta_picadillo, canasta_mortadella, canasta_café, canasta_leche, canasta_yogurt, canasta_pescado]
+
+    fig = go.Figure(data=[
+       go.Bar(x= products, y= pymes_products, name='Mipymes'),
+       go.Bar(x= products, y= canasta_products, name='Canasta Básica')
+    ])
+    fig.update_xaxes( tickvals=list(range(len(products))),  ticktext=products, tickangle=30 )
+    fig.update_layout(title="Gráficas comparativas del costo de los principales productos de la canasta básica contra los productos vendidos por mipymes")
     fig.show()
     
 def qvapay_vs_el_toque():
