@@ -164,7 +164,7 @@ def Super_Fácil():
         headless=True
         )
         page =  browser.new_page()
-        page.goto("file:///D:/download/Download_Edge/Productos%20de%20calidad%20art%C3%ADstica%20y%20utilitaria_zona_kliente.html", wait_until="domcontentloaded")
+        page.goto("https://www.superfacil.cu/secretos-de-fragancias", wait_until="domcontentloaded")
         
         web_poducts = page.locator("div.prod-item-info")
 
@@ -177,7 +177,7 @@ def Super_Fácil():
 
         products.extend([products_with_prices[i] for i in range(len(products_with_prices)) if i % 2 == 0])
         prices.extend([float(products_with_prices[i][:-3].replace(",", "")) for i in range(len(products_with_prices)) if i % 2 != 0])
-        prices_pymes["32"]["products"].update(mf.list_to_dict(products, prices))
+        prices_pymes["31"]["products"].update(mf.list_to_dict(products, prices))
       
         browser.close()
 
@@ -199,8 +199,8 @@ def Min_Salary():
 
    
 if __name__ == "__main__":
-    asyncio.run(Min_Salary())
-    # mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
+    Super_Fácil()
+    mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
 
 
   

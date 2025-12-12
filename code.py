@@ -1,6 +1,7 @@
 import my_functions as mf
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import polars as pl
 import sys
 
@@ -24,7 +25,7 @@ def salary(file = salarios):
      print(f"{i} | 44 horas: {file['44_horas'][i]} | 40 horas : {file['40_horas'][i]}")
 
 def graph_coin():
-  tasas = [el_toque[i['date_from']] for i in mf.intervalo_fechas("2025-01-01", "2025-11-30",False,False) if el_toque[i['date_from']] is not None]
+  tasas = [el_toque[i['date_from']] for i in mf.intervalo_fechas("2025-01-01", "2025-12-10",False,False) if el_toque[i['date_from']] is not None]
   n = len(tasas)
   days = list(range(n))
   month = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre"]
@@ -47,7 +48,7 @@ def graph_coin():
     ticktext=month,  
     tickangle=0
   )
-  fig.update_layout(title='Comparación del comportamiento del USD, el EURO y el MLC entre enero y noviembre de 2025.')
+  fig.update_layout(title='Comparación del comportamiento del USD, el EURO y el MLC entre enero y noviembre rest 2025.')
   fig.show()
   
 
@@ -68,17 +69,13 @@ def compra_máxima(prices: list[int|float], escala : int) -> int:
     return int(max(matriz))
       
 def compra_por_escala(escala: int):
-   máximos = [compra_máxima([int(i) for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
-              if mipymes[i]["sales_category"] == "minorista" and mipymes[i]["currency"] == "CUP"
-              else 
-              compra_máxima([int(i*última_tasa["ECU"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
-              if mipymes[i]["sales_category"] == "minorista" and mipymes[i]["currency"] == "EURO" 
+   máximos = [compra_máxima([int(i*última_tasa["ECU"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
+              if  mipymes[i]["currency"] == "EURO" 
               else
               compra_máxima([int(i*última_tasa["USD"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
-              if mipymes[i]["sales_category"] == "minorista" and mipymes[i]["currency"] == "USD"
-              else 0
-              for i in mipymes]
-   máximos = [ m for m in máximos if m != 0]
+              if mipymes[i]["currency"] == "USD"
+              else compra_máxima([int(i) for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
+              for i in mipymes if mipymes[i]["sales_category"] == "minorista"]
    return  int(mf.median(máximos))
 
 def max_bar():
@@ -121,17 +118,16 @@ df_for_type_and_hab = pl.DataFrame({
    "Total": mf.sum_rows([mpmp,mpme,cna,mipymes_indefinidas]) + [sum(mf.sum_rows([mpmp,mpme,cna,mipymes_indefinidas]))], 
    "Cantidad de actores económicos por habitante": for_hab + [int(población_por_provincia["Cuba"]["total"] // sum(count_pymes))] })
 
-percent = (len(mipymes) * 100) / len(data)
-
-text_pyme = f"Para contar esta historia se obtuvieron datos de {len(mipymes)} actores económicos de diferentes dominios que  \
-representan sólo un { f"{round(percent,2)} %"} del total de los creados\n desde 2021, pero con planes  \
-de que este porciento alcance el 30 % en un futuro no muy lejano."
-
-pymes_keys = [k for k in mipymes if mipymes[k]["sales_category"] == "minorista"]
-canasta_keys = [k for k in canasta_básica]
+mipymes_cup = {k: mipymes[k] for k in mipymes if mipymes[k]["sales_category"] == "minorista" and mipymes[k]["currency"] == "CUP"}
+mipymes_usd =  {k: mipymes[k] for k in mipymes if mipymes[k]["sales_category"] == "minorista" and mipymes[k]["currency"] == "USD"}
+mipymes_eur = {k: mipymes[k] for k in mipymes if mipymes[k]["sales_category"] == "minorista" and mipymes[k]["currency"] == "EUR"}
 
 def price_media(product: str):
-  return mf.mean(mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes[a]["products"], product)) for a in pymes_keys ])), mf.mean(mf.aplanar_lista(mf.dict_num_values(mf.search_keys(canasta_básica, product))))
+  canasta =  mf.aplanar_lista(mf.dict_num_values(mf.search_keys(canasta_básica, product)))
+  usd = list(map(lambda x: x* última_tasa["USD"],  mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes_usd[a]["products"], product)) for a in mipymes_usd ])))
+  eur = list(map(lambda x: x*última_tasa['ECU'], mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes_eur[a]["products"], product)) for a in mipymes_eur ])))
+  cup= mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes_cup[a]["products"], product)) for a in mipymes_cup])
+  return mf.mean(cup+usd+eur) , mf.mean(canasta)
 
 pymes_arroz ,canasta_arroz = price_media("arroz")
 
@@ -158,15 +154,20 @@ pymes_yogurt, canasta_yogurt = price_media("yogurt")
 pymes_pescado, canasta_pescado = price_media("pescado")
 
 def bar_canasta_vs_pymes():
-    products = ["arroz", "pollo" , "azúcar", "frijoles", "aceite", "picadillo", "mortadella", "café", "leche", "yogurt", "pescado"]
-    pymes_products = [pymes_arroz, pymes_pollo, pymes_azúcar, pymes_frijoles, pymes_aceite, pymes_picadillo, pymes_mortadella, pymes_café, pymes_leche, pymes_yogurt, pymes_pescado]
-    canasta_products = [canasta_arroz, canasta_pollo, canasta_azúcar, canasta_frijoles, canasta_aceite, canasta_picadillo, canasta_mortadella, canasta_café, canasta_leche, canasta_yogurt, canasta_pescado]
+    products = ["arroz", "pollo" , "azúcar", "frijoles", "aceite", "picadillo", "mortadella", "café", "yogurt", "pescado"]
+    pymes_products = [pymes_arroz, pymes_pollo, pymes_azúcar, pymes_frijoles, pymes_aceite, pymes_picadillo, pymes_mortadella, pymes_café, pymes_yogurt, pymes_pescado]
+    canasta_products = [canasta_arroz, canasta_pollo, canasta_azúcar, canasta_frijoles, canasta_aceite, canasta_picadillo, canasta_mortadella, canasta_café, canasta_yogurt, canasta_pescado]
 
-    fig = go.Figure(data=[
-       go.Bar(x= products, y= pymes_products, name='Mipymes'),
-       go.Bar(x= products, y= canasta_products, name='Canasta Básica')
-    ])
-    fig.update_xaxes( tickvals=list(range(len(products))),  ticktext=products, tickangle=30 )
+    fig = make_subplots(rows=1, cols=2)
+
+    fig.add_trace(go.Bar(x= products, y= pymes_products, name='Mipymes'), row=1, col=1)
+    fig.add_trace(go.Bar(x= products, y= canasta_products, name='Canasta Básica'), row=1, col=2)
+    # data=[
+    #    go.Bar(x= products, y= pymes_products, name='Mipymes', row=1, col=1),
+    #    go.Bar(x= products, y= canasta_products, name='Canasta Básica', row=1, col=2)
+    # ])
+    # fig = go.Figure()
+    # fig.update_xaxes( tickvals=list(range(len(products))),  ticktext=products, tickangle=30 )
     fig.update_layout(title="Gráficas comparativas del costo de los principales productos de la canasta básica contra los productos vendidos por mipymes")
     fig.show()
     

@@ -807,7 +807,7 @@
             "Chambelonas forma OJO 60g": 0.8,
             "Mezcla para hacer cake de Naranja CAJA 350G M/ KENT": 1.88,
             "Sal de Limón 60G Marca KENT (Venta en Caja 12 sobres ) Precio 7.41 USD": 0.62,
-            "Huevo Sorpresa": 8.5,
+            "Huevito Sorpresa": 8.5,
             "Mezcla para hacer Cheesecake de Fresa Sobre 400G M/ KENT": 2.8,
             "Pure de Papas Instantaneo con leche 2Kg": 19.8,
             "Cobertura de Chocolate (Caja de 24 sobres 125g, 12x2) / Marca Kent": 26.92,
@@ -4173,6 +4173,76 @@
             "Bolígrafo de gel 6 colores (20001-6A)": 533.0,
             "Sacapunta (AG914) - Verde": 149.5,
             "Sacapunta (AG914) - Rosado": 149.5
+        }
+    },
+    "30": {
+        "name": "Construconfort",
+        "sales_category": "minorista",
+        "currency": "CUP",
+        "horary": {
+            "days": null,
+            "hour": null
+        },
+        "municipality": "La Lisa",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "Colonia Inspiración One Million, 330ml (Para Hombre)": 1170.0,
+            "Colonia Inspiración Royal Revolution, 330ml (Para Mujer)": 1170.0,
+            "Colonia Inspiración Invincible, 330ml (Para Hombre)": 1170.0,
+            "Perfume Inspiración Royal Revolution 12 ml (para Mujer)": 559.0,
+            "Perfume Inspiración Victoria Secret 12 ml (para Mujer)": 559.0,
+            "Perfume Yania 12ml (para Mujer)": 559.0,
+            "Perfume Inspiración Invincible 20 ml ( para Hombre)": 650.0,
+            "Perfume Inspiración Victoria Secret 20ml (para Mujer)": 650.0,
+            "Perfume Inspiración La Vie Est Belle 20 ml (para Mujer)": 650.0,
+            "Perfume Inspiración One Million 20 ml (para Hombre)": 650.0,
+            "Perfume Inspiración Campeones 20 ml (para Hombre)": 650.0,
+            "Desodorante para Pies (240ml)": 455.0,
+            "Paño Protector Absorbente (40 x 60)": 117.0,
+            "Blanqueador Suavizante para ropa (1L) Yania": 390.0,
+            "Perfume Inspiración La Vie Est Belle, 12ml (para Mujer)": 559.0,
+            "Perfume Inspiración FW de Kenzo (20 ml) para Hombre": 650.0,
+            "Perfume Yania (20ml) para Mujer": 650.0,
+            "Paño Protector Absorbente, 60x 90cm (25 U)": 4225.0,
+            "Crema Corporal Inspiración Issey Miyake, 330ml (para Hombre)": 650.0
+        }
+    },
+    "31": {
+        "name": "V&E",
+        "sales_category": "minorista",
+        "currency": "CUP",
+        "horary": {
+            "days": null,
+            "hour": null
+        },
+        "municipality": "Plaza de la Revolución",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "Keratina Chocolate Evans Forte (500 ml)": 455.0,
+            "Ambientador (1 L)": 286.0,
+            "Keratina de Aguacate (500 ml)": 465.0,
+            "Lejía de cloro (1 L)": 386.0,
+            "Gel de baño (1L)": 715.0,
+            "Shampoo (1 L)": 780.0,
+            "Acondicionador (1L)": 780.0,
+            "Detergente Multiuso (1L)": 455.0,
+            "Detergente de Lavar (5L) Lavane": 1950.0,
+            "Jabolina (1L)": 484.0,
+            "Crema Hidratante para la piel con Jalea Real (240 ml)": 910.0,
+            "Keratina Células Madres Súper Strong (437 ml)": 455.0,
+            "Jabón Líquido Lavane (1L)": 520.0,
+            "Perfume Classique, 50 ml (Mujer)": 1170.0,
+            "Perfume Burberry Her, 50 ml (Mujer)": 1170.0,
+            "Gel de Baño (240 ml)": 312.0,
+            "Acondicionador (240 ml)": 312.0,
+            "Champú (240 ml)": 312.0,
+            "Crema para la piel (240 ml)": 312.0,
+            "Kit de Aseo Personal (240 ml)": 1220.0,
+            "Crema para la piel La Vane (1 L)": 975.0,
+            "Gel de Baño (500 ml)": 455.0,
+            "Detergente amoniacal (5L)": 1560.0
         }
     }
 }
