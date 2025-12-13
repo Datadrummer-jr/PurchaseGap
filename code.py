@@ -17,7 +17,6 @@ población_por_provincia =mf.read_json("data/población_cuba (2024).json")
 canasta_básica = mf.read_json("data/canasta_básica.json")
 qvapay = mf.read_json("data/qvapay.json")
 
-mf.save_json(mf.del_dict_in_sec(mipymes,"15"), "data/prices_pymes.json")
 
 última_tasa = mf.dict_for_index(el_toque,-1)
 
@@ -33,13 +32,13 @@ def graph_coin():
   tasas = [el_toque[i['date_from']] for i in mf.intervalo_fechas("2025-01-01", "2025-12-10",False,False) if el_toque[i['date_from']] is not None]
   n = len(tasas)
   days = list(range(n))
-  month = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre"]
+  month = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 
   usd = [i["USD"] for i in tasas]
   euro = [i["ECU"] for i in tasas]
   mlc = [i["MLC"] for i in tasas]
 
-  inicios = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 302]
+  inicios = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]
 
   fig = go.Figure(data=[
   go.Scatter(x=days, y=usd, mode="lines", name= 'USD'),
@@ -53,7 +52,7 @@ def graph_coin():
     ticktext=month,  
     tickangle=0
   )
-  fig.update_layout(title='Comparación del comportamiento del USD, el EURO y el MLC entre enero y noviembre rest 2025.')
+  fig.update_layout(title='Comparación del comportamiento del USD, el EURO y el MLC entre enero y 10 de diciembre de 2025.')
   fig.show()
   
 
@@ -210,7 +209,7 @@ def bar_compare_coin():
    coins = ["USD", "EUR", "CUP"]
 
    fig = go.Figure(
-      data= go.Bar(x=coins, y=[usd, eur, cup], marker=dict(color="green"))
+      data= go.Bar(x=coins, y=[usd, eur, cup], marker=dict(color= ["red", "yellow", "green"]))
    )
    fig.update_layout(title="Gráfica demostrativa de que el precio del CUP está influyendo en el precio de los productos en mipymes cubanas.")
    fig.show()

@@ -1,7 +1,5 @@
 
 from playwright.sync_api import sync_playwright
-from httpx import AsyncClient
-import asyncio
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -30,6 +28,7 @@ def Sinterceros():
           prices.append(web_prices.nth(j).inner_text())
         
         prices_pymes["4"]["products"] = mf.list_to_dict(products, [ int(mf.you_type(''.join(mf.del_value(p[:-3],","))))  for p in prices])
+        mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
 
         browser.close()
 
@@ -52,7 +51,8 @@ def Guamay():
         products = [ scrap[i].strip().replace("\\", "") for i in range(len(scrap)) if i % 2 == 0]
         prices = [ float(scrap[i][:-3][1:].strip())for i in range(len(scrap)) if i % 2 != 0]
         prices_pymes["8"]["products"].update(mf.list_to_dict(products, prices))
-      
+        mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
+
         browser.close()
 
 def Cubanearme():
@@ -76,6 +76,7 @@ def Cubanearme():
           prices.append(float(web_prices.nth(j).inner_text().replace(',', '.')[:-3]))
         
         prices_pymes["9"]["products"].update(mf.list_to_dict(products, prices))
+        mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
       
         browser.close()
 
@@ -98,10 +99,10 @@ def Renova():
         
         for j in range(web_prices.count()):
           prices.append(float(web_prices.nth(j).inner_text()[6:].replace(",", "")))
-        print(len(prices))
-        print(len(products))
+    
         prices_pymes["10"]["products"].update(mf.list_to_dict(products, prices))
-      
+        mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
+
         browser.close()
 
 def Envios_Cuba(url: str, index: int):
@@ -127,7 +128,8 @@ def Envios_Cuba(url: str, index: int):
            prices.append(float(precio[:-3][1:]))
     
         prices_pymes[str(index)]["products"].update(mf.list_to_dict(products, prices))
-      
+        mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
+        
         browser.close()
 
 def Envios_Cuba_Isla():
@@ -151,7 +153,9 @@ def Envios_Cuba_Isla():
           precio = web_prices.nth(j).inner_text()
           if str(precio)[-3:] == "EUR":
            prices.append(float(precio[:-4]))
+
         prices_pymes["27"]["products"].update(mf.list_to_dict(products, prices))
+        mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
       
         browser.close()
 
@@ -178,27 +182,11 @@ def Super_Fácil():
         products.extend([products_with_prices[i] for i in range(len(products_with_prices)) if i % 2 == 0])
         prices.extend([float(products_with_prices[i][:-3].replace(",", "")) for i in range(len(products_with_prices)) if i % 2 != 0])
         prices_pymes["31"]["products"].update(mf.list_to_dict(products, prices))
-      
-        browser.close()
+        mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
 
-def Min_Salary():
-    products_with_prices = []
-    products = []
-    prices = []
-    with sync_playwright() as p:
-        browser =  p.chromium.launch(
-        headless=True
-        )
-        page =  browser.new_page()
-        page.goto("file:///D:/download/Download_Edge/Salario%20m%C3%ADnimo%20por%20pa%C3%ADs%202025.html", wait_until="domcontentloaded")
-        
-        web_poducts = page.locator("li.strong")
-        print(web_poducts.first.inner_text())
-      
         browser.close()
 
 def Amazon():
-    products_with_prices = []
     products = []
     prices = []
     with sync_playwright() as p:
@@ -226,13 +214,12 @@ def Amazon():
         # products.extend([products_with_prices[i] for i in range(len(products_with_prices)) if i % 2 == 0])
         # prices.extend([float(products_with_prices[i][:-3].replace(",", "")) for i in range(len(products_with_prices)) if i % 2 != 0])
         # prices_pymes["31"]["products"].update(mf.list_to_dict(products, prices))
-      
+        # mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
         browser.close()
 
 if __name__ == "__main__":
-    Amazon()
-    # Super_Fácil()
-    # mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
+    # Envios_Cuba("https://www.envioscuba.com/ciego/MV_EXPRESS",16)
+    pass
 
 
   
