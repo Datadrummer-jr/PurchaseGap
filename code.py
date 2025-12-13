@@ -17,7 +17,7 @@ población_por_provincia =mf.read_json("data/población_cuba (2024).json")
 canasta_básica = mf.read_json("data/canasta_básica.json")
 qvapay = mf.read_json("data/qvapay.json")
 
-mf.save_json(mf.del_dict_in_sec(mipymes,"23"), "data/prices_pymes.json")
+mf.save_json(mf.del_dict_in_sec(mipymes,"15"), "data/prices_pymes.json")
 
 última_tasa = mf.dict_for_index(el_toque,-1)
 
@@ -66,12 +66,12 @@ def graph_coin():
 #   fig.show()
       
 def compra_por_escala(escala: int):
-   máximos = [mf.max_object([int(i*última_tasa["ECU"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
+   máximos = [mf.max_objects([int(i*última_tasa["ECU"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
               if  mipymes[i]["currency"] == "EUR" 
               else
-              mf.max_object([int(i*última_tasa["USD"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
+              mf.max_objects([int(i*última_tasa["USD"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
               if mipymes[i]["currency"] == "USD"
-              else mf.max_object([int(i) for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
+              else mf.max_objects([int(i) for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
               for i in mipymes if mipymes[i]["sales_category"] == "minorista"]
    return  int(mf.median(máximos))
 
