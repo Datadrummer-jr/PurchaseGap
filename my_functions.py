@@ -4,6 +4,7 @@ from json import JSONDecodeError
 from datetime import datetime, timedelta
 from urllib.parse import urlencode
 import subprocess
+import sys
 import re
 from functools import reduce
 
@@ -302,3 +303,10 @@ def del_dict_in_sec(dict: dict, key:str="", first:int=0):
         new_dict.update({str(i): new_values[i]})
     return new_dict
 
+def max_object(object: list[int|float], max_sum : int) -> int:
+    matriz = [-sys.maxsize] * (max_sum+1)
+    matriz[0] = 0
+    for i in object:
+        for j in range(max_sum, i - 1, -1):
+            matriz[j] = max(matriz[j], matriz[j - i] + 1)
+    return int(max(matriz))

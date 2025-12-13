@@ -197,10 +197,42 @@ def Min_Salary():
       
         browser.close()
 
-   
+def Amazon():
+    products_with_prices = []
+    products = []
+    prices = []
+    with sync_playwright() as p:
+        browser =  p.chromium.launch(
+        headless=True
+        )
+        page =  browser.new_page()
+        page.goto("file:///D:/download/Download_Edge/Amazon%20Los%20m%C3%A1s%20vendidos_%20Mejor%20Cereal%20de%20Desayuno.html", wait_until="domcontentloaded")
+        
+        web_products = page.locator("div._cDEzb_p13n-sc-css-line-clamp-3_g3dy1")
+        print(web_products.count())
+
+        web_prices =  page.locator("span.p13n-sc-price") 
+        print(web_prices.count())
+        
+        # for i in range(webs.count()):
+        #    print(web_prices.nth(i).inner_text())
+        # for i in range(web_poducts.count()):
+        #   producto = web_poducts.nth(i).all()
+        #   for j in producto:
+        #      if j.inner_text()[-3:] == "cup":
+        #        products_with_prices.extend(j.inner_text().split('\n'))
+        # products_with_prices = mf.del_value(products_with_prices)
+
+        # products.extend([products_with_prices[i] for i in range(len(products_with_prices)) if i % 2 == 0])
+        # prices.extend([float(products_with_prices[i][:-3].replace(",", "")) for i in range(len(products_with_prices)) if i % 2 != 0])
+        # prices_pymes["31"]["products"].update(mf.list_to_dict(products, prices))
+      
+        browser.close()
+
 if __name__ == "__main__":
-    Super_Fácil()
-    mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
+    Amazon()
+    # Super_Fácil()
+    # mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
 
 
   
