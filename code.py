@@ -203,9 +203,9 @@ def bar_canasta_vs_pymes():
 #    fig.show()
 
 def bar_compare_coin():
-   usd = mf.mean(list(map(lambda x: x*última_tasa["USD"], mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_usd]))))
-   eur = mf.mean(list(map(lambda x: x*última_tasa["ECU"], mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_eur]))))
-   cup = mf.mean(mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_cup]))
+   usd = mf.median(list(map(lambda x: x*última_tasa["USD"], mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_usd]))))
+   eur = mf.median(list(map(lambda x: x*última_tasa["ECU"], mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_eur]))))
+   cup = mf.median(mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_cup]))
    coins = ["USD", "EUR", "CUP"]
 
    fig = go.Figure(
