@@ -252,31 +252,30 @@ def El_Gelato():
     products = []
     prices = []
     with sync_playwright() as p:
-        browser =  p.chromium.launch(
-        headless=True
-        )
+        browser = p.chromium.launch(
+            channel="msedge",   # aquí se indica Edge
+            headless=True)
         page =  browser.new_page()
-        page.goto("https://www.elgelatooficial.com/", timeout=120000)
+        page.goto("file:///D:/download/Download_Edge/FireShot/El%20Gelato_1.html", timeout=60000)
         
-        web_products = page.locator("h3.h-[3rem]") #class="text-sm xs:text-base md:text-lg text-foreground font-medium line-clamp-2 h-[3rem]"
-        print(web_products.count())
+        web_products = page.locator("div.mb-2") #class="text-sm xs:text-base md:text-lg text-foreground font-medium line-clamp-2 h-[3rem]"
   
-        # web_prices = page.locator("p.mat-body-2") 
-
-        # n , m = web_products.count(), web_prices.count()
-
-        # if n != m:
-        #     return False
-        # print(n,m)
+        def parser(text:str, ):
+           lista = text.split()
+           for i in range(len(lista)):
+              if lista[i] == "CUP":
+                 return " ".join(lista[:i-1]), float(lista[i-1].replace(",", ""))
+              else:
+                 continue     
   
-        # for i in range(web_products.count()):
-        #   products.append(web_products.nth(i).inner_text().strip())
-
-        # for j in range(web_prices.count()):
-        #    prices.append(float(web_prices.nth(j).inner_text().strip()[:-8].replace(".", "").replace(",",".")))
-    
-        # prices_pymes["21"]["products"].update(mf.list_to_dict(products, prices))
-        # mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
+        for i in range(web_products.count()):
+          product = parser(web_products.nth(i).inner_text().strip())
+          if product and len(product) == 2 and product[1] != 0:
+             products.append(product[0])
+             prices.append(product[1])
+      
+        prices_pymes["21"]["products"].update(mf.list_to_dict(products, prices))
+        mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
 
         browser.close()
 
