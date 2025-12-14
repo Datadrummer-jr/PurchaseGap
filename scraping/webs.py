@@ -1,11 +1,13 @@
 
 from playwright.sync_api import sync_playwright
 import os
+import re
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import my_functions as mf
 
 prices_pymes = mf.read_json(r"..\\data\\prices_pymes.json")
+prices_amazon = mf.read_json(r"..\\data\\amazon.json")
 
 def Sinterceros():
     products = []
@@ -186,7 +188,7 @@ def Super_Fácil():
 
         browser.close()
 
-def Amazon():
+def Amazon(category: str, url=str):
     products = []
     prices = []
     with sync_playwright() as p:
@@ -194,31 +196,93 @@ def Amazon():
         headless=True
         )
         page =  browser.new_page()
-        page.goto("file:///D:/download/Download_Edge/Amazon%20Los%20m%C3%A1s%20vendidos_%20Mejor%20Cereal%20de%20Desayuno.html", wait_until="domcontentloaded")
+        page.goto(url, wait_until="domcontentloaded")
         
         web_products = page.locator("div._cDEzb_p13n-sc-css-line-clamp-3_g3dy1")
-        print(web_products.count())
 
         web_prices =  page.locator("span.p13n-sc-price") 
-        print(web_prices.count())
-        
-        # for i in range(webs.count()):
-        #    print(web_prices.nth(i).inner_text())
-        # for i in range(web_poducts.count()):
-        #   producto = web_poducts.nth(i).all()
-        #   for j in producto:
-        #      if j.inner_text()[-3:] == "cup":
-        #        products_with_prices.extend(j.inner_text().split('\n'))
-        # products_with_prices = mf.del_value(products_with_prices)
 
-        # products.extend([products_with_prices[i] for i in range(len(products_with_prices)) if i % 2 == 0])
-        # prices.extend([float(products_with_prices[i][:-3].replace(",", "")) for i in range(len(products_with_prices)) if i % 2 != 0])
-        # prices_pymes["31"]["products"].update(mf.list_to_dict(products, prices))
+        n, m = web_products.count(), web_prices.count()
+
+        if n != m:
+            return False
+        
+        print((n,m))
+        
+        for i in range(web_products.count()):
+           products.append(web_products.nth(i).inner_text().strip())
+
+        for j in range(web_prices.count()):
+           prices.append(float(web_prices.nth(j).inner_text()[3:]))
+        
+        prices_amazon[category].update(mf.list_to_dict(products, prices))
+        mf.save_json(prices_amazon, r"..\\data\\amazon.json")
+         
+        browser.close()
+
+
+def Agruco():
+    products = []
+    prices = []
+    with sync_playwright() as p:
+        browser =  p.chromium.launch(
+        headless=True
+        )
+        page =  browser.new_page()
+        page.goto("", wait_until="domcontentloaded", timeout=60000)
+        
+        web_products = page.locator("a.d-block")
+
+        web_prices =  page.locator("div.text-dark") 
+
+        for i in range(web_products.count()):
+          products.append(web_products.nth(i).inner_text().replace('\"', '').strip())
+        
+        for j in range(web_prices.count()):
+          match = re.search(r"(\d+[.,]?\d*)\s*USD", web_prices.nth(j).inner_text())
+          if match:
+            prices.append(float(match.group(1).replace(",", ".")))
+    
+        prices_pymes["19"]["products"].update(mf.list_to_dict(products, prices))
+        mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
+
+        browser.close()
+
+def El_Gelato():
+    products = []
+    prices = []
+    with sync_playwright() as p:
+        browser =  p.chromium.launch(
+        headless=True
+        )
+        page =  browser.new_page()
+        page.goto("https://www.elgelatooficial.com/", timeout=120000)
+        
+        web_products = page.locator("h3.h-[3rem]") #class="text-sm xs:text-base md:text-lg text-foreground font-medium line-clamp-2 h-[3rem]"
+        print(web_products.count())
+  
+        # web_prices = page.locator("p.mat-body-2") 
+
+        # n , m = web_products.count(), web_prices.count()
+
+        # if n != m:
+        #     return False
+        # print(n,m)
+  
+        # for i in range(web_products.count()):
+        #   products.append(web_products.nth(i).inner_text().strip())
+
+        # for j in range(web_prices.count()):
+        #    prices.append(float(web_prices.nth(j).inner_text().strip()[:-8].replace(".", "").replace(",",".")))
+    
+        # prices_pymes["21"]["products"].update(mf.list_to_dict(products, prices))
         # mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
+
         browser.close()
 
 if __name__ == "__main__":
-    # Envios_Cuba("https://www.envioscuba.com/ciego/MV_EXPRESS",16)
+    # Amazon("Productos de Cuidado Personal", "file:///C:/Users/Joswald/Downloads/Amazon Los más vendidos_ Mejor Productos de Cuidado Personal_2.htm")
+    El_Gelato()
     pass
 
 

@@ -1,6 +1,7 @@
 import my_functions as mf
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+from IPython.display import Image
 import polars as pl
 import sys
 
@@ -16,7 +17,6 @@ mipymes = mf.read_json("data/prices_pymes.json")
 población_por_provincia =mf.read_json("data/población_cuba (2024).json")
 canasta_básica = mf.read_json("data/canasta_básica.json")
 qvapay = mf.read_json("data/qvapay.json")
-
 
 last_rate = mf.dict_for_index(el_toque,-1)
 
@@ -53,6 +53,7 @@ def graph_coin():
     tickangle=0
   )
   fig.update_layout(title='Comparación del comportamiento del USD, el EURO y el MLC entre enero y 10 de diciembre de 2025.')
+  fig.write_image("static/graph_coin.png")  
   fig.show()
   
 
@@ -86,6 +87,7 @@ def max_bar():
     tickangle=0
   )
   fig.update_layout(height=700, title='Mediana de la cantidad máxima de productos que se pueden adquirir en un establecimiento de comercio según escala salarial.')
+  fig.write_image("static/max_bar.png")  
   fig.show()
 
 # población  = [ población_por_provincia[abreviaturas[i]]["total"] for i in city]
@@ -125,7 +127,7 @@ def price_media(product: str):
   usd = list(map(lambda x: x* last_rate["USD"],  mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes_usd[a]["products"], product)) for a in mipymes_usd ])))
   eur = list(map(lambda x: x*last_rate['ECU'], mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes_eur[a]["products"], product)) for a in mipymes_eur ])))
   cup= mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes_cup[a]["products"], product)) for a in mipymes_cup])
-  return mf.mean(cup+usd+eur) , mf.mean(canasta)
+  return mf.median(cup+usd+eur) , mf.median(canasta)
 
 pymes_arroz ,canasta_arroz = price_media("arroz")
 
@@ -151,18 +153,19 @@ pymes_yogurt, canasta_yogurt = price_media("yogurt")
 
 pymes_pescado, canasta_pescado = price_media("pescado")
 
-def bar_canasta_vs_pymes():
+def canasta_vs_pymes():
     products = ["arroz", "pollo" , "azúcar", "frijoles", "aceite", "picadillo", "mortadella", "café", "yogurt", "pescado"]
     pymes_products = [pymes_arroz, pymes_pollo, pymes_azúcar, pymes_frijoles, pymes_aceite, pymes_picadillo, pymes_mortadella, pymes_café, pymes_yogurt, pymes_pescado]
     canasta_products = [canasta_arroz, canasta_pollo, canasta_azúcar, canasta_frijoles, canasta_aceite, canasta_picadillo, canasta_mortadella, canasta_café, canasta_yogurt, canasta_pescado]
 
-    fig = make_subplots(rows=1, cols=2)
+    fig = make_subplots(rows=1, cols=2, subplot_titles=["Mipymes", "Canasta Básica"])
 
     fig.add_trace(go.Bar(x= products, y= pymes_products, name='Mipymes'), row=1, col=1)
     fig.add_trace(go.Bar(x= products, y= canasta_products, name='Canasta Básica'), row=1, col=2)
 
     fig.update_xaxes( tickvals=list(range(len(products))),  ticktext=products, tickangle=30 )
-    fig.update_layout(title="Gráficas comparativas del costo de los principales productos de la canasta básica contra los productos vendidos por mipymes")
+    fig.update_layout(title="Gráficas comparativas del costo medio de productos de la canasta básica contra los vendidos por mipymes.")
+    fig.write_image("static/canasta_vs_pymes.png")  
     fig.show()
     
 # def qvapay_vs_el_toque():
@@ -202,7 +205,7 @@ def bar_canasta_vs_pymes():
 #    fig.update_layout(title= "Gráfica comparando el precio medio entre los preductos vendidos de forma minorista y de forma mayorista.")
 #    fig.show()
 
-def bar_compare_coin():
+def compare_coin():
    usd = mf.median(list(map(lambda x: x*last_rate["USD"], mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_usd]))))
    eur = mf.median(list(map(lambda x: x*last_rate["ECU"], mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_eur]))))
    cup = mf.median(mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_cup]))
@@ -212,9 +215,12 @@ def bar_compare_coin():
       data= go.Bar(x=coins, y=[usd, eur, cup], marker=dict(color= ["red", "yellow", "green"]))
    )
    fig.update_layout(title="Gráfica demostrativa de que el precio del CUP está influyendo en el precio de los productos en mipymes cubanas.")
+   fig.write_image("static/compare_coin.png")  
    fig.show()
 
-
+usd = list(map(lambda x: x*last_rate["USD"], mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_usd])))
+eur = list(map(lambda x: x*last_rate["ECU"], mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_eur])))
+cup = mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_cup])
 
 
 

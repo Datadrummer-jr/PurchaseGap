@@ -310,3 +310,22 @@ def max_objects(object: list[int|float], max_sum : int) -> int:
         for j in range(max_sum, i - 1, -1):
             matriz[j] = max(matriz[j], matriz[j - i] + 1)
     return int(max(matriz))
+
+def max_objects(objects: list[int|float], max_sum: int):
+    # matriz guarda el máximo número de objetos alcanzable con suma j
+    matriz = [-sys.maxsize] * (max_sum + 1)
+    matriz[0] = 0
+    
+    # elecciones[j] guarda la lista de objetos usados para llegar a suma j
+    elecciones = [[] for _ in range(max_sum + 1)]
+    
+    for obj in objects:
+        for j in range(max_sum, obj - 1, -1):
+            if matriz[j - obj] + 1 > matriz[j]:
+                matriz[j] = matriz[j - obj] + 1
+                elecciones[j] = elecciones[j - obj] + [obj]
+    
+    # mejor resultado
+    max_count = max(matriz)
+    idx = matriz.index(max_count)
+    return max_count, elecciones[idx]

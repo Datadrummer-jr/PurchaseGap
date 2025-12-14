@@ -4,6 +4,7 @@ playwright
 python_dotenv
 matplotlib
 plotly
+kaleido
 bokeh
 xlrd==1.2.0
 pdfplumber
