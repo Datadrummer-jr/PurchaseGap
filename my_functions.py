@@ -319,7 +319,6 @@ def max_objects(object: list[int|float], max_sum : int) -> int:
     for i in object:
         for j in range(max_sum, i - 1, -1):
             matriz[j] = max(matriz[j], matriz[j - i] + 1)
-            print(matriz[j])
     return int(max(matriz))
 
 def redondear(n: float) -> int:

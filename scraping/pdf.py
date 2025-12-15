@@ -9,6 +9,7 @@ abreviaturas = mf.read_json('../data/abreviaturas.json')
 municipios_por_provincia = mf.read_json('../data/municipality_country.json')
 mipymes_actuales = mf.read_json('../data/pymes.json')
 rute_pymes = '../sources/Listado de Nuevos Actores Económicos aprobados hasta 09.05.24 .pdf'
+rute_commerce = '../sources/14-comercio-interno_aec2024.pdf'
 
 def formate_pyme(lista:list) ->bool:
   if str(lista[0]).isdigit():
@@ -34,6 +35,11 @@ def save_pyme(index: int):
         mipymes_actuales[indices[i]] = {'name': name[i], 'city': abreviaturas[city[i]].upper(), 'subject': str(type[i]).upper(), 'activity':activity[i] }
     
     mf.save_json(mipymes_actuales,'../data/pymes.json')
+
+def comercio_interno():
+   with pdfplumber.open(rute_commerce) as pdf:
+     print(pdf.pages[8].extract_table())
+  
     
 if __name__ == '__main__':
   # Recomiendo que se scrapee por tramos en vez de todo de una vez:
@@ -45,5 +51,7 @@ if __name__ == '__main__':
 
   # for i in range(100,200):
   #   save_pyme(i)
+  comercio_interno()
+
   pass
   
