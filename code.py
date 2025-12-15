@@ -17,6 +17,8 @@ mipymes = mf.read_json("data/prices_pymes.json")
 población_por_provincia =mf.read_json("data/población_cuba (2024).json")
 canasta_básica = mf.read_json("data/canasta_básica.json")
 qvapay = mf.read_json("data/qvapay.json")
+amazon = mf.read_json("data/amazon.json")
+latam_salary = mf.read_json("data/latam_salary.json")
 
 last_rate = mf.dict_for_index(el_toque,-1)
 
@@ -222,5 +224,19 @@ usd = list(map(lambda x: x*last_rate["USD"], mf.aplanar_lista([mf.dict_num_value
 eur = list(map(lambda x: x*last_rate["ECU"], mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_eur])))
 cup = mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_cup])
 
+def max_buy_latam():
+   names_products = mf.aplanar_lista([mf.dict_keys(amazon[a]) for a in amazon])
+   prices_products = mf.aplanar_lista([mf.dict_num_values(amazon[a]) for a in amazon])
+   uni_products = mf.list_to_dict(names_products, prices_products)
+   salaries = [int(latam_salary[s]) for s in latam_salary]
+   max_buy = [ mf.max_objects([int(i) for i in mf.dict_num_values(uni_products)], s) for s in salaries]
 
-
+   fig = go.Figure(data= go.Bar(
+      x= [c for c in latam_salary],
+      y = max_buy,
+      marker=dict(color= ["green"]*6 + ["red"] + ["green"]*13)
+    ))
+   fig.update_layout(title="¿ Cuáles serán los paises de latinoamérica que más productos pueden comprar en Amazon con un salario mínimo ? ")
+   fig.write_image("static_charts/max_buy_latam.png") 
+   fig.show()
+   

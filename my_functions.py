@@ -168,6 +168,16 @@ def dict_num_values(dicc: dict) -> list:
               values.extend(dict_num_values(i))
    return values
 
+def dict_keys(diccionary : dict):
+   lista = []
+   if type(diccionary) == dict:
+      for k in diccionary.keys():
+          if type(k) == str or type(k) == str:
+              lista.append(k)
+          else:
+              lista.extend(dict_keys(k))
+   return lista
+
 def aplanar_lista(lista: list = []) -> list:
     lista_aplanada = []
     n = len(lista) 
