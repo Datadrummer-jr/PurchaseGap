@@ -19,6 +19,7 @@ canasta_básica = mf.read_json("data/canasta_básica.json")
 qvapay = mf.read_json("data/qvapay.json")
 amazon = mf.read_json("data/amazon.json")
 latam_salary = mf.read_json("data/latam_salary.json")
+ventas_2024 = mf.read_json("data/ventas_minoristas (2024).json")
 
 last_rate = mf.dict_for_index(el_toque,-1)
 
@@ -31,7 +32,7 @@ def salary(file = salarios):
      print(f"{i} | 44 horas: {file['44_horas'][i]} | 40 horas : {file['40_horas'][i]}")
 
 def graph_coin():
-  tasas = [el_toque[i['date_from']] for i in mf.intervalo_fechas("2025-01-01", "2025-12-10",False,False) if el_toque[i['date_from']] is not None]
+  tasas = [el_toque[i['date_from']] for i in mf.intervalo_fechas("2025-01-01", "2025-12-15",False,False) if el_toque[i['date_from']] is not None]
   n = len(tasas)
   days = list(range(n))
   month = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
@@ -54,7 +55,7 @@ def graph_coin():
     ticktext=month,  
     tickangle=0
   )
-  fig.update_layout(title='Comparación del comportamiento del USD, el EURO y el MLC entre enero y 10 de diciembre de 2025.')
+  fig.update_layout(title='Comparación del comportamiento del USD, el EURO y el MLC entre enero y 15 de diciembre de 2025.')
   fig.write_image("static_charts/graph_coin.png")  
   fig.show()
   
@@ -236,7 +237,31 @@ def max_buy_latam():
    fig.write_image("static_charts/max_buy_latam.png") 
    fig.show()
 
+def ventas_minoristas():
+   total = ventas_2024["2024.0"]["Total"]
+   products = ["Comestibles", "Bebidas alcohólicas", "Cervezas", "Tabaco y cigarros", "Otros"]
+   count = [ ventas_2024["2024.0"][i] for i in products[:-1]]
+   count.append(total-sum(count))
+   fig = go.Figure(
+      data=[
+         go.Pie(
+            labels = products,
+            values = count
+         )
+      ]
+   )
+   fig.write_image("static_charts/ventas_minoristas.png") 
+   fig.show()
 
+def mayor_alcance():
+   meat = ["Arroz","Frijol", "Huevo", "Pollo", "Cerdo", "Res", "Carne"]
+   bebidas = ["Cerveza", "Ron", "Whisky", "Bebidas"]
+   pymes_key = [k for k in mipymes]
+   pymes_carne = mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes_cup[k]["products"], subk)) for subk in meat for k in pymes_key ]) + \
+                 [price * last_rate["USD"] for price in mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes_usd[k]["products"], subk)) for subk in meat for k in pymes_key ])] + \
+                 [price * last_rate["ECU"] for price in mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes_eur[k]["products"], subk)) for subk in meat for k in pymes_key ])]
+   print(pymes_carne)
+   pass
       
 
    

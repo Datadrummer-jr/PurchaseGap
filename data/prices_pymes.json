@@ -823,30 +823,6 @@
         }
     },
     "7": {
-        "name": "Cubanearme",
-        "sales_category": "minorista",
-        "currency": "EUR",
-        "horary": {
-            "days": null,
-            "hour": null
-        },
-        "municipality": "Habana del Este",
-        "city": "La Habana",
-        "coordinates": [],
-        "products": {
-            "Saco De Arroz 25kg": 26.0,
-            "Cajas De Muslos Y Contramuslo De Pollo": 28.0,
-            "SANGRÍA AMANHECER TINTA PET 1,5L": 3.75,
-            "PIMENTON DULCE 45 G": 1.4,
-            "BAYETA PAÑO DE COCINA MULTIUSOS SUAVE AMANHECER 6 UN": 2.05,
-            "CHAMP. AMANH INFANTIL 2/1 250ML": 800.0,
-            "SOPA MARISCO AMANH 72G": 450.0,
-            "ATÚN AMANH TROZOS ACEITE 120G": 710.0,
-            "ATÚN AMANHECER FILETE NATURAL 120 GR": 640.0,
-            "ATÚN AMANHECER ACEITE VEG.120 GR": 710.0
-        }
-    },
-    "8": {
         "name": "Tiger Solutions",
         "sales_category": "minorista",
         "currency": "USD",
@@ -1019,7 +995,7 @@
             "Combo La Higiene": 103.74
         }
     },
-    "9": {
+    "8": {
         "name": "El Orbe - Guantánamo",
         "sales_category": "minorista",
         "currency": "USD",
@@ -1170,7 +1146,7 @@
             "Detregente En Polvo Multiuso STB Bolsa 1000g Limon": 2.25
         }
     },
-    "10": {
+    "9": {
         "name": "La Violeta",
         "sales_category": "minorista",
         "currency": "USD",
@@ -1280,7 +1256,7 @@
             "Detergente En Polvo BOOM Multiusos 500 Gr": 1.56
         }
     },
-    "11": {
+    "10": {
         "name": "El Pinero ",
         "sales_category": "minorista",
         "currency": "EUR",
@@ -1350,7 +1326,7 @@
             "DOVE Jabon De Tocador KARITE 48 X 90 G": 1.29
         }
     },
-    "12": {
+    "11": {
         "name": "La Feria",
         "sales_category": "minorista",
         "currency": "EUR",
@@ -1563,7 +1539,7 @@
             "Shampú Liso Perfecto, 300ml": 2.4
         }
     },
-    "13": {
+    "12": {
         "name": "El Trópico",
         "sales_category": "minorista",
         "currency": "USD",
@@ -1706,7 +1682,7 @@
             "DETERGENTE LIQUIDO PARA LAVAR ROSA MARCA GAL 2000ML": 1677.17
         }
     },
-    "14": {
+    "13": {
         "name": "La Venecia",
         "sales_category": "minorista",
         "currency": "USD",
@@ -1837,7 +1813,7 @@
             "Acondicionador Prebióticos Y Biotina, 620 Ml": 5.8
         }
     },
-    "15": {
+    "14": {
         "name": "El Rey",
         "sales_category": "minorista",
         "currency": "CUP",
@@ -1867,7 +1843,7 @@
             "Macarrones": 500
         }
     },
-    "16": {
+    "15": {
         "name": "MVE-EXPRESS",
         "sales_category": "minorista",
         "currency": "USD",
@@ -2005,7 +1981,7 @@
             "1LB Aji Pimiento": 1.62
         }
     },
-    "17": {
+    "16": {
         "name": "Agruco",
         "sales_category": "minorista",
         "currency": "USD",
@@ -2054,7 +2030,7 @@
             "Frijol Negro AGRUCO 900gr (Unidad)": 2.75
         }
     },
-    "18": {
+    "17": {
         "name": "la bodeguita de 26",
         "sales_category": "minorista",
         "currency": "CUP",
@@ -2101,7 +2077,7 @@
             "Galletica Porleo Max chocolate vainilla": 165.0
         }
     },
-    "19": {
+    "18": {
         "name": "La Voluntad Jatibonico",
         "sales_category": "minorista",
         "currency": "USD",
@@ -2143,7 +2119,7 @@
             "NUTELLA": 3.5
         }
     },
-    "20": {
+    "19": {
         "name": "Puerto Envio",
         "sales_category": "minorista",
         "currency": "USD",
@@ -2292,7 +2268,7 @@
             "MORTADELA CONGELADA 1KG BEM": 4.92
         }
     },
-    "21": {
+    "20": {
         "name": "El Gelato",
         "sales_category": "minorista",
         "currency": "CUP",
@@ -2620,6 +2596,146 @@
             "Pizza al Corte de Jamon": 200.0,
             "Tarta Cheesecake de fresa": 4500.0,
             "YOGURT 4 LT NATURAL": 6100.0
+        }
+    },
+    "21": {
+        "name": "Casa de madera",
+        "sales_category": "minorista",
+        "currency": "CUP",
+        "horary": {
+            "days": null,
+            "hour": null
+        },
+        "municipality": null,
+        "city": null,
+        "coordinates": [],
+        "products": {
+            "arroz": 300,
+            "yogurt": 650,
+            "queso": {
+                "crema": 950,
+                "gouda": {
+                    "3kg": 12000,
+                    "lb": 1700
+                }
+            },
+            "leche": 1675,
+            "pollo": {
+                "pechuga": 4200,
+                "higado": 750,
+                "salchicha": 655,
+                "molleja": 1000,
+                "mortadella": 980
+            },
+            "cerdo": 1100,
+            "jamón bravo (2kg)": 6000,
+            "CARTON DE HUEVO": 3150,
+            "papas prefritas": 1500,
+            "potajin": 500,
+            "azucar blanca": 300,
+            "azucar parda": 280,
+            "frijol negro": 360,
+            "harina": 200,
+            "champú": 2000,
+            "desodorante": 650,
+            "Detergente 1 Kg.": 630,
+            "Detergente 500 G.": 315,
+            "detergente liquido": 680,
+            "frazada de piso": 1200,
+            "papel_higiénico": 1304,
+            "Toallitas Húmedas": 480,
+            "intimas pequeñas": 300,
+            "intimas medianas": 360,
+            "Jabón De Lavar": 400,
+            "jabon de baño": 150,
+            "pasta dental": 480
+        }
+    },
+    "22": {
+        "name": "La Bodeguita de Anita",
+        "sales_category": "minorista",
+        "currency": "CUP",
+        "horary": {
+            "days": null,
+            "hour": null
+        },
+        "municipality": "DIEZ DE OCTUBRE",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "pollo": {
+                "pechuga": 4500,
+                "Jamonada": 1100,
+                "higado": 850,
+                "picadillo": 360
+            },
+            "CARTON DE HUEVO": 3100,
+            "arroz": {
+                "importado": 750
+            },
+            "azúcar": 650,
+            "sal": 280,
+            "Espaguettis": 350,
+            "Coditos": 350,
+            "frijol negro": 850,
+            "pasta_de_tomate": 450,
+            "leche_condesada": 520,
+            "atún": 520,
+            "mayonesa": 1100,
+            "yogurt": 3700,
+            "galletas de sal": 150,
+            "chupa_chupa": 60,
+            "refresco instantáneo": 50,
+            "Sorbeto": 150,
+            "Detergente 1 Kg.": 630,
+            "pasta dental": 500,
+            "papel_higiénico c/u": 150,
+            "jabon de baño": 150,
+            "salchichas cocktail 350g Vima*": 900,
+            "harina": 550,
+            "Refresco De Cola": 230,
+            "cerveza": 230,
+            "Refresco De Cola, pomo": 650,
+            "jugo de cajita": 150,
+            "agua": 140,
+            "malta": 280
+        }
+    },
+    "23": {
+        "name": "Dulce o Salado",
+        "sales_category": "minorista",
+        "currency": "CUP",
+        "horary": {
+            "days": null,
+            "hour": null
+        },
+        "municipality": "DIEZ DE OCTUBRE",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "pollo": {
+                "pechuga": 5500,
+                "higado": 1000
+            },
+            "res": {
+                "carne molida": 2400
+            },
+            "picadillo": 320,
+            "cerdo": 1200,
+            "lomo de cerdo deshuesado": 1200,
+            "langosta": 6000,
+            "Queso Blanco": 1200,
+            "jamón prensado": 1200,
+            "jamón embuchado": 1200,
+            "jamón bravo vicky": 850,
+            "queso crema": 900,
+            "croquetas": 400,
+            "chorizo": 1200,
+            "helado": 1500,
+            "yogurt probiótico": 5500,
+            "masa de hamburguesa": 1500,
+            "mortadella": 550,
+            "Jamonada": 350
         }
     }
 }
