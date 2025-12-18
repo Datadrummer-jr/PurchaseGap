@@ -55,7 +55,7 @@ def graph_coin():
     ticktext=month,  
     tickangle=0
   )
-  fig.update_layout(title='Comparación del comportamiento del USD, el EURO y el MLC entre enero y 15 de diciembre de 2025.')
+  fig.update_layout(width=1200, height=600, title='Comparación del comportamiento del USD, el EURO y el MLC entre enero y 15 de diciembre de 2025.')
   fig.write_image("static_charts/graph_coin.png")  
   fig.show()
   
@@ -89,7 +89,7 @@ def max_bar():
     ticktext= salarios['44_horas'],  
     tickangle=0
   )
-  fig.update_layout(height=700, title='Mediana de la cantidad máxima de productos que se pueden adquirir en un establecimiento de comercio según escala salarial.')
+  fig.update_layout(width=1200, height=600, title='Mediana de la cantidad máxima de productos que se pueden adquirir en un establecimiento de comercio según escala salarial.')
   fig.write_image("static_charts/max_bar.png")  
   fig.show()
 
@@ -167,27 +167,27 @@ def canasta_vs_pymes():
     fig.add_trace(go.Bar(x= products, y= canasta_products, name='Canasta Básica'), row=1, col=2)
 
     fig.update_xaxes( tickvals=list(range(len(products))),  ticktext=products, tickangle=30 )
-    fig.update_layout(title="Gráficas comparativas del costo medio de productos de la canasta básica contra los vendidos por mipymes.")
+    fig.update_layout(width=1200, height=600, title="Gráficas comparativas del costo medio de productos de la canasta básica contra los vendidos por mipymes.")
     fig.write_image("static_charts/canasta_vs_pymes.png")  
     fig.show()
     
-def qvapay_vs_el_toque():
-  fechas = [fecha['date_from'] for fecha in mf.intervalo_fechas('2025-11-1','2025-11-30', False, False)]
-  usd_qvapay = []
-  for fecha in fechas:
-    offers = []
-    for offer in qvapay:
-      if qvapay[offer]["date"][:10] == fecha and qvapay[offer]["coin"] == "CUP":
-         offers.append(qvapay[offer]["price"])  
-    usd_qvapay.append(offers)
-  medias_qvapay = [ float(mf.mean(m)) for m in usd_qvapay]
-  medias_el_toque = [el_toque[fecha]['USD'] for fecha in fechas]
-  fig = go.Figure(data=[
-    go.Line(name="El Toque", x=fechas, y=medias_el_toque),
-    go.Line(name="QvaPay", x=fechas, y=medias_qvapay)
-  ])
-  fig.update_layout( barmode='group', title= "Gráfica comparativa de los precios media del USD entre El Toque y QvaPay en el transcurso del mes de noviembre de 2025.")
-  fig.show()
+# def qvapay_vs_el_toque():
+#   fechas = [fecha['date_from'] for fecha in mf.intervalo_fechas('2025-11-1','2025-11-30', False, False)]
+#   usd_qvapay = []
+#   for fecha in fechas:
+#     offers = []
+#     for offer in qvapay:
+#       if qvapay[offer]["date"][:10] == fecha and qvapay[offer]["coin"] == "CUP":
+#          offers.append(qvapay[offer]["price"])  
+#     usd_qvapay.append(offers)
+#   medias_qvapay = [ float(mf.mean(m)) for m in usd_qvapay]
+#   medias_el_toque = [el_toque[fecha]['USD'] for fecha in fechas]
+#   fig = go.Figure(data=[
+#     go.Line(name="El Toque", x=fechas, y=medias_el_toque),
+#     go.Line(name="QvaPay", x=fechas, y=medias_qvapay)
+#   ])
+#   fig.update_layout( barmode='group', title= "Gráfica comparativa de los precios media del USD entre El Toque y QvaPay en el transcurso del mes de noviembre de 2025.")
+#   fig.show()
 
 # def minorista_vs_mayorista():
 #    minoristas = [ [ usd * last_rate["USD"] for usd in mf.dict_num_values(mipymes[i])] if mipymes[i]["currency"] == "USD" else
@@ -233,7 +233,7 @@ def max_buy_latam():
       y = max_buy,
       marker=dict(color= ["green"]*6 + ["red"] + ["green"]*13)
     ))
-   fig.update_layout(title="¿ Cuáles serán los paises de latinoamérica que más productos pueden comprar en Amazon con un salario mínimo ? ")
+   fig.update_layout(width=1200, height=600, title="¿ Cuáles serán los paises de latinoamérica que más productos pueden comprar en Amazon con un salario mínimo ? ")
    fig.write_image("static_charts/max_buy_latam.png") 
    fig.show()
 
