@@ -171,23 +171,23 @@ def canasta_vs_pymes():
     fig.write_image("static_charts/canasta_vs_pymes.png")  
     fig.show()
     
-# def qvapay_vs_el_toque():
-#   fechas = [fecha['date_from'] for fecha in mf.intervalo_fechas('2025-11-1','2025-11-30', False, False)]
-#   usd_qvapay = []
-#   for fecha in fechas:
-#     offers = []
-#     for offer in qvapay:
-#       if qvapay[offer]["date"][:10] == fecha and qvapay[offer]["coin"] == "CUP":
-#          offers.append(qvapay[offer]["price"])  
-#     usd_qvapay.append(offers)
-#   medias_qvapay = [ float(mf.mean(m)) for m in usd_qvapay]
-#   medias_el_toque = [el_toque[fecha]['USD'] for fecha in fechas]
-#   fig = go.Figure(data=[
-#     go.Line(name="El Toque", x=fechas, y=medias_el_toque),
-#     go.Line(name="QvaPay", x=fechas, y=medias_qvapay)
-#   ])
-#   fig.update_layout( barmode='group', title= "Gráfica comparativa de los precios media del USD entre El Toque y QvaPay en el transcurso del mes de noviembre de 2025.")
-#   fig.show()
+def qvapay_vs_el_toque():
+  fechas = [fecha['date_from'] for fecha in mf.intervalo_fechas('2025-11-1','2025-11-30', False, False)]
+  usd_qvapay = []
+  for fecha in fechas:
+    offers = []
+    for offer in qvapay:
+      if qvapay[offer]["date"][:10] == fecha and qvapay[offer]["coin"] == "CUP":
+         offers.append(qvapay[offer]["price"])  
+    usd_qvapay.append(offers)
+  medias_qvapay = [ float(mf.mean(m)) for m in usd_qvapay]
+  medias_el_toque = [el_toque[fecha]['USD'] for fecha in fechas]
+  fig = go.Figure(data=[
+    go.Line(name="El Toque", x=fechas, y=medias_el_toque),
+    go.Line(name="QvaPay", x=fechas, y=medias_qvapay)
+  ])
+  fig.update_layout( barmode='group', title= "Gráfica comparativa de los precios media del USD entre El Toque y QvaPay en el transcurso del mes de noviembre de 2025.")
+  fig.show()
 
 # def minorista_vs_mayorista():
 #    minoristas = [ [ usd * last_rate["USD"] for usd in mf.dict_num_values(mipymes[i])] if mipymes[i]["currency"] == "USD" else
