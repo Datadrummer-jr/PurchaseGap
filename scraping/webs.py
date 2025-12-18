@@ -253,7 +253,7 @@ def El_Gelato():
     prices = []
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            channel="msedge",   # aquí se indica Edge
+            channel="msedge",  
             headless=True)
         page =  browser.new_page()
         page.goto("file:///D:/download/Download_Edge/FireShot/El%20Gelato_1.html", timeout=60000)
@@ -279,9 +279,38 @@ def El_Gelato():
 
         browser.close()
 
+def Pymesbulevar():
+    products = []
+    prices = []
+    with sync_playwright() as p:
+        browser = p.chromium.launch(
+            channel="msedge",   
+            headless=True)
+        page =  browser.new_page()
+        page.goto("file:///D:/download/Download_Edge/Charcuter%C3%ADa%20Cuervo's.html", wait_until="domcontentloaded", timeout=60000)
+        
+        web_products = page.locator("h4.mat-body-2")
+
+        web_prices =  page.locator("p.ng-star-inserted") 
+
+        for i in range(web_products.count()):
+          products.append(web_products.nth(i).inner_text().strip().upper())
+        
+        for j in range(web_prices.count()):
+            price = web_prices.nth(j).inner_text().strip()
+            if price[-3:] == "CUP":
+              prices.append(float(price[:-4].replace(".","").replace(",",".")))
+            else:
+               continue
+    
+        prices_pymes["26"]["products"].update(mf.list_to_dict(products, prices))
+        mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
+
+        browser.close()
+   
 if __name__ == "__main__":
     # Amazon("Productos de Cuidado Personal", "file:///C:/Users/Joswald/Downloads/Amazon Los más vendidos_ Mejor Productos de Cuidado Personal_2.htm")
-    El_Gelato()
+    Pymesbulevar()
     pass
 
 

@@ -2738,61 +2738,116 @@
             "Jamonada": 350
         }
     },
-    "24":{
+    "24": {
         "name": "La casa del jamón",
         "sales_category": "minorista",
-         "currency": "CUP",
-        "horary":{
-        "days": null,
-        "hour" : null
+        "currency": "CUP",
+        "horary": {
+            "days": null,
+            "hour": null
+        },
+        "municipality": "DIEZ DE OCTUBRE",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "Como Aliumado Osshuesudo (420 g)": 1500,
+            "Como Aliumado Osshuesudo (730 g)": 2500,
+            "Como Aliumado extra espec. (420 g)": 1500,
+            "Nema Aliumada Especial (400 g)": 1500,
+            "Jamón Prensado Casqueado (380 g)": 700,
+            "Jamón Prensado Lasq. Espec. (350 g)": 700,
+            "Jamón Embuciñado Extra (290 g)": 1200,
+            "Jamón Barra Aliumado Espec. (380 g)": 700,
+            "Jamón Sandwich (420 g)": 500,
+            "Dados de Jamón Aliumado (350 g)": 700,
+            "Mixto jamón y queso (trocado) (550 g)": 800,
+            "Acadillo de Jamón (350 g)": 600,
+            "Recortería Aliumada S/ Hueso (400 g)": 1250,
+            "Garbancada (450 g)": 800,
+            "Chorizo Rojo Alium. (trocado) (350 g)": 750,
+            "Chorizo Rojo Alium. (entero) (350 g)": 750,
+            "Chorizón Aliumado (Lasq) (340 g)": 600,
+            "Pasta Especial para Bocaditos (500 g)": 750,
+            "Jamón Barra (650 g)": 1150,
+            "Jamón Prensado (670 g)": 1150,
+            "Queso Blanco Extra (600 g)": 1200,
+            "Queso Gouda Lasqueado (300-420 g)": 1600,
+            "Queso Blanco Molido (620 g)": 1200,
+            "Completa para Spaguettis Queso Blanco y Jamón (510 g)": 800,
+            "Completa para Spaguettis Queso Gouda y Jamón": 1200,
+            "Croquetas Especiales (Paq 15)": 460,
+            "Croquetas de Jamón-Chorizo (Paq de 18)": 280,
+            "Fish Steak (paq 15)": 500,
+            "Minuta de Pescado (450 g)": 1150,
+            "Eperlan (450 g)": 1150,
+            "Tostones pre-frito (14 u) Plátano Macho": 240,
+            "Tostones Pre-frito (14 u) (plátano Burro)": 240,
+            "Plátano Maduro (20 u) (Burro y Macho)": 170,
+            "Plátano Hawaiiano (20 u)": 200,
+            "Bocadito de Jamón (300 g)": 450,
+            "Bocadito Especial (425 g)": 650,
+            "Super Bocadito (560 g)": 850,
+            "Sandwich Especial (920 g)": 1500,
+            "Pizza de Jamón": 750,
+            "Spaguettis de jamón (500 g)": 650,
+            "Spaguettis de jamón (1000 g)": 920,
+            "Ensalada Fría (150 g)": 790,
+            "Pasta Especial (500 g)": 750
+        }
     },
-    "municipality": "DIEZ DE OCTUBRE",
-    "city": "La Habana",
-     "coordinates": [],
-    "products": {
-  "Como Aliumado Osshuesudo (420 g)": 1500,
-  "Como Aliumado Osshuesudo (730 g)": 2500,
-  "Como Aliumado extra espec. (420 g)": 1500,
-  "Nema Aliumada Especial (400 g)": 1500,
-  "Jamón Prensado Casqueado (380 g)": 700,
-  "Jamón Prensado Lasq. Espec. (350 g)": 700,
-  "Jamón Embuciñado Extra (290 g)": 1200,
-  "Jamón Barra Aliumado Espec. (380 g)": 700,
-  "Jamón Sandwich (420 g)": 500,
-  "Dados de Jamón Aliumado (350 g)": 700,
-  "Mixto jamón y queso (trocado) (550 g)": 800,
-  "Acadillo de Jamón (350 g)": 600,
-  "Recortería Aliumada S/ Hueso (400 g)": 1250,
-  "Garbancada (450 g)": 800,
-  "Chorizo Rojo Alium. (trocado) (350 g)": 750,
-  "Chorizo Rojo Alium. (entero) (350 g)": 750,
-  "Chorizón Aliumado (Lasq) (340 g)": 600,
-  "Pasta Especial para Bocaditos (500 g)": 750,
-  "Jamón Barra (650 g)": 1150,
-  "Jamón Prensado (670 g)": 1150,
-  "Queso Blanco Extra (600 g)": 1200,
-  "Queso Gouda Lasqueado (300-420 g)": 1600,
-  "Queso Blanco Molido (620 g)": 1200,
-  "Completa para Spaguettis Queso Blanco y Jamón (510 g)": 800,
-  "Completa para Spaguettis Queso Gouda y Jamón": 1200,
-  "Croquetas Especiales (Paq 15)": 460,
-  "Croquetas de Jamón-Chorizo (Paq de 18)": 280,
-  "Fish Steak (paq 15)": 500,
-  "Minuta de Pescado (450 g)": 1150,
-  "Eperlan (450 g)": 1150,
-  "Tostones pre-frito (14 u) Plátano Macho": 240,
-  "Tostones Pre-frito (14 u) (plátano Burro)": 240,
-  "Plátano Maduro (20 u) (Burro y Macho)": 170,
-  "Plátano Hawaiiano (20 u)": 200,
-   "Bocadito de Jamón (300 g)": 450,
-  "Bocadito Especial (425 g)": 650,
-  "Super Bocadito (560 g)": 850,
-  "Sandwich Especial (920 g)": 1500,
-  "Pizza de Jamón": 750,
-  "Spaguettis de jamón (500 g)": 650,
-  "Spaguettis de jamón (1000 g)": 920,
-  "Ensalada Fría (150 g)": 790,
-  "Pasta Especial (500 g)": 750
-}
-}
+    "25": {
+        "name": "",
+        "sales_category": "minorista",
+        "currency": "CUP",
+        "horary": {
+            "days": null,
+            "hour": null
+        },
+        "municipality": "DIEZ DE OCTUBRE",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "jugo": {
+                "cajita": {
+                    "pequeña": 180
+                }
+            },
+            "refresco": {
+                "lata": 240
+            },
+            "cerveza": {
+                "importado": 240,
+                "nacional": 320
+            },
+            "BEBIDA ENERGIZANTE": 260,
+            "malta": 280,
+            "Coditos": 300,
+            "Espaguettis": 300,
+            "pasta de tomate": 380,
+            "frijol negro": 800,
+            "galletas crocantinas": 1050
+        }
+    },
+    "26": {
+        "name": "Charcutería Cuervo's",
+        "sales_category": "minorista",
+        "currency": "CUP",
+        "horary": {
+            "days": null,
+            "hour": null
+        },
+        "municipality": "Playa",
+        "city": "La Habana",
+        "coordinates": [],
+        "products": {
+            "PAQUETE DE LOMO IMPORTADO AL VACIO 1LB": 1350.0,
+            "JAMÓN EMBUCHADO EN BÍCORA 1LB": 1000.0,
+            "JAMON VICKING DE CERDO 1LB": 750.0,
+            "CHORIZO VELA 1 LB": 750.0,
+            "LOMO IMPORTADO AHUMADO 1LB": 1200.0,
+            "JAMÓN PIERNA PRENSADA 1LB": 900.0,
+            "JAMÓN EN BICORA ESPECIAL 1B": 1300.0,
+            "PAQUETE DE CHORIZO ROJO": 1300.0
+        }
+    }
 }
