@@ -2856,6 +2856,7 @@
         "currency": "CUP",
         "horary": {
             "days": null,
+            "hour": null
         },
         "municipality": null,
         "city": null,
