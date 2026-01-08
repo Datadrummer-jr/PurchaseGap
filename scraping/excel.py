@@ -59,10 +59,14 @@ def ipc():
     ipc_2010 = Annual[23]
     ipc_2020_2024 = Annual[33:38]
     years_2020_2024 = Years[33:38]
+    ipc_2020_2024_recalculado = [(y / ipc_2010) * 100 for y in ipc_2020_2024]
+     
+    FAO_IPC = {}
 
-    years_2020_2024 = [(y / ipc_2010) * 100 for y in ipc_2020_2024]
-    for i in 
-    mf.save_json(, r"..\\data\\ventas_minoristas (2024).json")
+    for i in range(len(ipc_2020_2024_recalculado)):
+        FAO_IPC[years_2020_2024[i]] = ipc_2020_2024_recalculado[i]
+
+    mf.save_json(FAO_IPC, r"..\\data\\IPC-FAO.json")
 if __name__ == "__main__":
     ipc()
 

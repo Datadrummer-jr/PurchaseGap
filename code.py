@@ -283,6 +283,18 @@ def mayor_alcance():
    )
    fig.show()
 
+def ipc():
+   ipc_global = mf.save_json(r"..\\data\\IPC-FAO.json")
+   ipc_cuba = mf.save_json(r"..\\data\\IPC-Cuba.json")
+   list_ipc_global = []
+   list_ipc_cuba = []
+   for g in range(ipc_global):
+      list_ipc_global.append(ipc_global[g])
+   for c in range(ipc_global):
+      list_ipc_cuba.append(ipc_cuba[c])
+ 
+
+   
 
 
 
