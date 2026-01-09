@@ -284,14 +284,22 @@ def mayor_alcance():
    fig.show()
 
 def ipc():
-   ipc_global = mf.save_json(r"..\\data\\IPC-FAO.json")
-   ipc_cuba = mf.save_json(r"..\\data\\IPC-Cuba.json")
+   ipc_global = mf.read_json(r"data\\IPC-FAO.json")
+   ipc_cuba = mf.read_json(r"data\\IPC-Cuba.json")
+   years = [year for year in ipc_global]
    list_ipc_global = []
    list_ipc_cuba = []
-   for g in range(ipc_global):
+   for g in ipc_global:
       list_ipc_global.append(ipc_global[g])
-   for c in range(ipc_global):
+   for c in ipc_global:
       list_ipc_cuba.append(ipc_cuba[c])
+   fig = go.Figure(data=[
+      go.Scatter(x=years, y=list_ipc_cuba,name="Cuba", mode="lines"),
+      go.Scatter(x=years, y=list_ipc_global, name="Mundial", mode="lines")
+   ])
+   fig.update_layout(width=1200, height=600, title="Comparativa del indice de precios al consumidor de Cuba con el Mundial")
+   fig.write_image("static_charts/ipc.png")
+   fig.show()
  
 
    

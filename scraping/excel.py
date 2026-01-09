@@ -35,7 +35,7 @@ def población():
 
 
 
-def vetas():
+def ventas():
     ventas_minoristas = xlrd.open_workbook(ruta_ventas_minoristas)
     sheet =  ventas_minoristas.sheet_by_name("14-6")
 
