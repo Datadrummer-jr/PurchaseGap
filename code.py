@@ -52,7 +52,7 @@ def graph_coin():
     ticktext=month,  
     tickangle=0
   )
-  fig.update_layout(width=1200, height=600, title='Comparación del comportamiento del USD, el EURO y el MLC entre enero y 15 de diciembre de 2025.')
+  fig.update_layout(width=1000, height=600, title='Comparación del comportamiento del USD, el EURO y el MLC entre enero y 15 de diciembre de 2025.')
   fig.write_image("static_charts/graph_coin.png")  
   fig.show()
   
@@ -86,7 +86,7 @@ def max_bar():
     ticktext= salarios['44_horas'],  
     tickangle=0
   )
-  fig.update_layout(width=1200, height=600, title='Mediana de la cantidad máxima de productos que se pueden adquirir en un establecimiento de comercio según escala salarial.')
+  fig.update_layout(width=1100, height=600, title='Mediana de la cantidad máxima de productos que se pueden adquirir en un establecimiento de comercio según escala salarial.')
   fig.write_image("static_charts/max_bar.png")  
   fig.show()
 
@@ -159,7 +159,7 @@ def canasta_vs_pymes():
     fig.add_trace(go.Bar(x= products, y= canasta_products, name='Canasta Básica'), row=1, col=2)
 
     fig.update_xaxes( tickvals=list(range(len(products))),  ticktext=products, tickangle=30 )
-    fig.update_layout(width=1200, height=600, title="Gráficas comparativas del costo medio de productos de la canasta básica contra los vendidos por mipymes.")
+    fig.update_layout(width=1100, height=600, title="Gráficas comparativas del costo medio de productos de la canasta básica contra los vendidos por mipymes.")
     fig.write_image("static_charts/canasta_vs_pymes.png")  
     fig.show()
     
@@ -225,7 +225,7 @@ def max_buy_latam():
       y = max_buy,
       marker=dict(color= ["green"]*6 + ["red"] + ["green"]*13)
     ))
-   fig.update_layout(width=1200, height=600, title="¿ Cuáles serán los paises de latinoamérica que más productos pueden comprar en Amazon con un salario mínimo ? ")
+   fig.update_layout(width=1100, height=600, title="¿ Cuáles serán los paises de latinoamérica que más productos pueden comprar en Amazon con un salario mínimo ? ")
    fig.write_image("static_charts/max_buy_latam.png") 
    fig.show()
 
@@ -284,28 +284,26 @@ def mayor_alcance():
    fig.show()
 
 def ipc():
+   fao_2010 = mf.read_json(r"data\\FAO_2010.json")
    ipc_global = mf.read_json(r"data\\IPC-FAO.json")
    ipc_cuba = mf.read_json(r"data\\IPC-Cuba.json")
-   years = [year for year in ipc_global]
-   list_ipc_global = []
-   list_ipc_cuba = []
-   for g in ipc_global:
-      list_ipc_global.append(ipc_global[g])
-   for c in ipc_global:
-      list_ipc_cuba.append(ipc_cuba[c])
+
+   months = [month for month in ipc_global][:48]
+   ipc_fao_2021_2024 = [(ipc_global[month] / fao_2010[month.split()[0]]) *100 for month in ipc_global]
+   ipc_cuba_2021_2024= mf.dict_num_values(ipc_cuba)
+
    fig = go.Figure(data=[
-      go.Scatter(x=years, y=list_ipc_cuba,name="Cuba", mode="lines"),
-      go.Scatter(x=years, y=list_ipc_global, name="Mundial", mode="lines")
+      go.Scatter(x=months, y=ipc_cuba_2021_2024, name="Cuba", mode="lines+markers"),
+      go.Scatter(x=months, y=ipc_fao_2021_2024, name="Mundial", mode="lines+markers")
    ])
-   fig.update_layout(width=1200, height=600, title="Comparativa del indice de precios al consumidor de Cuba con el Mundial")
+   fig.update_xaxes(
+   tickvals=[0,12,24,36],  
+    ticktext= [2021,2022,2023,2024],  
+    tickangle=0
+   )
+   fig.update_layout(width=1100, height=600, title="Comparativa del indice de precios al consumidor de Cuba con el resto del mundo.")
    fig.write_image("static_charts/ipc.png")
    fig.show()
- 
 
-   
-
-
-
-      
 
    

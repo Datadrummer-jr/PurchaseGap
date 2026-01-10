@@ -5,6 +5,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import my_functions as mf
+import datetime
 
 ruta_población = r"..\\sources\\20251030-aec2024-excel-capitulos-publicados\\03 Poblacion_AEC2024.xls"
 rute_ipc = r"D:\DATA SCIENCE\Programación\Data-Pyme\sources\IPC\food_price_indices_data_dec.xlsx"
@@ -51,22 +52,27 @@ def ventas():
         }
     mf.save_json(ventas, r"..\\data\\ventas_minoristas (2024).json")
 
-def ipc():
+def ipc(base: bool= False):
     excel = openpyxl.load_workbook(rute_ipc)
-    hoja = excel.worksheets[1]
-    Years = [cell.value for cell in hoja["A"]]
-    Annual = [cell.value for cell in hoja["B"]]
-    ipc_2010 = Annual[23]
-    ipc_2020_2024 = Annual[33:38]
-    years_2020_2024 = Years[33:38]
-    ipc_2020_2024_recalculado = [(y / ipc_2010) * 100 for y in ipc_2020_2024]
-     
-    FAO_IPC = {}
+    hoja = excel.worksheets[0]
+    Years = [ (cell.value.strftime("%B %Y") if isinstance(cell.value, datetime.datetime) else cell.value) for cell in hoja["A"] ]
+    values = [cell.value for cell in hoja["B"]]
+    
+    if base:
+        Years = Years[244:256]
+        values = values[244:256]
+        
+    else:
+        Years = Years[376:424]
+        values = values[376:424]
+    
+    FAO_IPC = mf.read_json(r"..\\data\\IPC-FAO.json")
 
-    for i in range(len(ipc_2020_2024_recalculado)):
-        FAO_IPC[years_2020_2024[i]] = ipc_2020_2024_recalculado[i]
-
+    for i in range(len(Years)):
+        FAO_IPC[Years[i]] = float(values[i])
+    
     mf.save_json(FAO_IPC, r"..\\data\\IPC-FAO.json")
+
 if __name__ == "__main__":
     ipc()
 

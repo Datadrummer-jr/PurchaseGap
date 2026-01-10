@@ -39,8 +39,8 @@ def save_pyme(index: int):
 def comercio_interno():
    with pdfplumber.open(rute_commerce) as pdf:
      print(pdf.pages[8].extract_table())
-  
-    
+
+
 if __name__ == '__main__':
   # Recomiendo que se scrapee por tramos en vez de todo de una vez:
 
@@ -51,7 +51,6 @@ if __name__ == '__main__':
 
   # for i in range(100,200):
   #   save_pyme(i)
-  comercio_interno()
 
   pass
   
