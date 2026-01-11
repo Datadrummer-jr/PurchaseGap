@@ -302,8 +302,3 @@ def redondear(n: float) -> int:
 def del_value(lista: list, value) -> list:
    return [v for v in lista if v != value]
 
-
-   
-
-     
-               

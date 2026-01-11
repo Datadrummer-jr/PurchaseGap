@@ -31,15 +31,11 @@ def salary(file = salarios):
 
 def graph_coin():
   tasas = [el_toque[i['date_from']] for i in mf.intervalo_fechas("2025-01-01", "2025-12-31",False,False) if el_toque[i['date_from']] is not None]
-  n = len(tasas)
-  days = list(range(n))
-  month = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
-
+  days = [day['date_from'] for day in mf.intervalo_fechas("2025-01-01", "2025-12-31",False,False) ]
+ 
   usd = [i["USD"] for i in tasas]
   euro = [i["ECU"] for i in tasas]
   mlc = [i["MLC"] for i in tasas]
-
-  inicios = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]
 
   fig = go.Figure(data=[
   go.Scatter(x=days, y=usd, mode="lines", name= 'USD'),
@@ -47,24 +43,10 @@ def graph_coin():
   go.Scatter(x=days, y=mlc, mode="lines", name= 'MLC')
   ]
   )
-
-  fig.update_xaxes(
-   tickvals=inicios,  
-    ticktext=month,  
-    tickangle=0
-  )
-  fig.update_layout(width=1000, height=600, title='Comparación del comportamiento del USD, el EURO y el MLC entre enero y 15 de diciembre de 2025.')
+  
+  fig.update_layout(width=1100, height=600, title='Comparación del comportamiento del USD, el EURO y el MLC a lo largo de todo 2025.')
   fig.write_image("static_charts/graph_coin.png")  
   fig.show()
-  
-
-# def bar_pymes():      
-#   fig = go.Figure(data=go.Bar(
-#      x= city,
-#      y = count_pymes
-#   ))
-#   fig.update_layout(title= "Comparación de la cantidad de actores económicos creados desde 2021 por provincia.")
-#   fig.show()
       
 def compra_por_escala(escala: int):
    máximos = [mf.max_objects([mf.redondear(i*last_rate["ECU"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
@@ -90,26 +72,6 @@ def max_bar():
   fig.update_layout(width=1200, height=600, title='Mediana de la cantidad máxima de productos que se pueden adquirir en un establecimiento de comercio según escala salarial.')
   fig.write_image("static_charts/max_bar.png")  
   fig.show()
-
-
-
-# provincias = [abreviaturas[i] for i in city]
-
-# types = [mf.list_for_value(data,'city',i , "subject") for i in cities]
-# mpmp =  [mf.first_count(i, 'MIPYME PRIVADA') for i in types]
-# mpme =  [mf.first_count(i, 'MIPYME ESTATAL') for i in types]
-# cna =   mf.sum_rows([[mf.first_count(i, 'COOPERATIVA NO AGROPECUARIA') for i in types], [mf.first_count(i, 'CNA') for i in types]])
-# mipymes_indefinidas = [mf.del_space(i).count('MIPYME') for i in types]
-
-# def ausent_detect(lista:list[str]):
-#   for i in lista:
-#     if 'MIPYME PRIVADA'.upper().replace(' ','') not in str(i).upper().replace(' ','') and \
-#       'MIPYME ESTATAL'.upper().replace(' ','') not in str(i).upper().replace(' ','') and \
-#       'MIPYME'.upper().replace(' ','') not in str(i).upper().replace(' ','') and \
-#       'CNA'.upper().replace(' ','') not in str(i).upper().replace(' ','') and \
-#       'COOPERATIVA NO AGROPECUARIA'.upper().replace(' ','') not in str(i).upper().replace(' ',''):
-#        return i
-#   return 'ok'
 
 def price_media(product: str):
   canasta =  mf.aplanar_lista(mf.dict_num_values(mf.search_keys(canasta_básica, product)))
@@ -176,38 +138,6 @@ def canasta_vs_pymes():
 #   ])
 #   fig.update_layout( barmode='group', title= "Gráfica comparativa de los precios media del USD entre El Toque y QvaPay en el transcurso del mes de noviembre de 2025.")
 #   fig.show()
-
-# def minorista_vs_mayorista():
-#    minoristas = [ [ usd * last_rate["USD"] for usd in mf.dict_num_values(mipymes[i])] if mipymes[i]["currency"] == "USD" else
-#                  [ usd * last_rate["ECU"] for usd in mf.dict_num_values(mipymes[i])] if  mipymes[i]["currency"] == "EUR"
-#                  else mf.dict_num_values(mipymes[i])  for i in  mipymes if mipymes[i]["sales_category"] == "minorista"]
-#    mayoristas = [ [ usd * last_rate["USD"] for usd in mf.dict_num_values(mipymes[i])] if mipymes[i]["currency"] == "USD" else
-#                  [ usd * last_rate["ECU"] for usd in mf.dict_num_values(mipymes[i])] if mipymes[i]["currency"] == "EUR"
-#                  else mf.dict_num_values(mipymes[i]) for i in mipymes if mipymes[i]["sales_category"] == "mayorista" ]
-   
-#    media_minorista = mf.median(mf.aplanar_lista(minoristas))
-#    media_mayorista = mf.median(mf.aplanar_lista(mayoristas))
-
-#    fig = go.Figure(data=[
-#       go.Bar(x= ["Minorista"], y= [media_minorista], name="Minorista"),
-#       go.Bar(x= ["Mayorista"], y= [media_mayorista], name="Mayorista")
-#    ])
-
-#    fig.update_layout(title= "Gráfica comparando el precio medio entre los preductos vendidos de forma minorista y de forma mayorista.")
-#    fig.show()
-
-# def compare_coin():
-#    usd = mf.median(list(map(lambda x: x*last_rate["USD"], mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_usd]))))
-#    eur = mf.median(list(map(lambda x: x*last_rate["ECU"], mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_eur]))))
-#    cup = mf.median(mf.aplanar_lista([mf.dict_num_values(mipymes[p]["products"]) for p in mipymes_cup]))
-#    coins = ["USD", "EUR", "CUP"]
-
-#    fig = go.Figure(
-#       data= go.Bar(x=coins, y=[usd, eur, cup], marker=dict(color= ["red", "yellow", "green"]))
-#    )
-#    fig.update_layout(title="Gráfica demostrativa de que el precio del CUP está influyendo en el precio de los productos en mipymes cubanas.")
-#    fig.write_image("static_charts/compare_coin.png")  
-#    fig.show()
 
 def max_buy_latam():
    names_products = mf.aplanar_lista([mf.dict_keys(amazon[a]) for a in amazon])
@@ -309,7 +239,7 @@ def coin_pymes():
    fig = go.Figure(data=
       go.Bar(x=["CUP", "Monedas Extrajeras"], y=[mf.median(cup), mf.median(usd+euro)])
    )
-   fig.update_layout(width=1100, height=600, title="Comparativa del precio medio de entre laa mipymes en moneda nacional y en monedas extrajeras en Cuba.")
+   fig.update_layout(width=1100, height=600, title="Comparativa del precio medio de entre las mipymes en moneda nacional y en monedas extrajeras en Cuba.")
    fig.write_image("static_charts/coin_pymes.png")
    fig.show()
 
@@ -351,7 +281,7 @@ def personas_por_mipyme():
         width=1150,
         height=700
     )
-   fig.write_image("static_charts/personas_por_mipyme.png")
+   fig.write_html("static_charts/personas_por_mipyme.html")
    fig.show()
 
 
