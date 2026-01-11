@@ -1,5 +1,6 @@
 import my_functions as mf
 import plotly.graph_objects as go
+import plotly.express as px
 from plotly.subplots import make_subplots
 
 el_toque = mf.read_json('data/el_toque.json')
@@ -9,7 +10,6 @@ muni = mf.read_json("data/municipality_country.json")
 abreviaturas = mf.read_json('data/abreviaturas.json')
 city = ["HAB", "PRI", "ART", "MAY", "MTZ", "CFG", "VCL", "SSP", "CAV", "CAM", "LTU", "GRM", "HOL", "SCU", "GTM", "IJV"]
 data = mf.read_json("data/pymes.json")
-count_pymes = [len(mf.list_for_value(data, key='city', value= i.upper().replace(' ',''), second_key= "subject")) for i in cities ]
 mipymes = mf.read_json("data/prices_pymes.json")
 población_por_provincia =mf.read_json("data/población_cuba (2024).json")
 canasta_básica = mf.read_json("data/canasta_básica.json")
@@ -17,6 +17,7 @@ qvapay = mf.read_json("data/qvapay.json")
 amazon = mf.read_json("data/amazon.json")
 latam_salary = mf.read_json("data/latam_salary.json")
 ventas_2024 = mf.read_json("data/ventas_minoristas (2024).json")
+mapcuba = mf.read_json(r"data\\geo_json\\geojson_by_region_division\\by_provinces\\cuba.geojson")
 
 last_rate = mf.dict_for_index(el_toque,-1)
 
@@ -29,7 +30,7 @@ def salary(file = salarios):
      print(f"{i} | 44 horas: {file['44_horas'][i]} | 40 horas : {file['40_horas'][i]}")
 
 def graph_coin():
-  tasas = [el_toque[i['date_from']] for i in mf.intervalo_fechas("2025-01-01", "2025-12-15",False,False) if el_toque[i['date_from']] is not None]
+  tasas = [el_toque[i['date_from']] for i in mf.intervalo_fechas("2025-01-01", "2025-12-31",False,False) if el_toque[i['date_from']] is not None]
   n = len(tasas)
   days = list(range(n))
   month = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
@@ -86,13 +87,11 @@ def max_bar():
     ticktext= salarios['44_horas'],  
     tickangle=0
   )
-  fig.update_layout(width=1100, height=600, title='Mediana de la cantidad máxima de productos que se pueden adquirir en un establecimiento de comercio según escala salarial.')
+  fig.update_layout(width=1200, height=600, title='Mediana de la cantidad máxima de productos que se pueden adquirir en un establecimiento de comercio según escala salarial.')
   fig.write_image("static_charts/max_bar.png")  
   fig.show()
 
-# población  = [ población_por_provincia[abreviaturas[i]]["total"] for i in city]
 
-# for_hab = [ int(población[i] // count_pymes[i]) for i in range(len(población))]
 
 # provincias = [abreviaturas[i] for i in city]
 
@@ -111,9 +110,6 @@ def max_bar():
 #       'COOPERATIVA NO AGROPECUARIA'.upper().replace(' ','') not in str(i).upper().replace(' ',''):
 #        return i
 #   return 'ok'
-
-
-
 
 def price_media(product: str):
   canasta =  mf.aplanar_lista(mf.dict_num_values(mf.search_keys(canasta_básica, product)))
@@ -301,9 +297,65 @@ def ipc():
     ticktext= [2021,2022,2023,2024],  
     tickangle=0
    )
-   fig.update_layout(width=1100, height=600, title="Comparativa del indice de precios al consumidor de Cuba con el resto del mundo.")
+   fig.update_layout(width=1100, height=600, title="Comparativa del indice de precios al consumidor de Cuba con el resto del mundo con respecto a 2010.")
    fig.write_image("static_charts/ipc.png")
    fig.show()
+
+def coin_pymes():
+   cup = mf.aplanar_lista([ mf.dict_num_values(mipymes_cup[c]["products"]) for c in mipymes_cup])
+   usd = [ d * last_rate["USD"] for d in mf.aplanar_lista([ mf.dict_num_values(mipymes_usd[c]["products"]) for c in mipymes_usd])]
+   euro = [d * last_rate["ECU"] for d in mf.aplanar_lista([ mf.dict_num_values(mipymes_eur[c]["products"]) for c in mipymes_eur])]
+   
+   fig = go.Figure(data=
+      go.Bar(x=["CUP", "Monedas Extrajeras"], y=[mf.median(cup), mf.median(usd+euro)])
+   )
+   fig.update_layout(width=1100, height=600, title="Comparativa del precio medio de entre laa mipymes en moneda nacional y en monedas extrajeras en Cuba.")
+   fig.write_image("static_charts/coin_pymes.png")
+   fig.show()
+
+count_pymes = [mf.first_count(mf.list_for_value(data, key='city', value= i.upper().replace(' ',''), second_key= "subject"), "MIPYME") for i in cities ]
+población  = [ población_por_provincia[abreviaturas[i]]["total"] for i in city]
+for_hab = [ int(población[i] // count_pymes[i]) for i in range(len(población))]
+
+def personas_por_mipyme():
+   df = {
+      "Provincia": cities,
+      "Habitantes": población,
+      "Mipymes": count_pymes,
+      "Mipymes por habitantes": for_hab
+   }
+   fig = px.choropleth_mapbox(
+        data_frame= df,
+        geojson=mapcuba,
+        locations= "Provincia",
+        featureidkey="properties.province",
+        color= "Mipymes por habitantes" ,
+        color_continuous_scale="Reds",
+        range_color=[min(df["Mipymes por habitantes"]), max(df["Mipymes por habitantes"])],  # Rango de valores
+        mapbox_style="carto-positron",
+        zoom=6,
+        center={"lat": 21.5, "lon": -80},
+        opacity=0.7,
+        hover_name= "Provincia",
+        hover_data={
+            "Habitantes": ':,',
+            "Mipymes": ':,',
+            "Mipymes por habitantes": ':,',
+
+        },
+        title="Cantodad de mipymes por habitantes en Cuba"
+    )
+
+   fig.update_layout(
+        margin={"r":0,"t":50,"l":0,"b":0},
+        width=1150,
+        height=700
+    )
+   fig.write_image("static_charts/personas_por_mipyme.png")
+   fig.show()
+
+
+
 
 
    

@@ -3,7 +3,6 @@ import json
 from json import JSONDecodeError
 from datetime import datetime, timedelta
 from urllib.parse import urlencode
-import subprocess
 import sys
 import re
 from functools import reduce
@@ -302,3 +301,25 @@ def redondear(n: float) -> int:
    
 def del_value(lista: list, value) -> list:
    return [v for v in lista if v != value]
+
+def sin_acento(cadena: str="") -> str:
+   cadena = cadena
+   return cadena.replace("á", "a")
+  #  minusculas = ["a","e","i","o","u"]
+  #  acentos = ["á",'é','í', "ó", "ú"]
+
+  #  mayúsculas = [i.upper() for i in minusculas]
+  #  acentos_mayores = [i.upper() for i in acentos]
+
+  #  cadena_2 = cadena
+   
+  #  letras = [l for l in cadena_2]
+  #  for l in cadena_2:
+    
+  #     break
+  #     # cadena_2.replace(acentos_mayores[i],mayúsculas[i])
+  #  return cadena_2
+   
+
+     
+               

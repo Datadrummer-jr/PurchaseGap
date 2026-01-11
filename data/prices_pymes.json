@@ -2991,5 +2991,36 @@
        "leche en polvo":1000,
        "huevo frito instantáneo":900
      }
+},
+"30":{
+        "name": "",
+        "sales_category":"minorista",
+         "currency": "CUP",
+        "horary":{
+        "days": null,
+        "hour" : null
+    },
+    "municipality":"DIEZ DE OCTUBRE",
+    "city": "La Habana",
+     "coordinates": [],
+    "products": {
+        "galletas crocantinas":1000,
+        "mentaplus":100,
+        "cerveza":230,
+        "Refresco de lata":250,
+        "Malta Bucanero":350,
+        "malta morena":230,
+        "malta guajira":280,
+        "Leche Condensada":480.0,
+        "jugo de cajita":180,
+        "Jugo de Caja":700,
+        "harina":500,
+        "pasta de tomate":400,
+        "bolsa de pan":230,
+        "Espaguettis":300,
+        "arroz":650,
+        "Azúcar Blanca 1kg":650,
+        "Frijoles negros 1kg":800
+    }
 }
 }

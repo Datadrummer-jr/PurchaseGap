@@ -43,5 +43,5 @@ def toque(inicio: str,fin: str):
 
 if __name__ == "__main__":
     fecha_inicio = "2025-12-16"
-    fecha_fin = "2025-12-16"
+    fecha_fin = "2025-12-31"
     toque(fecha_inicio, fecha_fin)
