@@ -4,8 +4,6 @@ from json import JSONDecodeError
 from datetime import datetime, timedelta
 from urllib.parse import urlencode
 import sys
-import re
-from functools import reduce
 
 def you_type(cadena):
   if type(cadena) == int:
