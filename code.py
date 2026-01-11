@@ -25,10 +25,6 @@ mipymes_cup = {k: mipymes[k] for k in mipymes if mipymes[k]["sales_category"] ==
 mipymes_usd =  {k: mipymes[k] for k in mipymes if mipymes[k]["sales_category"] == "minorista" and mipymes[k]["currency"] == "USD"}
 mipymes_eur = {k: mipymes[k] for k in mipymes if mipymes[k]["sales_category"] == "minorista" and mipymes[k]["currency"] == "EUR"}
 
-def salary(file = salarios):
-   for i in range(0,32):
-     print(f"{i} | 44 horas: {file['44_horas'][i]} | 40 horas : {file['40_horas'][i]}")
-
 def graph_coin():
   tasas = [el_toque[i['date_from']] for i in mf.intervalo_fechas("2025-01-01", "2025-12-31",False,False) if el_toque[i['date_from']] is not None]
   days = [day['date_from'] for day in mf.intervalo_fechas("2025-01-01", "2025-12-31",False,False) ]
@@ -120,24 +116,6 @@ def canasta_vs_pymes():
     fig.update_layout(width=1100, height=600, title="Gráficas comparativas del costo medio de productos de la canasta básica contra los vendidos por mipymes.")
     fig.write_image("static_charts/canasta_vs_pymes.png")  
     fig.show()
-    
-# def qvapay_vs_el_toque():
-#   fechas = [fecha['date_from'] for fecha in mf.intervalo_fechas('2025-11-1','2025-11-30', False, False)]
-#   usd_qvapay = []
-#   for fecha in fechas:
-#     offers = []
-#     for offer in qvapay:
-#       if qvapay[offer]["date"][:10] == fecha and qvapay[offer]["coin"] == "CUP":
-#          offers.append(qvapay[offer]["price"])  
-#     usd_qvapay.append(offers)
-#   medias_qvapay = [ float(mf.mean(m)) for m in usd_qvapay]
-#   medias_el_toque = [el_toque[fecha]['USD'] for fecha in fechas]
-#   fig = go.Figure(data=[
-#     go.Line(name="El Toque", x=fechas, y=medias_el_toque),
-#     go.Line(name="QvaPay", x=fechas, y=medias_qvapay)
-#   ])
-#   fig.update_layout( barmode='group', title= "Gráfica comparativa de los precios media del USD entre El Toque y QvaPay en el transcurso del mes de noviembre de 2025.")
-#   fig.show()
 
 def max_buy_latam():
    names_products = mf.aplanar_lista([mf.dict_keys(amazon[a]) for a in amazon])
@@ -153,60 +131,6 @@ def max_buy_latam():
     ))
    fig.update_layout(width=1100, height=600, title="¿ Cuáles serán los paises de latinoamérica que más productos pueden comprar en Amazon con un salario mínimo ? ")
    fig.write_image("static_charts/max_buy_latam.png") 
-   fig.show()
-
-def ventas_minoristas():
-   total = ventas_2024["2024.0"]["Total"]
-   products = ["Comestibles", "Bebidas alcohólicas", "Cervezas", "Tabaco y cigarros", "Otros"]
-   count = [ ventas_2024["2024.0"][i] for i in products[:-1]]
-   count.append(total-sum(count))
-   fig = go.Figure(
-      data=[
-         go.Pie(
-            labels = products,
-            values = count
-         )
-      ]
-   )
-   fig.write_image("static_charts/ventas_minoristas.png") 
-   fig.show()
-
-def mayor_alcance():
-   alimentos =  [
-    "pollo", "cerdo", "res", "carne", "jamon", "jamón", "pescado", "atun", 
-    "atún", "sardina", "salchicha", "hamburguesa", "bistec", "costilla", 
-    "lomo", "huevo", "arroz", "frijol", "lenteja", "garbanzo", "pasta", 
-    "espagueti", "spaghetti", "pizza", "pan", "galleta", "cereal", "harina", 
-    "leche", "queso", "yogurt", "helado", "mantequilla", "aceite", "vinagre", 
-    "salsa", "mayonesa", "ketchup", "mostaza", "tomate", "fruta", "vegetal", 
-    "ensalada", "refresco", "jugo", "agua mineral", "agua natural", "agua gourmet", 
-    "café", "cafe ", "malta", "chocolate", "cacao", "tarta", "dulce", 
-    "mermelada", "croqueta", "empanada", "tostones", "vianda"
-   ]
-
-   bebidas_alcoholicas = [
-    "ron", "whisky", "vodka", "tequila", "aguardiente", "sangría", "licor", "vino", "espumoso", "champán", "anis",
-    "cerveza", "cubay", "havana club", "ballantine", "chivas", "absolut", "jagermeister", "profundo", "vigia", "black tears"
-   ]
-
-   pymes_alimentos = [mf.max_objects(mf.dict_num_values(mf.search_keys(mipymes_cup[k]["products"], subk)), salarios["44_horas"][-1]) for subk in alimentos for k in mipymes_cup if mf.dict_num_values(mf.search_keys(mipymes_cup[k]["products"], subk))] + \
-                 [mf.max_objects([price * last_rate["USD"] for price in mf.dict_num_values(mf.search_keys(mipymes_usd[k]["products"], subk))], salarios["44_horas"][-1]) for subk in alimentos for k in mipymes_usd ] +\
-                 [mf.max_objects([price * last_rate["ECU"] for price in mf.dict_num_values(mf.search_keys(mipymes_eur[k]["products"], subk))], salarios["44_horas"][-1]) for subk in alimentos for k in mipymes_eur ]
-
-   pymes_bebidas = [mf.max_objects(mf.dict_num_values(mf.search_keys(mipymes_cup[k]["products"], subk)), salarios["44_horas"][1]) for subk in bebidas_alcoholicas for k in mipymes_cup if mf.dict_num_values(mf.search_keys(mipymes_cup[k]["products"], subk))] + \
-                 [mf.max_objects([price * last_rate["USD"] for price in mf.dict_num_values(mf.search_keys(mipymes_usd[k]["products"], subk))], salarios["44_horas"][-1]) for subk in bebidas_alcoholicas for k in mipymes_usd ] +\
-                 [mf.max_objects([price * last_rate["ECU"] for price in mf.dict_num_values(mf.search_keys(mipymes_eur[k]["products"], subk))], salarios["44_horas"][1]) for subk in bebidas_alcoholicas for k in mipymes_eur ]
-   
-   print(max(mf.del_value(pymes_alimentos, 0)))
-   print(max(mf.del_value(pymes_bebidas, 0)))
-
-   fig = go.Figure(
-      data= 
-         go.Bar(
-            x=["Alimentos", "Bebidas Alcoholicas"],
-            y = [mf.median(mf.del_value(pymes_alimentos, 0)), mf.median(mf.del_value(pymes_bebidas, 0))]
-         )
-   )
    fig.show()
 
 def ipc():

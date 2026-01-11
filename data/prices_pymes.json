@@ -3022,5 +3022,104 @@
         "Azúcar Blanca 1kg":650,
         "Frijoles negros 1kg":800
     }
+},
+"31":{
+        "name": "",
+        "sales_category":"minorista",
+         "currency": "CUP",
+        "horary":{
+        "days": null,
+        "hour" : null
+    },
+    "municipality":null,
+    "city": null,
+     "coordinates": [],
+    "products": {
+        "Cartón de huevo":2800,
+        "arroz":700,
+        "picadillo de jamón":600,
+        "picadillo de pollo":350,
+        "Mantequilla":100,
+        "mortadella":600,
+        "croquetas":300,
+        "hamburguesas":600,
+        "galletas de sal":180,
+        "vino seco":350,
+        "Vinagre":350,
+        "leche condesada": 550,
+        "pasta de tomate":550,
+        "barra de guayaba":300,
+        "pasta dental":400
+    }
+},
+"32":{
+        "name": "Fonts",
+        "sales_category":"minorista",
+         "currency": "CUP",
+        "horary":{
+        "days": null,
+        "hour" : null
+    },
+    "municipality":null,
+    "city": null,
+     "coordinates": [],
+    "products": {
+    }
+},
+"33":{
+        "name": "",
+        "sales_category":"minorista",
+         "currency": "CUP",
+        "horary":{
+        "days": null,
+        "hour" : null
+    },
+    "municipality":null,
+    "city": null,
+     "coordinates": [],
+    "products": {
+    }
+},
+"34":{
+        "name": "",
+        "sales_category":"minorista",
+         "currency": "CUP",
+        "horary":{
+        "days": null,
+        "hour" : null
+    },
+    "municipality":null,
+    "city": null,
+     "coordinates": [],
+    "products": {
+    }
+},
+"35":{
+        "name": "",
+        "sales_category":"minorista",
+         "currency": "CUP",
+        "horary":{
+        "days": null,
+        "hour" : null
+    },
+    "municipality":null,
+    "city": null,
+     "coordinates": [],
+    "products": {
+    }
+},
+"36":{
+        "name": "",
+        "sales_category":"minorista",
+         "currency": "CUP",
+        "horary":{
+        "days": null,
+        "hour" : null
+    },
+    "municipality":null,
+    "city": null,
+     "coordinates": [],
+    "products": {
+    }
 }
 }

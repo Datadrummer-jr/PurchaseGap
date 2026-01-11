@@ -36,13 +36,7 @@ def save_pyme(index: int):
     
     mf.save_json(mipymes_actuales,'../data/pymes.json')
 
-def comercio_interno():
-   with pdfplumber.open(rute_commerce) as pdf:
-     print(pdf.pages[8].extract_table())
-
-
 if __name__ == '__main__':
-  # Recomiendo que se scrapee por tramos en vez de todo de una vez:
 
   # for i in range(len(pdfplumber.open(rute_pymes).pages)):
   #   save_pyme(i)

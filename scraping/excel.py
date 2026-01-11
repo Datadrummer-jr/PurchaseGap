@@ -34,24 +34,6 @@ def población():
     }
     mf.save_json(población_por_city, r"..\\data\\población_cuba (2024).json")
 
-
-
-def ventas():
-    ventas_minoristas = xlrd.open_workbook(ruta_ventas_minoristas)
-    sheet =  ventas_minoristas.sheet_by_name("14-6")
-
-    ventas = {}
-
-    for i in range(13,30):
-        ventas[str(mf.you_type(sheet.cell_value(i,0))).strip()] = {
-            "Total": round(sheet.cell_value(i,1), 2),
-            "Comestibles": round(sheet.cell_value(i,2), 2),
-            "Bebidas alcohólicas": round(sheet.cell_value(i,3), 2),
-            "Cervezas": round(sheet.cell_value(i,4), 2),
-            "Tabaco y cigarros": round(sheet.cell_value(i,5), 2)
-        }
-    mf.save_json(ventas, r"..\\data\\ventas_minoristas (2024).json")
-
 def ipc(base: bool= False):
     excel = openpyxl.load_workbook(rute_ipc)
     hoja = excel.worksheets[0]

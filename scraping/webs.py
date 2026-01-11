@@ -309,7 +309,6 @@ def Pymesbulevar():
         browser.close()
 
 def Elyerromenu():
-    all_products = []
     products = []
     prices = []
     with sync_playwright() as p:
@@ -331,51 +330,8 @@ def Elyerromenu():
 
         browser.close()
 
-
-def reflex():
-    start_url = "https://reflex.dev/docs/library/other"
-    output_dir = "reflex_docs_offline"
-
-    os.makedirs(output_dir, exist_ok=True)
-
-    with sync_playwright() as p:
-        browser = p.chromium.launch(channel="msedge", headless=True)
-        page = browser.new_page()
-        page.goto(start_url, wait_until="domcontentloaded", timeout=120000)
-
-        # Extraer todos los enlaces de componentes
-        links = page.eval_on_selector_all(
-            "a[href^='/docs/library/']",
-            "elements => elements.map(e => e.href)"
-        )
-
-        # Captura de la página principal
-        page.screenshot(path=os.path.join(output_dir, "index.png"), full_page=True)
-
-        # Recorrer cada enlace y guardar solo la captura
-        for link in links:
-            try:
-                page.goto(link, wait_until="domcontentloaded", timeout=120000)
-                page.wait_for_selector("pre code", timeout=60000)
-
-                filename = link.split("/")[-1].split("#")[0] or "index"
-                filepath_png = os.path.join(output_dir, f"{filename}.png")
-
-                # Guardar captura visual
-                page.screenshot(path=filepath_png, full_page=True)
-
-                print(f"Guardado: {filepath_png}")
-            except Exception as e:
-                print(f"Error con {link}: {e}")
-                continue
-
-        browser.close()
-
-
-   
 if __name__ == "__main__":
     # Amazon("Productos de Cuidado Personal", "file:///C:/Users/Joswald/Downloads/Amazon Los más vendidos_ Mejor Productos de Cuidado Personal_2.htm")
-    reflex()
     pass
 
 
