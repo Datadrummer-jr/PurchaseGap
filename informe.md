@@ -11,3 +11,5 @@ Datapyme es un proyecto de ciencia de datos que analiza cómo las fluctuaciones 
 3- Para comparar como se comportan los recios canasta básica vs mipymes obtuve los precios de la canasta básica de la url oficial del MINCIN https://www.mincin.gob.cu/es/faq/cuales-son-los-precios-de-los-productos-de-la-canasta-familiar-normada y para los precios de las mipymes de algunas que visité personalmente y otras que obtuve los precios por medio de scraping usando la herramienta de python playwright por dificultades por el transporte y problemas de salud. Y el resultado de dichas capturas de datos término en un par de gráficas de barras hechas con plotly.
 
 ![Graph Pymes vs Cansta Básica](static_charts\canasta_vs_pymes.png)
+
+
