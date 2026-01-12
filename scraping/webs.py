@@ -320,7 +320,7 @@ def Elyerromenu(url:str,index:int):
         
         web_products = page.locator("div.pt-28 ") 
 
-        for i in range(0,15):
+        for i in range(web_products.count()):
           producto = web_products.nth(i).inner_text().replace('\n', " " ).replace(" ... ", " ").strip().split(" ")[:-1]
           products.append(" ".join(producto[:-1]))
           prices.append(float(producto[-1].replace(",","")))
@@ -394,7 +394,7 @@ def biznecubano():
 if __name__ == "__main__":
     # Amazon("Productos de Cuidado Personal", "file:///C:/Users/Joswald/Downloads/Amazon Los más vendidos_ Mejor Productos de Cuidado Personal_2.htm")
     # Envios_Cuba("https://www.envioscuba.com/santiago/MVE_DeliciasBem", 45)
-    Elyerromenu("https://elyerromenu.com/b/mercaton/seller/bazar-ym/category/confituras-0zr", 47)
+    Elyerromenu("", 49)
     pass
 
 
