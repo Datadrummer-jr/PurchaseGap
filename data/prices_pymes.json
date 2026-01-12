@@ -4067,7 +4067,6 @@
             "Crema De Peinar, Prebiótico Y Biotina, 300 Ml": 4.08,
             "Shampú Liso Perfecto, 300ml": 2.79
         }
-          
     },
     "45": {
         "name": "Delicias Bem",
@@ -4102,5 +4101,48 @@
             "MaxFlan 1 Unidad 11 Cm + 5 Cm X 6 Cm": 16.79,
             "Huevos 30 Unidades": 20.1
         }
+    },
+    "46": {
+        "name": "",
+        "sales_category": "minorista",
+        "currency": "CUP",
+        "horary": {
+            "days": null,
+            "hour": null
+        },
+        "municipality": null,
+        "city": null,
+        "coordinates": [],
+        "products": {
+            "Picadillo de pollo Quality 400g": 750.0,
+            "Carne Molida de Res Premium 500g": 4380.0,
+            "Masas de Cerdo 500g": 2200.0,
+            "Carne Troceada de Res 500g": 4020.0,
+            "Bistec de Lomo de cerdo 500g POPULAR": 2540.0,
+            "Bistec de Palomilla de Res 500g": 4700.0,
+            "Bistec de Cañada de Res 500g": 4700.0,
+            "Pierna de Cerdo sin Hueso y sin Piel 2kg": 7800.0,
+            "Bola de Res 1kg": 7780.0,
+            "Boliche de Res 1kg": 7780.0,
+            "Papas Prefritas 1kg": 1950.0,
+            "Pechuga de Pollo Friato 2kg": 5200.0,
+            "Helado BimBom Fresa 450ml": 675.0,
+            "Helado BimBom Vainilla 450ml": 675.0,
+            "Helado BimBom Leche Condensada 450ml": 675.0
+        }
+    },
+    "48":{
+        "name": "",
+        "sales_category":null,
+         "currency": "CUP",
+        "horary":{
+        "days": null,
+        "hour" : null
+    },
+    "municipality":null,
+    "city": null,
+     "coordinates": [],
+    "products": {
     }
+}
 }

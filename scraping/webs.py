@@ -308,7 +308,7 @@ def Pymesbulevar():
 
         browser.close()
 
-def Elyerromenu():
+def Elyerromenu(url:str,index:int):
     products = []
     prices = []
     with sync_playwright() as p:
@@ -316,16 +316,16 @@ def Elyerromenu():
             channel="msedge",   
             headless=True)
         page =  browser.new_page()
-        page.goto("file:///D:/download/Download_Edge/Garaje%20minorista%20-%20Zamour%20_%20El%20Yerro%20Men%C3%BA.html", wait_until="domcontentloaded", timeout=60000)
+        page.goto(url, wait_until="domcontentloaded", timeout=120000)
         
         web_products = page.locator("div.pt-28 ") 
 
-        for i in range(web_products.count()):
+        for i in range(0,15):
           producto = web_products.nth(i).inner_text().replace('\n', " " ).replace(" ... ", " ").strip().split(" ")[:-1]
           products.append(" ".join(producto[:-1]))
           prices.append(float(producto[-1].replace(",","")))
     
-        prices_pymes["27"]["products"].update(mf.list_to_dict(products, prices))
+        prices_pymes[str(index)]["products"].update(mf.list_to_dict(products, prices))
         mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
 
         browser.close()
@@ -393,7 +393,8 @@ def biznecubano():
 
 if __name__ == "__main__":
     # Amazon("Productos de Cuidado Personal", "file:///C:/Users/Joswald/Downloads/Amazon Los más vendidos_ Mejor Productos de Cuidado Personal_2.htm")
-    Envios_Cuba("https://www.envioscuba.com/santiago/MVE_DeliciasBem", 45)
+    # Envios_Cuba("https://www.envioscuba.com/santiago/MVE_DeliciasBem", 45)
+    Elyerromenu("https://elyerromenu.com/b/mercaton/seller/bazar-ym/category/confituras-0zr", 47)
     pass
 
 
