@@ -4,7 +4,7 @@
 
  Las fuentes de datos que se capturaron fueron:
 
-  - 30 mipymes de venta minorista.
+  - 54 mipymes de venta minorista.
   - Anuario estadístico de 2024 publicado por la ONEI.
   - Boletines mensuales de IPC de la ONEI.
   - Tasas de cambio de El Toque.
