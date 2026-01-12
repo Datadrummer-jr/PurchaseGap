@@ -394,7 +394,7 @@ def biznecubano():
 if __name__ == "__main__":
     # Amazon("Productos de Cuidado Personal", "file:///C:/Users/Joswald/Downloads/Amazon Los más vendidos_ Mejor Productos de Cuidado Personal_2.htm")
     # Envios_Cuba("https://www.envioscuba.com/santiago/MVE_DeliciasBem", 45)
-    Elyerromenu("", 49)
+    Elyerromenu("https://elyerromenu.com/b/delicias-del-camaguey/seller/bazar-ym/category/productos-enlatados-z29x", 54)
     pass
 
 
