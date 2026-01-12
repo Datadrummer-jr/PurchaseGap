@@ -9,7 +9,7 @@
   - Boletines mensuales de IPC de la ONEI.
   - Tasas de cambio de El Toque.
   - Listado de actores económicos registrados por el MEP (Ministerio de economía y planificación física).
-  - Precios de los productos de la canasta familiar normada según el MINCIN (Ministerio de Comercio Interior).
+  - Precios de los productos de la canasta familiar normada según el MINCIN (Ministerio de Comercio Interior): https://www.mincin.gob.cu/es/faq/cuales-son-los-precios-de-los-productos-de-la-canasta-familiar-normada.
   - Escalas salariales publicadas en la Gaceta Oficial No.69 Extraordinaria del 10 de diciembre de 2020.
   - Precios de los algunos de los productos más vendidos en amazon en 15 categorías entre alimentos y aséos.
 
