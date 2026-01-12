@@ -115,7 +115,7 @@ def Envios_Cuba(url: str, index: int):
             channel="msedge",   
             headless=True)
         page =  browser.new_page()
-        page.goto(url, wait_until="domcontentloaded",)
+        page.goto(url, wait_until="domcontentloaded", timeout=120000)
         
         web_poducts = page.locator("a.text-capitalize")
 
@@ -393,7 +393,7 @@ def biznecubano():
 
 if __name__ == "__main__":
     # Amazon("Productos de Cuidado Personal", "file:///C:/Users/Joswald/Downloads/Amazon Los más vendidos_ Mejor Productos de Cuidado Personal_2.htm")
-    Envios_Cuba("https://www.envioscuba.com/santiago/MegaCaribe", 44)
+    Envios_Cuba("https://www.envioscuba.com/santiago/MVE_DeliciasBem", 45)
     pass
 
 

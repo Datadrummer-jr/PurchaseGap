@@ -83,16 +83,13 @@ def intervalo_fechas(fecha_inicio: str, fecha_fin: str, url: bool = True, time: 
     return resultado
 
 def del_value(lista: list , value = '') -> List:
+  '''
+  Esta función elimina retorna la lista que se pnga de entrada sin el elemento que pne como segundo parámetro en la lista
+  '''
   return [ i for i in lista if i != value ]
-  
-def del_space(lista: list) -> list:
-  return [i.strip() for i in lista]
 
 def del_salto(lista: list) -> list:
   return [i.replace('\n', ' ') for i in lista  if i is not None if type(i) == str]
-
-def pto_final(lista: list) -> list:
-  return [i[:-1] for i in lista if i[-1] == '.']
 
 def detectar_lista(lista: list, key: function) -> list:
   salida = []
@@ -180,7 +177,7 @@ def insert_in_list(iter: list, element, index: int = -1):
   
 def dict_for_index(dict: dict, index: int):
     '''
-    Con esta función podrá accder aun valor de un diccionario por el indice de su respectiva clave.
+    Con esta función podrá acceder aun valor de un diccionario por el indice de su respectiva clave.
     '''
     keys = [k for k in dict]
     key = keys[index]
@@ -232,6 +229,5 @@ def redondear(n: float) -> int:
    else:
       return right
    
-def del_value(lista: list, value) -> list:
-   return [v for v in lista if v != value]
+
 
