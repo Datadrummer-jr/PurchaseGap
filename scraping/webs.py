@@ -134,15 +134,15 @@ def Envios_Cuba(url: str, index: int):
         
         browser.close()
 
-def Envios_Cuba_Isla():
+def Envios_Cuba_Isla(url:str, index: int):
     products = []
     prices = []
     with sync_playwright() as p:
-        browser =  p.chromium.launch(
-        headless=True
-        )
+        browser = p.chromium.launch(
+            channel="msedge",  
+            headless=True)
         page =  browser.new_page()
-        page.goto("file:///D:/download/Download_Edge/Mercado%20Isla%20de%20la%20Juventud%20-%20Envios%20Cuba,%20Paquetes%20a%20Cuba%20-%20El%20Pinero%20-%20Isla%20Juventud.html", wait_until="domcontentloaded")
+        page.goto(url, wait_until="domcontentloaded", timeout=120000)
         
         web_poducts = page.locator("a.text-capitalize")
 
@@ -156,7 +156,7 @@ def Envios_Cuba_Isla():
           if str(precio)[-3:] == "EUR":
            prices.append(float(precio[:-4]))
 
-        prices_pymes["27"]["products"].update(mf.list_to_dict(products, prices))
+        prices_pymes[str(index)]["products"].update(mf.list_to_dict(products, prices))
         mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
       
         browser.close()
@@ -393,8 +393,8 @@ def biznecubano():
 
 if __name__ == "__main__":
     # Amazon("Productos de Cuidado Personal", "file:///C:/Users/Joswald/Downloads/Amazon Los más vendidos_ Mejor Productos de Cuidado Personal_2.htm")
-    # Envios_Cuba("https://www.envioscuba.com/santiago/MVE_DeliciasBem", 45)
-    Elyerromenu("https://elyerromenu.com/b/delicias-del-camaguey/seller/bazar-ym/category/productos-enlatados-z29x", 54)
+    Envios_Cuba_Isla("https://www.enviocuba.ca/granma/Novedades", 41)
+    # Elyerromenu("https://elyerromenu.com/b/delicias-del-camaguey/seller/bazar-ym/category/productos-enlatados-z29x", 54)
     pass
 
 
