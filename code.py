@@ -104,14 +104,11 @@ def canasta_vs_pymes():
     products = ["arroz", "pollo" , "azúcar", "frijoles", "aceite", "picadillo", "mortadella", "café", "yogurt", "pescado", "huevo" ]
     pymes_products = [pymes_arroz, pymes_pollo, pymes_azúcar, pymes_frijoles, pymes_aceite, pymes_picadillo, pymes_mortadella, pymes_café, pymes_yogurt, pymes_pescado, pymes_huevo]
     canasta_products = [canasta_arroz, canasta_pollo, canasta_azúcar, canasta_frijoles, canasta_aceite, canasta_picadillo, canasta_mortadella, canasta_café, canasta_yogurt, canasta_pescado, canasta_huevo]
-
-    fig = make_subplots(rows=1, cols=2, subplot_titles=["Mipymes", "Canasta Básica"])
-
-    fig.add_trace(go.Bar(x= products, y= pymes_products, name='Mipymes'), row=1, col=1)
-    fig.add_trace(go.Bar(x= products, y= canasta_products, name='Canasta Básica'), row=1, col=2)
-
-    fig.update_xaxes( tickvals=list(range(len(products))),  ticktext=products, tickangle=30 )
-    fig.update_layout(width=1100, height=600, title="Gráficas comparativas del costo medio de productos de la canasta básica contra los vendidos por mipymes.")
+    division = [pymes_products[i] // canasta_products[i] for i in range(len(products))]
+    fig = go.Figure(data=
+      go.Bar(x=products, y= division)
+    )#x0= "Productos", y0="Veces del el precio la bodega en las mipymes"
+    fig.update_layout(width=1100, height=600, title="Gráficas que muestra cuantas veces es el preio de los productos de laa canasta básica en las mipymes.")
     fig.write_image("static_charts/canasta_vs_pymes.png")  
     fig.show()
 
