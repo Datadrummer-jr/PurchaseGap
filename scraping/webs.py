@@ -13,9 +13,9 @@ def Sinterceros():
     products = []
     prices = []
     with sync_playwright() as p:
-        browser =  p.chromium.launch(
-        headless=True
-        )
+        browser = p.chromium.launch(
+            channel="msedge",   
+            headless=True)
         page =  browser.new_page()
         page.goto("file:///D:/download/Download_Edge/Sinterceros.html")
 
@@ -39,9 +39,9 @@ def Guamay():
     prices = []
     scrap = []
     with sync_playwright() as p:
-        browser =  p.chromium.launch(
-        headless=True
-        )
+        browser = p.chromium.launch(
+            channel="msedge",   
+            headless=True)
         page =  browser.new_page()
         page.goto("file:///D:/download/Download_Edge/MEGACARIBE%20Megacaribe%20-%20Higiene%20y%20Limpieza%20-%20Productos%20para%20el%20cabello.html")
 
@@ -61,9 +61,9 @@ def Cubanearme():
     products = []
     prices = []
     with sync_playwright() as p:
-        browser =  p.chromium.launch(
-        headless=True
-        )
+        browser = p.chromium.launch(
+            channel="msedge",   
+            headless=True)
         page =  browser.new_page()
         page.goto("file:///D:/download/Download_Edge/Cubanearme%20S.R.L_mercado..html")
 
@@ -86,9 +86,9 @@ def Renova():
     products = []
     prices = []
     with sync_playwright() as p:
-        browser =  p.chromium.launch(
-        headless=True
-        )
+        browser = p.chromium.launch(
+            channel="msedge",   
+            headless=True)
         page =  browser.new_page()
         page.goto("file:///D:/download/Download_Edge/Todos%20los%20productos%20%E2%80%93%20P%C3%A1gina%205%20%E2%80%93%20RENOVA%20S.R.L..html", wait_until="domcontentloaded")
         
@@ -166,9 +166,9 @@ def Super_Fácil():
     products = []
     prices = []
     with sync_playwright() as p:
-        browser =  p.chromium.launch(
-        headless=True
-        )
+        browser = p.chromium.launch(
+            channel="msedge",   
+            headless=True)
         page =  browser.new_page()
         page.goto("https://www.superfacil.cu/secretos-de-fragancias", wait_until="domcontentloaded")
         
@@ -192,9 +192,9 @@ def Amazon(category: str, url=str):
     products = []
     prices = []
     with sync_playwright() as p:
-        browser =  p.chromium.launch(
-        headless=True
-        )
+        browser = p.chromium.launch(
+            channel="msedge",   
+            headless=True)
         page =  browser.new_page()
         page.goto(url, wait_until="domcontentloaded")
         
@@ -225,9 +225,9 @@ def Agruco():
     products = []
     prices = []
     with sync_playwright() as p:
-        browser =  p.chromium.launch(
-        headless=True
-        )
+        browser = p.chromium.launch(
+            channel="msedge",   
+            headless=True)
         page =  browser.new_page()
         page.goto("", wait_until="domcontentloaded", timeout=60000)
         
@@ -330,38 +330,6 @@ def Elyerromenu(url:str,index:int):
 
         browser.close()
 
-def mercatoria():
-    products = []
-    prices = []
-    with sync_playwright() as p:
-        browser = p.chromium.launch(
-            channel="msedge",  
-            headless=True)
-        page =  browser.new_page()
-        page.goto("file:///D:/download/Download_Edge/Mercatoria%20-%20Env%C3%ADos%20a%20Cuba_%20El%20futuro%20es%20ahora,%20al%20alcance%20de%20un%20click.html", timeout=120000)
-        
-        web_products = page.locator("p.css-m6tgpv") #MuiTypography-root MuiTypography-h3 mt-0 md:mt-2 css-p9dpgq
-        print(web_products.first.inner_text())
-        # def parser(text:str, ):
-        #    lista = text.split()
-        #    for i in range(len(lista)):
-        #       if lista[i] == "CUP":
-        #          return " ".join(lista[:i-1]), float(lista[i-1].replace(",", ""))
-        #       else:
-        #          continue     
-  
-        # for i in range(web_products.count()):
-        #   product = parser(web_products.nth(i).inner_text().strip())
-        #   if product and len(product) == 2 and product[1] != 0:
-        #      products.append(product[0])
-        #      prices.append(product[1])
-      
-        # prices_pymes["21"]["products"].update(mf.list_to_dict(products, prices))
-        # mf.save_json(prices_pymes, r"..\\data\\prices_pymes.json")
-
-        browser.close()
-
-
 def biznecubano():
     products = []
     prices = []
@@ -392,9 +360,6 @@ def biznecubano():
    
 
 if __name__ == "__main__":
-    # Amazon("Productos de Cuidado Personal", "file:///C:/Users/Joswald/Downloads/Amazon Los más vendidos_ Mejor Productos de Cuidado Personal_2.htm")
-    Envios_Cuba_Isla("https://www.enviocuba.ca/granma/Novedades", 41)
-    # Elyerromenu("https://elyerromenu.com/b/delicias-del-camaguey/seller/bazar-ym/category/productos-enlatados-z29x", 54)
     pass
 
 
