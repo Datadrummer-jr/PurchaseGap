@@ -5,29 +5,32 @@ from datetime import datetime, timedelta
 from urllib.parse import urlencode
 import sys
 
-def you_type(cadena):
-  if type(cadena) == int:
-     return int(cadena)
-  if type(cadena) == float:
-     return float(cadena)
-  if type(cadena) == str:
-   if cadena.isdigit():
-     return int(cadena)
-   caracteres = [l for l in cadena]
-   if cadena == "":
-    return None
-   n = len(cadena)
-   if caracteres[0] == "." and cadena[1:n].isdigit():
-    return float(cadena)
-   if cadena[0] == "-":
-    return float(cadena.strip())
-   else:
-    for i in cadena:
-      if "." in caracteres and i.isdigit():
-        return float(cadena)
-      else:
-        return str(cadena)
-  return False
+def you_type(string):
+  if type(string) == int:
+     return int(string)
+  if type(string) == float:
+     return float(string)
+  if type(string) == str:
+    if string.isdigit():
+       return float(string)
+    if string == "":
+      return None
+    left = []
+    for i in string:
+      if i == ".":
+        break
+      left.append(i)
+    right = []
+    for j in string[::-1]:
+      if j == ".":
+        break
+      right.append(j)
+    if len(left+right)+1 == len(string):
+      left = "".join(left)
+      right = "".join(right)
+      if left.isdigit() and right.isdigit():
+        return float(left+"."+right[:-1])
+  return str(string)
       
 def save_json(datos,file: str) -> None:
   with open(file,"w", encoding="utf-8") as sj:
@@ -41,76 +44,76 @@ def read_json(file: str):
   except JSONDecodeError as e:
     return f'Hubo un error de decodificación del json: {e}'
 
-def intervalo_fechas(fecha_inicio: str, fecha_fin: str, url: bool = True, time: bool = True) -> List[str]:
+def days_range(start: str, end: str, url: bool = True, time: bool = True) -> List[str]:
     if time:
-     date_from = datetime.strptime(f"{fecha_inicio} 00:00:01", "%Y-%m-%d %H:%M:%S")
+     date_from = datetime.strptime(f"{start} 00:00:01", "%Y-%m-%d %H:%M:%S")
     else:
-     date_from = datetime.strptime(fecha_inicio, "%Y-%m-%d")
+     date_from = datetime.strptime(start, "%Y-%m-%d")
     
     if time:
-     date_to = datetime.strptime(f"{fecha_fin} 23:59:01", "%Y-%m-%d %H:%M:%S")
+     date_to = datetime.strptime(f"{end} 23:59:01", "%Y-%m-%d %H:%M:%S")
     else:
-     date_to = datetime.strptime(fecha_fin, "%Y-%m-%d")    
+     date_to = datetime.strptime(end, "%Y-%m-%d")    
 
-    resultado = []
+    result = []
     current = date_from.date()
     end = date_to.date()
 
     while current <= end:
         if url and time:
-          resultado.append(urlencode({
+          result.append(urlencode({
             "date_from": f"{current} 00:00:01",
             "date_to": f"{current} 23:59:01"
         }))
         
         elif time and not url:
-          resultado.append({
+          result.append({
             "date_from": f"{current} 00:00:01",
             "date_to": f"{current} 23:59:01"
         })
         elif not time and url:
-          resultado.append(urlencode({
+          result.append(urlencode({
             "date_from": f"{current}",
             "date_to": f"{current}"
         }))
         
         else:
-          resultado.append({
+          result.append({
             "date_from": f"{current}",
             "date_to": f"{current}"
         })
         current += timedelta(days=1)
-    return resultado
+    return result
 
-def del_value(lista: list , value = '') -> List:
+def del_value(list: list , value = '') -> List:
   '''
   Esta función elimina retorna la lista que se pnga de entrada sin el elemento que pne como segundo parámetro en la lista
   '''
-  return [ i for i in lista if i != value ]
+  return [ i for i in list if i != value ]
 
-def del_salto(lista: list) -> list:
-  return [i.replace('\n', ' ') for i in lista  if i is not None if type(i) == str]
+def del_line_space(list: list) -> list:
+  return [i.replace('\n', ' ') for i in list if i is not None if type(i) == str]
 
-def detectar_lista(lista: list, key: function) -> list:
-  salida = []
+def search_list(lista: list, key: function) -> list:
+  out = []
   for i in lista:
     if type(i) == list:
       if len(i) > 0 and key(i):
-        salida.append(i)
+        out.append(i)
       else:
-        salida.extend(detectar_lista(i, key))
-  return salida
+        out.extend(search_list(i, key))
+  return out
 
 def list_for_value(data: dict[dict], key:str,value: str =None, second_key=None):
   if type(data) == dict:
    return [ data[i][second_key] for i in data if str(data[i][key]).upper().replace(' ','') == value.upper().replace(' ','')]
 
-def first_count(lista:list[str], elemento:str):
-  contador = 0
-  for i in lista:
-    if elemento.upper().replace(' ','') in i.upper().replace(' ',''):
-       contador += 1
-  return contador
+def first_count(list:list[str], element:str):
+  count = 0
+  for i in list:
+    if element.upper().replace(' ','') in i.upper().replace(' ',''):
+       count += 1
+  return count
 
 def search_keys(dict: dict[str,float], key=str):
     new_dict = {}
@@ -133,26 +136,26 @@ def dict_num_values(dicc: dict) -> list:
    return values
 
 def dict_keys(diccionary : dict):
-   lista = []
+   list= []
    if type(diccionary) == dict:
       for k in diccionary.keys():
           if type(k) == str or type(k) == str:
-              lista.append(k)
+              list.append(k)
           else:
-              lista.extend(dict_keys(k))
-   return lista
+              list.extend(dict_keys(k))
+   return list
 
-def aplanar_lista(lista: list = []) -> list:
-    lista_aplanada = []
-    n = len(lista) 
+def plain_list(lists: list = []) -> list:
+    plain = []
+    n = len(lists) 
     if n == 0: 
-        return lista_aplanada
-    for i in lista:
-        if not isinstance(i,list):
-            lista_aplanada.append(i)
+        return plain
+    for i in lists:
+        if type(i) != list:
+            plain.append(i)
         else:
-            lista_aplanada.extend(aplanar_lista(i))
-    return lista_aplanada
+            plain.extend(plain_list(i))
+    return plain
 
 def list_to_dict(keys: list[str], values: list) -> dict:
   n,m = len(keys), len(values)
@@ -221,7 +224,7 @@ def max_objects(objects: list[int|float], max_sum : int) -> int:
             matriz[j] = max(matriz[j], matriz[j - i] + 1)
     return int(max(matriz))
 
-def redondear(n: float) -> int:
+def float_to_best_int(n: float) -> int:
    left = int(n)
    right = left+1
    if n <= left+0.5:

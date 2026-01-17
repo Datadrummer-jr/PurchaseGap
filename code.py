@@ -24,12 +24,12 @@ mipymes_usd =  {k: mipymes[k] for k in mipymes if mipymes[k]["sales_category"] =
 mipymes_eur = {k: mipymes[k] for k in mipymes if mipymes[k]["sales_category"] == "minorista" and mipymes[k]["currency"] == "EUR"}
 
 def graph_coin():
-  tasas = [el_toque[i['date_from']] for i in mf.intervalo_fechas("2025-01-01", "2025-12-31",False,False) if el_toque[i['date_from']] is not None]
-  days = [day['date_from'] for day in mf.intervalo_fechas("2025-01-01", "2025-12-31",False,False) ]
+  rate = [el_toque[i['date_from']] for i in mf.days_range("2025-01-01", "2025-12-31",False,False) if el_toque[i['date_from']] is not None]
+  days = [day['date_from'] for day in mf.days_range("2025-01-01", "2025-12-31",False,False) ]
  
-  usd = [i["USD"] for i in tasas]
-  euro = [i["ECU"] for i in tasas]
-  mlc = [i["MLC"] for i in tasas]
+  usd = [i["USD"] for i in rate]
+  euro = [i["ECU"] for i in rate]
+  mlc = [i["MLC"] for i in rate]
 
   fig = go.Figure(data=[
   go.Scatter(x=days, y=usd, mode="lines", name= 'USD'),
@@ -43,14 +43,9 @@ def graph_coin():
   fig.show()
       
 def compra_por_escala(escala: int):
-   máximos = [mf.max_objects([mf.redondear(i*last_rate["ECU"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
-              if  mipymes[i]["currency"] == "EUR" 
-              else
-              mf.max_objects([mf.redondear(i*last_rate["USD"])for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
-              if mipymes[i]["currency"] == "USD"
-              else mf.max_objects([mf.redondear(i) for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
-              for i in mipymes if mipymes[i]["sales_category"] == "minorista"]
-   return  int(mf.median(máximos))
+   max = [mf.max_objects([i for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
+              for i in mipymes]
+   return  int(mf.median(max))
 
 def max_bar():
   max_products = [compra_por_escala(s) for s in salarios['44_horas']]
@@ -68,11 +63,9 @@ def max_bar():
   fig.show()
 
 def price_media(product: str):
-  canasta =  mf.aplanar_lista(mf.dict_num_values(mf.search_keys(canasta_básica, product)))
-  usd = list(map(lambda x: x* last_rate["USD"],  mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes_usd[a]["products"], product)) for a in mipymes_usd ])))
-  eur = list(map(lambda x: x*last_rate['ECU'], mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes_eur[a]["products"], product)) for a in mipymes_eur ])))
-  cup= mf.aplanar_lista([mf.dict_num_values(mf.search_keys(mipymes_cup[a]["products"], product)) for a in mipymes_cup])
-  return mf.median(cup+usd+eur) , mf.median(canasta)
+  canasta =  mf.plain_list(mf.dict_num_values(mf.search_keys(canasta_básica, product)))
+  cup= mf.plain_list([mf.dict_num_values(mf.search_keys(mipymes_cup[a]["products"], product)) for a in mipymes_cup])
+  return mf.median(cup) , mf.median(canasta)
 
 pymes_arroz ,canasta_arroz = price_media("arroz")
 
@@ -107,17 +100,18 @@ def canasta_vs_pymes():
     division = [pymes_products[i] // canasta_products[i] for i in range(len(products))]
     fig = go.Figure(data=
       go.Bar(x=products, y= division)
-    )#x0= "Productos", y0="Veces del el precio la bodega en las mipymes"
+    )
+    
     fig.update_layout(width=1100, height=600, title="Gráficas que muestra cuantas veces es el preio de los productos de laa canasta básica en las mipymes.")
     fig.write_image("static_charts/canasta_vs_pymes.png")  
     fig.show()
 
 def max_buy_latam():
-   names_products = mf.aplanar_lista([mf.dict_keys(amazon[a]) for a in amazon])
-   prices_products = mf.aplanar_lista([mf.dict_num_values(amazon[a]) for a in amazon])
+   names_products = mf.plain_list([mf.dict_keys(amazon[a]) for a in amazon])
+   prices_products = mf.plain_list([mf.dict_num_values(amazon[a]) for a in amazon])
    uni_products = mf.list_to_dict(names_products, prices_products)
-   salaries = [mf.redondear(latam_salary[s]) for s in latam_salary]
-   max_buy = [ mf.max_objects([mf.redondear(i) for i in mf.dict_num_values(uni_products)], s) for s in salaries]
+   salaries = [mf.float_to_best_int(latam_salary[s]) for s in latam_salary]
+   max_buy = [ mf.max_objects([mf.float_to_best_int(i) for i in mf.dict_num_values(uni_products)], s) for s in salaries]
 
    fig = go.Figure(data= go.Bar(
       x= [c for c in latam_salary],
@@ -150,23 +144,11 @@ def ipc():
    fig.write_image("static_charts/ipc.png")
    fig.show()
 
-def coin_pymes():
-   cup = mf.aplanar_lista([ mf.dict_num_values(mipymes_cup[c]["products"]) for c in mipymes_cup])
-   usd = [ d * last_rate["USD"] for d in mf.aplanar_lista([ mf.dict_num_values(mipymes_usd[c]["products"]) for c in mipymes_usd])]
-   euro = [d * last_rate["ECU"] for d in mf.aplanar_lista([ mf.dict_num_values(mipymes_eur[c]["products"]) for c in mipymes_eur])]
-   
-   fig = go.Figure(data=
-      go.Bar(x=["CUP", "Monedas Extrajeras"], y=[mf.median(cup), mf.median(usd+euro)])
-   )
-   fig.update_layout(width=1100, height=600, title="Comparativa del precio medio de entre las mipymes en moneda nacional y en monedas extrajeras en Cuba.")
-   fig.write_image("static_charts/coin_pymes.png")
-   fig.show()
-
 count_pymes = [mf.first_count(mf.list_for_value(data, key='city', value= i.upper().replace(' ',''), second_key= "subject"), "MIPYME") for i in cities ]
 población  = [ población_por_provincia[abreviaturas[i]]["total"] for i in city]
 for_hab = [ int(población[i] // count_pymes[i]) for i in range(len(población))]
 
-def personas_por_mipyme():
+def pymes_for_person():
    df = {
       "Provincia": cities,
       "Habitantes": población,

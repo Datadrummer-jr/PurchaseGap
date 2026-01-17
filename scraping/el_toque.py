@@ -16,27 +16,27 @@ header = {
     "Authorization": f"Bearer {API_EL_TOQUE}"
 }
 
-def toque(inicio: str,fin: str):
-    fechas = mf.intervalo_fechas(inicio, fin, False, False)
-    urls = mf.intervalo_fechas(inicio, fin)
+def toque(start: str,end: str):
+    date = mf.days_range(start, end, False, False)
+    urls = mf.days_range(start, end)
     with Client() as client:
-        while fechas:
+        while date:
           try:
-            url = f'https://tasas.eltoque.com/v1/trmi?{urls[0]}'
+            url = f'https://rate.eltoque.com/v1/trmi?{urls[0]}'
             response = client.get(url=url, headers=header)
             response.raise_for_status()
-            tasas = response.json()
-            tasas_actuales = mf.read_json("../data/el_toque.json")
-            tasas_actuales[fechas[0]["date_from"]] = tasas["tasas"]
-            mf.save_json( tasas_actuales,"../data/el_toque.json")
-            print(f'Se guardó el {fechas[0]["date_from"]}')
-            fechas.pop(0)
+            rate = response.json()
+            lasts_rate = mf.read_json("../data/el_toque.json")
+            lasts_rate[date[0]["date_from"]] = rate["rate"]
+            mf.save_json( lasts_rate,"../data/el_toque.json")
+            print(f'Se guardó el {date[0]["date_from"]}')
+            date.pop(0)
             urls.pop(0)
-            if not fechas:
+            if not date:
                break
             sleep(10)
           except HTTPError:
-             print('durmiendo por: ', fechas[0]["date_from"])
+             print('durmiendo por: ', date[0]["date_from"])
              sleep(60)
           
     return urls
