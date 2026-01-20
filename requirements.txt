@@ -2,7 +2,6 @@ httpx
 playwright
 python_dotenv
 plotly
-kaleido
 xlrd==1.2.0
 openpyxl
 pdfplumber
