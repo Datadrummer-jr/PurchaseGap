@@ -44,7 +44,7 @@
 
 ![Coins](static_charts/graph_coin.png)
 
- 3- Para comparar como se comportan los precios canasta básica contra los de las mipymes obtuve los precios de la canasta básica de la url oficial del MINCIN https://www.mincin.gob.cu/es/faq/cuales-son-los-precios-de-los-productos-de-la-canasta-familiar-normada y para los precios de las mipymes de algunas que visité personalmente y otras que obtuve los precios por medio de scraping usando la herramienta de python playwright por dificultades por el transporte y problemas de salud. Y el resultado de dichas capturas de datos término en una gráfica de barras.
+ 3- Para comparar como se comportan los precios canasta básica contra los de las mipymes obtuve los precios de la canasta básica de la url oficial del MINCIN y para los precios de las mipymes de algunas que visité personalmente y otras que obtuve los precios por medio de scraping usando la herramienta de python playwright por dificultades por el transporte y problemas de salud. Y el resultado de dichas capturas de datos término en una gráfica de barras.
 
 - Los datos que se obtuvieron de las mipymes antes mencionadas se estructuraron en un archivo json con las siguite estructura:
 
