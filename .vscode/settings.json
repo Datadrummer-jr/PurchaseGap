@@ -1,7 +1,12 @@
 {
+  "python.analysis.typeCheckingMode": "basic",
   "python.analysis.diagnosticSeverityOverrides": {
     "reportOptionalMemberAccess": "none",
     "reportArgumentType": "none",
-    "reportOperatorIssue": "none"
+    "reportOperatorIssue": "none",
+    "reportCallIssue": "none",
+    "reportInvalidTypeArguments": "none",
+    "reportAssignmentType": "none",
+    "reportReturnType": "none"
   }
 }
