@@ -13,7 +13,7 @@
   - Precios de los productos de la canasta familiar normada según el MINCIN (Ministerio de Comercio Interior): https://www.mincin.gob.cu/es/faq/cuales-son-los-precios-de-los-productos-de-la-canasta-familiar-normada.
   - Precios de los algunos de los productos más vendidos en amazon en 15 categorías entre alimentos y aséos.
 
- 1 - Para mostrar el mapa de cuba con la cantidad de mipymes que hay por habitante obtuve la poblacion de las distintas provincias de Cuba de la ONEI más datos de las mipymes registradas hasta el momento según MEP (Ministerio de economía y planificación) -> [MEP](sources/Listado de Nuevos Actores Económicos aprobados hasta 09.05.24 .pdf) en el cual es este último tuve que hacer limpiezas manuales en los datos debido a errores en los datos de origen aunque se quedaron 34 mipymes que no tienen definidas si son de gestión privada o estatal y los datos de las mipymes se almacenaron en un archivo json con la siguiente estructura:
+ 1 - Para mostrar el mapa de cuba con la cantidad de mipymes que hay por habitante obtuve la poblacion de las distintas provincias de Cuba de la ONEI más datos de las mipymes registradas hasta el momento según MEP (Ministerio de economía y planificación) en el cual es este último tuve que hacer limpiezas manuales en los datos debido a errores en los datos de origen aunque se quedaron 34 mipymes que no tienen definidas si son de gestión privada o estatal y los datos de las mipymes se almacenaron en un archivo json con la siguiente estructura:
  
   - {
      "1": {
@@ -79,18 +79,49 @@
  4- Para saber poder saber cual es la cantidad máxima de productos que se puede adquirir por establecimiento se utilizó la fuente de datos de las mipymes que se obtuvieron mas salarios medios por actividad económica publicados en la ONEI  y se almacenó en un archivo json con la sigueinete estructura: 
 
   {
-    'activadad': salario,
+    'actividad': salario,
     etc...
   }
 
 ![max_bar](static_charts/max_bar.png)
 
- 5- Para comparar a Cuba con latinoamérica obtuve precios de productos de 15 categorías entre alimentos y productos de áseo en la tienda con mas expansión en américa latina (aunque no es la mas usada) que es Amazon y utilicé los salarios mínimos de todos los países de  provenientes de la wikipedia de donde se obtuvieron enlaces a fuentes oficiales de cada país del territorio, donde Cuba ocupa la seguna posición en los que menos productos se puede comprar en Amazon con el salario mínimo oficial.
+ 5- Para comparar a Cuba con latinoamérica obtuve precios de productos de 15 categorías entre alimentos y productos de áseo en la tienda con mas expansión en américa latina (aunque no es la mas usada) que es Amazon y utilicé los salarios mínimos de todos los países de  provenientes de la wikipedia de donde se obtuvieron enlaces a fuentes oficiales de cada país del territorio, donde Cuba ocupa la seguna posición en los que menos productos se puede comprar en Amazon con el salario mínimo oficial con la siguiente estructura almacenada en un json:
+
+  - {
+    categoría:{
+        "producto": precio,
+        etc...
+    },
+    etc...
+  }
+
+  - Y los salarios en la siguiene estructura:
+
+  {
+    'país': salario,
+    etc...
+  }
 
 ![max_buy_latam](static_charts/max_buy_latam.png)
 
  6- Y para analizar indice de precios al consumidor (IPC) se capturaron  datos de boletines mensuales de la ONEI que contienen los IPC de cada mes que toma como referencia los precios de 2010 y datos oficiales publicados por La FAO (Organización de las Naciones Unidas para la Alimentación y la Agricultura) que toma como referencia al período de 2014-2016, para comparar el IPC de Cuba con el mundial, como los años de referencia son distintos se tuvo que adaptar el mundial al 2010 para que esté a la par del IPC de Cuba, se logró dividiendo el IPC del año a analizar entre el IPC de ese mismo mes pero del 2010 y multiplicar el resultado por 100 para obtener un IPC que tome como referencia a 2010 en vez de 2014-2016 y poder graficar los resultados en un gráfico de lineas con mayor veracidad posible.
 
+ - El IPC de cada mes de la FAO de 2010 se almacenó en la estructura:
+
+  {
+    'mes': IPC
+  }
+
+ - Y El IPC de la FAO  y el Cuba del período a comparar IPC mundial con el de Cuba se almacenó en un json con la estructura:
+
+  {
+    'año':{
+        'mes': ipc,
+        etc...
+    },
+    etc...
+  }
+  
 ![ipc](static_charts/ipc.png) 
 
 
