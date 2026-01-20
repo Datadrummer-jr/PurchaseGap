@@ -13,18 +13,28 @@
   - Precios de los productos de la canasta familiar normada según el MINCIN (Ministerio de Comercio Interior): https://www.mincin.gob.cu/es/faq/cuales-son-los-precios-de-los-productos-de-la-canasta-familiar-normada.
   - Precios de los algunos de los productos más vendidos en amazon en 15 categorías entre alimentos y aséos.
 
- 1 - Para mostrar el mapa de cuba con la cantidad de mipymes que hay por habitante obtuve la poblacion de las distintas provincias de Cuba de la ONEI más datos de las mipymes registradas hasta el momento según MEP (Ministerio de economía y planificación) en el cual es este último tuve q hacer limiezas manuales en los datos debido a errores en los datos de origen aunque se quedaron 34 mipymes que no tienen definidas si son de gestión privada o estatal, y para el mapa en el cual se muestran los datos se uso el geojson del repositorio el profesor Yudivian de la MATCOM, UH, https://github.com/yudivian/cuba-geojsons, el cual se tuvo que cambiar el nombre a 3 provincias por errores ortográficos y el resultado fue un mapa construido con plotly express.
+ 1 - Para mostrar el mapa de cuba con la cantidad de mipymes que hay por habitante obtuve la poblacion de las distintas provincias de Cuba de la ONEI más datos de las mipymes registradas hasta el momento según MEP (Ministerio de economía y planificación) en el cual es este último tuve que hacer limpiezas manuales en los datos debido a errores en los datos de origen aunque se quedaron 34 mipymes que no tienen definidas si son de gestión privada o estatal, y para el mapa en el cual se muestran los datos se uso el geojson del repositorio el profesor Yudivian de la MATCOM, UH, https://github.com/yudivian/cuba-geojsons -> [MAPA](data\geo_json\geojson_by_region_division\by_provinces\cuba.geojson), el cual se tuvo que cambiar el nombre a 3 provincias por errores ortográficos y el resultado fue un mapa construido con plotly express.
 
 ![Mapa_cuba](static_charts/personas_por_mipyme.png)
 
- 2- Para analizar los datos se recogieron datos de la fuente que más usado como referencia para saber precio del toque en mercado informal "El Toque". Para ello scrapee obtuve los datos del toque desde incios de año hasta la mitad de diciembre a través de su API usando la biblioteca para python httpx y luego para mostrar datos se utilizó la biblioteca para python plotly para mostrar un gráfico atractivo para apreciar el comportamiento USD, EURO y MLC durante la mayor parte de 2025 como se puede ver a continuación.
+ 2- Para analizar los datos se recogieron datos de la fuente que más usado como referencia para saber precio del toque en mercado informal "El Toque". Para ello scrapee obtuve los datos del toque desde incios de año hasta la mitad de diciembre a través de su API usando la biblioteca para python httpx y luego para mostrar datos se utilizó la biblioteca para python plotly para mostrar un gráfico atractivo para apreciar el comportamiento USD, EURO y MLC durante el año 2025.
+
+ - los datos del precio del se organizaron en un json con la siguiente estructura de ejemplo de dentro de un diccionario:"
+
+  "año-mes-día": {
+        "TRX": 132.0,
+        "BTC": 460.0,
+        "MLC": 412.0,
+        "USDT_TRC20": 490.0,
+        "USD": 435.0,
+        "ECU": 480.0
+    },
 
 ![Coins](static_charts/graph_coin.png)
 
-
  3- Para comparar como se comportan los precios canasta básica contra los de las mipymes obtuve los precios de la canasta básica de la url oficial del MINCIN https://www.mincin.gob.cu/es/faq/cuales-son-los-precios-de-los-productos-de-la-canasta-familiar-normada y para los precios de las mipymes de algunas que visité personalmente y otras que obtuve los precios por medio de scraping usando la herramienta de python playwright por dificultades por el transporte y problemas de salud. Y el resultado de dichas capturas de datos término en una gráfica de barras.
 
- Los datos que se obtuvieron de las mipymes antes mencionadas se estructuraron en un archivo json con las siguite estructura:
+  - Los datos que se obtuvieron de las mipymes antes mencionadas se estructuraron en un archivo json con las siguite estructura:
 
  {
     "0":{
@@ -42,12 +52,24 @@
     }
 }
 }
+ y nombrados y ordenados por el indice empezando desde el cero, para el caso en caso no se conozca el nombre oficial de la mipyme.
 
-y nombrados y ordenados por el indice empezando desde el cero, para el caso en caso no se conozca el nombre oficial de la mipyme.
+  - Y los datos de la canasta básica :
+
+  {
+    "producto": precio,
+    "producto": precio,
+    etc...
+  }
 
 ![Graph Pymes vs Cansta Básica](static_charts/canasta_vs_pymes.png)
 
- 4- Para saber poder saber cual es la cantidad máxima de productos que se puede adquir por establecimiento se utilizó la fuente de datos de las mipymes que se obtuvieron más dtaos sobre salarios base en Cuba despeus del ordenamiento publicados en la gaceta oficial No.69 extraordinaria del 10 de diciembre de 2020, y según escalas salariales publicadas en la gaceta se obtuvo la cantidad máxima de productos  que se pueden adquirir del total de productos de un establecimiento utilizando el algoritmo clásico conocido como el problema de la mochila o Knapsack problem en inglés, y se mostra en la gráfica la media de todas las cantidades maximas de productos por escala salarial en un gráfico de barras horizontal hecho co plotly.
+ 4- Para saber poder saber cual es la cantidad máxima de productos que se puede adquirir por establecimiento se utilizó la fuente de datos de las mipymes que se obtuvieron mas salarios medios por actividad económica publicados en la ONEI  y se almacenó en un archivo json con la sigueinete estructura: 
+
+  {
+    'activadad': salario,
+    etc...
+  }
 
 ![max_bar](static_charts/max_bar.png)
 
