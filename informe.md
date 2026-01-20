@@ -13,7 +13,7 @@
   - Precios de los productos de la canasta familiar normada según el MINCIN (Ministerio de Comercio Interior): https://www.mincin.gob.cu/es/faq/cuales-son-los-precios-de-los-productos-de-la-canasta-familiar-normada.
   - Precios de los algunos de los productos más vendidos en amazon en 15 categorías entre alimentos y aséos.
 
- 1 - Para mostrar el mapa de cuba con la cantidad de mipymes que hay por habitante obtuve la poblacion de las distintas provincias de Cuba de la ONEI más datos de las mipymes registradas hasta el momento según MEP (Ministerio de economía y planificación) [MEP] (sources/Listado de Nuevos Actores Económicos aprobados hasta 09.05.24 .pdf) en el cual es este último tuve que hacer limpiezas manuales en los datos debido a errores en los datos de origen aunque se quedaron 34 mipymes que no tienen definidas si son de gestión privada o estatal y los datos de las mipymes se almacenaron en un archivo json con la siguiente estructura:
+ 1 - Para mostrar el mapa de cuba con la cantidad de mipymes que hay por habitante obtuve la poblacion de las distintas provincias de Cuba de la ONEI más datos de las mipymes registradas hasta el momento según MEP (Ministerio de economía y planificación) -> [MEP](sources/Listado de Nuevos Actores Económicos aprobados hasta 09.05.24 .pdf) en el cual es este último tuve que hacer limpiezas manuales en los datos debido a errores en los datos de origen aunque se quedaron 34 mipymes que no tienen definidas si son de gestión privada o estatal y los datos de las mipymes se almacenaron en un archivo json con la siguiente estructura:
  
   - {
      "1": {
@@ -25,7 +25,7 @@
     etc...
   }
 
- Y para el mapa en el cual se muestran los datos se uso el geojson del repositorio el profesor Yudivian de la MATCOM, UH, https://github.com/yudivian/cuba-geojsons [Geojson](data\geo_json\geojson_by_region_division\by_provinces\cuba.geojson), el cual se tuvo que cambiar el nombre a 3 provincias por errores ortográficos y el resultado fue un mapa construido con plotly express.
+ Y para el mapa en el cual se muestran los datos se uso el geojson del repositorio el profesor Yudivian de la MATCOM, UH, https://github.com/yudivian/cuba-geojsons -> [Geojso](data\geo_json\geojson_by_region_division\by_provinces\cuba.geojson), el cual se tuvo que cambiar el nombre a 3 provincias por errores ortográficos y el resultado fue un mapa construido con plotly express.
 
 ![Mapa_cuba](static_charts/personas_por_mipyme.png)
 
