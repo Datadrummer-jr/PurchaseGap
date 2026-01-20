@@ -1,0 +1,16 @@
+{
+    "0":{
+        "name": "",
+        "sales_category":null,
+         "currency": "CUP",
+        "horary":{
+        "days": null,
+        "hour" : null
+    },
+    "municipality":null,
+    "city": null,
+     "coordinates": [],
+    "products": {
+    }
+}
+}

@@ -1,10 +1,9 @@
 import my_functions as mf
 import plotly.graph_objects as go
 import plotly.express as px
-from plotly.subplots import make_subplots
 
 el_toque = mf.read_json('data/el_toque.json')
-salarios = mf.read_json("data/escalas_salariales.json")
+salaries = mf.read_json("data/salary_for_activity.json")
 cities = mf.read_json("data/cities.json")
 muni = mf.read_json("data/municipality_country.json")
 abreviaturas = mf.read_json('data/abreviaturas.json')
@@ -42,20 +41,20 @@ def graph_coin():
   fig.write_image("static_charts/graph_coin.png")  
   fig.show()
       
-def compra_por_escala(escala: int):
+def buy_for_activity(escala: int):
    max = [mf.max_objects([i for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
               for i in mipymes]
    return  int(mf.median(max))
 
 def max_bar():
-  max_products = [compra_por_escala(s) for s in salarios['44_horas']]
-  count_escalas = list(range(len(salarios['44_horas'])))
+  max_products = [buy_for_activity(s) for s in mf.dict_num_values(salaries)]
+  count_salaries = list(range(len(max_products)))
   fig = go.Figure(data=[
-     go.Bar(x= max_products, y= count_escalas, orientation="h", marker=dict(color="yellow"))
+     go.Bar(x= max_products, y= count_salaries, orientation="h", marker=dict(color="yellow"))
   ])
   fig.update_yaxes(
-    tickvals= count_escalas,  
-    ticktext= salarios['44_horas'],  
+    tickvals= count_salaries,  
+    ticktext= mf.dict_keys(salaries),  
     tickangle=0
   )
   fig.update_layout(width=1200, height=600, title='Mediana de la cantidad máxima de productos que se pueden adquirir en un establecimiento de comercio según escala salarial.')

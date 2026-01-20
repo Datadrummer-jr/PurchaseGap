@@ -19,7 +19,7 @@ def formate_pyme(lista:list) ->bool:
 def save_pyme(index: int):
   with pdfplumber.open(rute_pymes) as pdf:
     mipymes = pdf.pages[index].extract_tables()
-    mipymes = [ mf.del_salto(i) for i in mf.detectar_lista(lista=mipymes,key=formate_pyme) ]
+    mipymes = [ mf.del_line_space(i) for i in mf.detectar_lista(lista=mipymes,key=formate_pyme) ]
     cantidad = len(mipymes)
 
     indices = [ i[0] for i in mipymes]
@@ -36,6 +36,8 @@ def save_pyme(index: int):
     
     mf.save_json(mipymes_actuales,'../data/pymes.json')
 
+with pdfplumber.open(r"..\sources\salario-medio-en-cifras-2024-edicion-2025.pdf") as pdf:
+  print(pdf.pages[4].extract_table())
 if __name__ == '__main__':
 
   # for i in range(len(pdfplumber.open(rute_pymes).pages)):
