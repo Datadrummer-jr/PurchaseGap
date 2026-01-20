@@ -25,7 +25,7 @@
     etc...
   }
 
- Y para el mapa en el cual se muestran los datos se uso el geojson del repositorio el profesor Yudivian de la MATCOM, UH, https://github.com/yudivian/cuba-geojsons -> [Geojso](data\geo_json\geojson_by_region_division\by_provinces\cuba.geojson), el cual se tuvo que cambiar el nombre a 3 provincias por errores ortográficos y el resultado fue un mapa construido con plotly express.
+ Y para el mapa en el cual se muestran los datos se uso el geojson del repositorio el profesor Yudivian de la MATCOM, UH, https://github.com/yudivian/cuba-geojsons -> [Geojson](data\geo_json\geojson_by_region_division\by_provinces\cuba.geojson), el cual se tuvo que cambiar el nombre a 3 provincias por errores ortográficos y el resultado fue un mapa construido con plotly express.
 
 ![Mapa_cuba](static_charts/personas_por_mipyme.png)
 
