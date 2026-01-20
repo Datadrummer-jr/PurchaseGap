@@ -101,7 +101,7 @@ def canasta_vs_pymes():
       go.Bar(x=products, y= division)
     )
     
-    fig.update_layout(width=1100, height=600, title="Gráficas que muestra cuantas veces es el preio de los productos de laa canasta básica en las mipymes.")
+    fig.update_layout(width=1100, height=600, title="Gráficas que muestra cuantas veces es el precio de los productos de la canasta básica en las mipymes.")
     fig.write_image("static_charts/canasta_vs_pymes.png")  
     fig.show()
 
@@ -117,7 +117,7 @@ def max_buy_latam():
       y = max_buy,
       marker=dict(color= ["green"]*6 + ["red"] + ["green"]*13)
     ))
-   fig.update_layout(width=1100, height=600, title="¿ Cuáles serán los paises de latinoamérica que más productos pueden comprar en Amazon con un salario mínimo ? ")
+   fig.update_layout(width=1100, height=600, title="¿ Cuáles serán los paises de latinoamérica que más productos pueden comprar con un salario mínimo ? ")
    fig.write_image("static_charts/max_buy_latam.png") 
    fig.show()
 
