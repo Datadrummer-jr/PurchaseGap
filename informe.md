@@ -112,7 +112,7 @@
     'mes': IPC
   }
 
- - Y El IPC de la FAO  y el Cuba del período a comparar IPC mundial con el de Cuba se almacenó en un json con la estructura:
+ - Y El IPC de la FAO  y el de Cuba del período a comparar IPC mundial con el de Cuba se almacenó en un json con la estructura:
 
   {
     'año':{
@@ -121,7 +121,7 @@
     },
     etc...
   }
-  
+
 ![ipc](static_charts/ipc.png) 
 
 
