@@ -4,7 +4,7 @@
 
  Las fuentes de datos que se capturaron fueron:
 
-- 54 mipymes de venta minorista.
+- 30 mipymes de venta minorista en CUP.
 - Anuario estadístico de 2024 publicado por la ONEI.
 - Boletines mensuales de IPC de la ONEI.
 - Salario media de Cuba hasta diciembre de 2024 según la ONEI.

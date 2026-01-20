@@ -41,8 +41,8 @@ def graph_coin():
   fig.write_image("static_charts/graph_coin.png")  
   fig.show()
       
-def buy_for_activity(escala: int):
-   max = [mf.max_objects([i for i in mf.dict_num_values(mipymes[i]['products'])], escala) 
+def buy_for_activity(salary: int):
+   max = [mf.max_objects([i for i in mf.dict_num_values(mipymes[i]['products'])], salary) 
               for i in mipymes]
    return  int(mf.median(max))
 
